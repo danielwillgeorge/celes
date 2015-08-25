@@ -3,14 +3,17 @@ import httplib2
 import os
 import sys
 import itertools
-#import logging
-#import logging.config
+import logging
+import logging.config
 import time
 	
-#from apiclient.discovery import build_from_document
-#from oauth2client.client import flow_from_clientsecrets
-#from oauth2client.file import Storage
-#from oauth2client.tools import argparser, run_flow
+from googleapiclient.discovery import build_from_document
+# from oauth2client.client import flow_from_clientsecrets
+# from oauth2client.file import Storage
+# from oauth2client.tools import argparser, run_flow
+
+
+
 #from apiclient.errors import HttpError
 
 
@@ -26,6 +29,7 @@ global user
 
 
 video_list_uploads = ['Daniel','George']
+#video_list_uploads = []
 channel_list = ['UCgJA3nqJEUZBkZivasUSdJ']
 
 @app.route('/')
@@ -38,51 +42,55 @@ def hello():
 	
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 	
-	#storage = Storage("%s-oauth2.json" % sys.argv[0])
-	#credentials = storage.get()
+# 	storage = Storage("static/main.py-oauth2.json")
+# 	credentials = storage.get()
+# 	
+# 	logging.debug(storage)
+# 	logging.debug(credentials)
 	
-	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
-	
-#	json_data = open("static/youtube-v3-discoverydocument.json")
-#	doc = json.load(json_data)
-	
-#	youtube = build_from_document(doc, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs", http=credentials.authorize(httplib2.Http()))
-   	
-#	for channelId in channel_list:
-
-#		channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
-	
-#		for channel in channels_response["items"]:
-#	
-#			try:
-#				uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-#			except KeyError:
-#				pass
-#
-#			try:
-#				playlistitems_list_request = youtube.playlistItems().list(playlistId=uploads_list_id, part="snippet", maxResults=50)
-#			except NameError:
-#				pass
-#		
-#			try:
-#				while playlistitems_list_request:
-#					try:
-#						playlistitems_list_response = playlistitems_list_request.execute()
-#					except HttpError:
-#						pass
-#						# Print information about each video.
-#					for playlist_item in playlistitems_list_response["items"]:
-#					#title = playlist_item["snippet"]["title"]
-#						video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-#						video_list_uploads.append([video_id])
-#					try:
-#						playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
-#					except HttpError:
-#						pass
-#			except NameError:
-#				pass
-
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
+	
+	json_data = open("static/youtube-v3-discoverydocument.json")
+	doc = json.load(json_data)
+	
+	youtube = build_from_document(doc, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
+	#http=credentials.authorize(httplib2.Http()))
+   	
+	for channelId in channel_list:
+
+		channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
+	
+		for channel in channels_response["items"]:
+	
+			try:
+				uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+			except KeyError:
+				pass
+
+			try:
+				playlistitems_list_request = youtube.playlistItems().list(playlistId=uploads_list_id, part="snippet", maxResults=50)
+			except NameError:
+				pass
+		
+			try:
+				while playlistitems_list_request:
+					try:
+						playlistitems_list_response = playlistitems_list_request.execute()
+					except HttpError:
+						pass
+						# Print information about each video.
+					for playlist_item in playlistitems_list_response["items"]:
+					#title = playlist_item["snippet"]["title"]
+						video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+						video_list_uploads.append([video_id])
+					try:
+						playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
+					except HttpError:
+						pass
+			except NameError:
+				pass
+
+	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 
 @app.errorhandler(404)
 def page_not_found(e):
