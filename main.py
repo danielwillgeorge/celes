@@ -34,11 +34,12 @@ global user
 
 
 #video_list_uploads = ['Daniel','George']
-video_list_uploads = []
+
 channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
 
 @app.route('/')
 def hello():
+	video_list_uploads = []
 	CLIENT_SECRETS_FILE = "client_secrets.json"
     
 	YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
