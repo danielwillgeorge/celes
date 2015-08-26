@@ -1,13 +1,18 @@
 from flask import Flask, render_template, flash, Markup, json
-import httplib2
+#import urllib
+#import webapp2
 import os
+
+from apiclient.discovery import build
+
+import httplib2
 import sys
 import itertools
 import logging
 import logging.config
 import time
 	
-from googleapiclient.discovery import build_from_document
+#from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
 # from oauth2client.file import Storage
 # from oauth2client.tools import argparser, run_flow
@@ -28,9 +33,9 @@ global channel_Id
 global user
 
 
-video_list_uploads = ['Daniel','George']
-#video_list_uploads = []
-channel_list = ['UCgJA3nqJEUZBkZivasUSdJ']
+#video_list_uploads = ['Daniel','George']
+video_list_uploads = []
+channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
 
 @app.route('/')
 def hello():
@@ -50,10 +55,10 @@ def hello():
 	
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 	
-	json_data = open("static/youtube-v3-discoverydocument.json")
-	doc = json.load(json_data)
+# 	json_data = open("static/youtube-v3-discoverydocument.json")
+# 	doc = json.load(json_data)
 	
-	youtube = build_from_document(doc, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
+	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
 	#http=credentials.authorize(httplib2.Http()))
    	
 	for channelId in channel_list:
