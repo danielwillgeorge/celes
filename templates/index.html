@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+		<link rel=stylesheet type="text/css" href="/static/style.css" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class=box>
+			<h2>SheepDog!</h2>
+			<!--<i class="fa fa-user"></i>-->
+			<img src="static/disney.png">
+		</div>
+		<div class=box ng-controller="StoreController as store">
+		
+		<!--<h1 ng-bind="store.product.name">  </h1>
+		<h2 ng-bind="store.product.price"> </h2>
+		<p ng-bind="store.product.description"> </p>-->
+		<p>{{ title }}</p>
+		<p>{% for number in numbers %}
+  			{{number}}
+		   {% endfor %}
+		</p>
+		
+		
+		<li>
+						<a href="http://ba.linkedin.com/in/danielwillgeorge">Linkedin</a>
+					</li>
+					<li>
+						<a href="https://github.com/danielwillgeorge">Github</a>
+					</li>
+					<li>
+						<a href="http://stackoverflow.com/users/3195451/daniel">StackOverflow</a>
+					</li>
+		
+		
+		</div>
+
+<script type="text/javascript" src="static/angular.min.js"></script>
+<script type="text/javascript" src="static/app.js"></script>
+
+
+	</body>
+</html>
+
