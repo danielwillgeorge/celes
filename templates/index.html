@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
 		<link rel=stylesheet type="text/css" href="/static/style.css" />
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<meta name="google-signin-client-id" content="MY_CLIENT_ID.apps.googleusercontent.com">
 	</head>
 	<body>
 		<div class=box>
@@ -22,6 +23,8 @@
 		   {% endfor %}
 		</p>
 		
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		
 		
 		<li>
 						<a href="http://ba.linkedin.com/in/danielwillgeorge">Linkedin</a>
@@ -38,6 +41,18 @@
 
 <script type="text/javascript" src="static/angular.min.js"></script>
 <script type="text/javascript" src="static/app.js"></script>
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Email: ' + profile.getEmail());
+  
+  var response = googleUser.getAuthResponse();
+  console.log('access_token: ' + response.access_token);
+  
+}
+</script>
 
 
 	</body>
