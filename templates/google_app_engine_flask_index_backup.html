@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+		<link rel=stylesheet type="text/css" href="/static/style.css" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin_client-id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js?onload=rederButton" async defer></script>
+		<!--<script>
+		var auth = gapi.auth2.init({
+  		client_id:'1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com',
+  		scope:'email profile'
+		}); 
+</script>-->
+	</head>
+	<body>
+		<div class=box>
+			<h2>SheepDog!</h2>
+			<!--<i class="fa fa-user"></i>-->
+			<img src="static/disney.png">
+		</div>
+		<div class=box ng-controller="StoreController as store">
+		
+		<!--<h1 ng-bind="store.product.name">  </h1>
+		<h2 ng-bind="store.product.price"> </h2>
+		<p ng-bind="store.product.description"> </p>-->
+		<p>{{ title }}</p>
+		<p>{% for number in numbers %}
+  			{{number}}
+		   {% endfor %}
+		</p>
+		
+	<div id="my-signin2"></div>
+	
+		
+		
+		<li>
+						<a href="http://ba.linkedin.com/in/danielwillgeorge">Linkedin</a>
+					</li>
+					<li>
+						<a href="https://github.com/danielwillgeorge">Github</a>
+					</li>
+					<li>
+						<a href="http://stackoverflow.com/users/3195451/daniel">StackOverflow</a>
+					</li>
+		
+		
+		</div>
+
+<script type="text/javascript" src="static/angular.min.js"></script>
+<script type="text/javascript" src="static/app.js"></script>
+
+<script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'https://www.googleapis.com/auth/plus.login',
+        'width': 200,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+
+
+
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Email: ' + profile.getEmail());
+  
+  var response = googleUser.getAuthResponse();
+  console.log('access_token: ' + response.access_token);
+  } 
+</script>
+
+
+	</body>
+</html>
+
