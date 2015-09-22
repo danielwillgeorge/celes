@@ -4,6 +4,7 @@ from flask import Flask, render_template, flash, Markup, json
 import os
 
 from apiclient.discovery import build
+from google.appengine.ext import ext
 
 import httplib2
 import sys
