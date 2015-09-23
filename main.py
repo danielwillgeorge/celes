@@ -4,7 +4,7 @@ from flask import Flask, render_template, flash, Markup, json
 import os
 
 from apiclient.discovery import build
-from google.appengine.ext import ext
+#from google.appengine.ext import ext
 
 import httplib2
 import sys
@@ -17,11 +17,7 @@ import time
 # from oauth2client.client import flow_from_clientsecrets
 # from oauth2client.file import Storage
 # from oauth2client.tools import argparser, run_flow
-
-
-
 #from apiclient.errors import HttpError
-
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -32,7 +28,6 @@ app.config['DEBUG'] = True
 global channel_id
 global channel_Id
 global user
-
 
 #video_list_uploads = ['Daniel','George']
 
