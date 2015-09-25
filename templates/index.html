@@ -3,58 +3,47 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
 		<link rel=stylesheet type="text/css" href="/static/style.css" />
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<meta name="google-signin-client-id" content="peppy-linker-102423.apps.googleusercontent.com">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">		
+		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
+		<meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 	</head>
-	<body>
+	<body>	
 		<div class=box>
-			<h2>SheepDog!</h2>
-			<!--<i class="fa fa-user"></i>-->
-			<img src="static/disney.png">
+			<h2>Sheepdog</h2>
+			
+			<!-- The div and class for the 
+	             Google signin button -->
+			<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+	
+			<!--<img src="static/disney.png">-->
 		</div>
+		
 		<div class=box ng-controller="StoreController as store">
-		
-		<!--<h1 ng-bind="store.product.name">  </h1>
-		<h2 ng-bind="store.product.price"> </h2>
-		<p ng-bind="store.product.description"> </p>-->
-		<p>{{ title }}</p>
-		<p>{% for number in numbers %}
-  			{{number}}
-		   {% endfor %}
-		</p>
-		
-		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-		
-		
-		<li>
-						<a href="http://ba.linkedin.com/in/danielwillgeorge">Linkedin</a>
-					</li>
-					<li>
-						<a href="https://github.com/danielwillgeorge">Github</a>
-					</li>
-					<li>
-						<a href="http://stackoverflow.com/users/3195451/daniel">StackOverflow</a>
-					</li>
-		
+				<!-- old AngularJs code snippets		
+				<h1 ng-bind="store.product.name">  </h1>
+				<h2 ng-bind="store.product.price"> </h2>
+				<p ng-bind="store.product.description"> </p>-->
+			
+			<!-- Jinja2 template -->
+			<!-- <p>{{ title }}</p> -->
+			<p>{% for number in numbers %}
+  				{{number}}
+		   	   {% endfor %}</p>
 		
 		</div>
 
-<script type="text/javascript" src="static/angular.min.js"></script>
-<script type="text/javascript" src="static/app.js"></script>
-<script>
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId());
-  console.log('Name: ' + profile.getName());
-  console.log('Email: ' + profile.getEmail());
-  
-  var response = googleUser.getAuthResponse();
-  console.log('access_token: ' + response.access_token);
-  
-}
-</script>
-
-
+		<script type="text/javascript" src="static/angular.min.js"></script>
+		<script type="text/javascript" src="static/app.js"></script>
+		
+		<!-- Javascript for Google
+		     signin button -->
+		<script>
+      		function onSignIn(googleUser) { 
+        	  var id_token = googleUser.getAuthResponse();
+        	  console.log(id_token);              
+        	};
+    	</script>
 	</body>
 </html>
 
