@@ -17,6 +17,12 @@
 			<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 	
 			<!--<img src="static/disney.png">-->
+			
+			<!-- Jinja2 template -->
+			<!-- <p>{{ title }}</p> -->
+			<p>{% for number in numbers %}
+  				{{number}}
+		   	   {% endfor %}</p>
 		</div>
 		
 		<div class=box ng-controller="StoreController as store">
@@ -24,13 +30,6 @@
 				<h1 ng-bind="store.product.name">  </h1>
 				<h2 ng-bind="store.product.price"> </h2>
 				<p ng-bind="store.product.description"> </p>-->
-			
-			<!-- Jinja2 template -->
-			<!-- <p>{{ title }}</p> -->
-			<p>{% for number in numbers %}
-  				{{number}}
-		   	   {% endfor %}</p>
-		
 		</div>
 
 		<script type="text/javascript" src="static/angular.min.js"></script>
