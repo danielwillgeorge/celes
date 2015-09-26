@@ -108,10 +108,11 @@ def hello():
   		pass
 
 	cursor = db.cursor()
-	cursor.execute('SELECT 1 + 1')
-	s = cursor.fetchall()
+	cursor.execute('''INSERT INTO VideoIds_sample (videoId)
+	                  VALUES ('TjqH3XiiUF8','Hc0ZPYhl_VE');''')
+	#s = cursor.fetchall()
 
-	return render_template('index.html', title = s, numbers = video_list_uploads)
+	return render_template('index.html', title = s) #, numbers = video_list_uploads
 
 @app.errorhandler(404)
 def page_not_found(e):
