@@ -108,7 +108,7 @@ def hello():
   		pass
 
 	cursor = db.cursor()
-	cursor.execute('''INSERT INTO VideoIds_sample (videoId)
+	cursor.execute('''INSERT INTO videoIds_sample (videoId)
 	                  VALUES ('TjqH3XiiUF8','Hc0ZPYhl_VE');''')
 	#s = cursor.fetchall()
 
