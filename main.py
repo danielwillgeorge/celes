@@ -100,7 +100,8 @@ def hello():
   		db = MySQLdb.connect(
     	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
     	user='root',
-    	db='sheepdog')
+    	db='sheepdog',
+    	passwd='Basket21!')
 	else:
   	# You may also assign an IP Address from the access control
   	# page and use it to connect from an external network.
@@ -110,7 +111,7 @@ def hello():
 	cursor.execute('SELECT 1 + 1')
 	s = cursor.fetchall()
 
-	return render_template('index.html', title = s , numbers = video_list_uploads)
+	return render_template('index.html', title = s, numbers = video_list_uploads)
 
 @app.errorhandler(404)
 def page_not_found(e):
