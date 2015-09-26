@@ -91,6 +91,21 @@ def hello():
 						pass
 			except NameError:
 				pass
+				
+				
+	env = os.getenv('SERVER_SOFTWARE')
+	if (env and env.startswith('Google App Engine/')):
+  	# Connecting from App Engine
+  		db = MySQLdb.connect(
+    	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+    	user='root')
+	else:
+  	# You may also assign an IP Address from the access control
+  	# page and use it to connect from an external network.
+  		pass
+
+	cursor = db.cursor()
+	cursor.execute('SELECT 1 + 1')
 
 	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 
