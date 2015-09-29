@@ -108,11 +108,13 @@ def hello():
   		pass
 
 	cursor = db.cursor()
-	cursor.execute('''INSERT INTO videoIds_sample (videoId)
-	                  VALUES ('TjqH3XiiUF8','Hc0ZPYhl_VE');''')
+	cursor.execute("""TRUNCATE sheepdog.videoIds_sample;""")
+	db.commit()
+	cursor.execute("""INSERT INTO sheepdog.videoIds_sample (videoId) VALUES ('TjqH3XiiUF8'),('Hc0ZPYhl_VE');""")
+	db.commit()
 	#s = cursor.fetchall()
 
-	return render_template('index.html', title = s) #, numbers = video_list_uploads
+	return render_template('index.html') #, title = s, numbers = video_list_uploads
 
 @app.errorhandler(404)
 def page_not_found(e):
