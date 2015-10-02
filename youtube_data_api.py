@@ -229,6 +229,8 @@ def get_uploads(channel)
 # Get the unique commenter channelIds from a channel
  
 def get_comments(youtube, video_id, channel_id):
+  """Retrieve the authors' channelIds of all of the comments, 
+     of all of the uploaded videos, for the authorized user's channel."""
   global nextPageToken
   
   results = youtube.commentThreads().list(
@@ -255,7 +257,7 @@ def get_more_comments(youtube, video_id, channel_id):
   results = youtube.commentThreads().list(
     part="snippet", 
     videoId=video_id, 
-    allThreadsRelatedToChannelId=channel_id, 
+    allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID, 
     pageToken=nextPageToken
   ).execute()
   
@@ -276,14 +278,14 @@ def get_more_comments(youtube, video_id, channel_id):
   	
   return results["items"]
   
-get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+get_comments(youtube, None, AUTH_USER_CHANNEL_ID)
 
 time.sleep(10)
 
 logger.info("get_comments function successful.")
 
 while nextPageToken:
-	get_more_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+	get_more_comments(youtube, None, AUTH_USER_CHANNEL_ID)
 	time.sleep(10)
 	
 logger.info("get_more_comments function successful.")
@@ -294,8 +296,6 @@ uniques.sort()
 
 logger.info("uniques list populated and sorted.")
 
-for line in uniques:
-	print line
 
 
 
