@@ -90,14 +90,7 @@ with open("youtube-v3-discoverydocument.json", "r") as f:
 
 logger.info("Youtube build established.")
 
-# Alternative "build" method to create youtube object
-# youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs", http=credentials.authorize(httplib2.Http()))
-
-
-
-
-
-# Part I - Retrieve the video uploads for a channel
+### Part I - Retrieve the video uploads for a channel
 
 def get_channels(youtube, channelId):
   """Retrieve the contentDetails part of the channel resource for the
@@ -211,10 +204,6 @@ def get_more_comments(youtube, video_id, channel_id):
 
 
 
-
-
-
-
 get_comments(youtube, None, AUTH_USER_CHANNEL_ID)
 
 time.sleep(10)
@@ -232,7 +221,6 @@ uniques = list(set(channel_list))
 uniques.sort()
 
 logger.info("uniques list populated and sorted.")
-
 
 
 
@@ -314,14 +302,9 @@ for channelId in uniques:
 	
 	for channel in channels_response["items"]:
 	  try:
-	    uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]\
+	    uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
 	  except KeyError:
 	    break
-			
-		try:
-			print "Videos in list %s" % uploads_list_id
-		except NameError:
-			pass
 		
 		try:
 			playlistitems_list_request1 = youtube.playlistItems().list(
