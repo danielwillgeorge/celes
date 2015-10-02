@@ -233,9 +233,13 @@ logger.info("uniques list populated and sorted.")
 
 batch = BatchHttpRequest()
 
-t0 = time.time()
+# t0 = time.time()
+
 for channelId in uniques:
 	video_list = []
+	tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
+	
+	
 	#Retrieve the contentDetails part of the channel resource for the
 	#authenticated user's channel.
 	channels_response = youtube.channels().list(
@@ -249,33 +253,14 @@ for channelId in uniques:
 	  except KeyError:
 	    break
 		
+		for token in tokens:
+		
 		try:
-			playlistitems_list_request1 = youtube.playlistItems().list(
-			playlistId=uploads_list_id, 
-			part="snippet",
-			pageToken="", 
-			maxResults=50
-			)
-			
-			playlistitems_list_request2 = youtube.playlistItems().list(
-			playlistId=uploads_list_id, 
-			part="snippet",
-			pageToken="CDIQAA", 
-			maxResults=50
-			)
-			
-			playlistitems_list_request3 = youtube.playlistItems().list(
-			playlistId=uploads_list_id, 
-			part="snippet",
-			pageToken="CGQQAA", 
-			maxResults=50
-			)
-			
-			playlistitems_list_request4 = youtube.playlistItems().list(
-			playlistId=uploads_list_id, 
-			part="snippet",
-			pageToken="CJYBEAA", 
-			maxResults=50
+			playlistitems_list_request + "_" + channelId = youtube.playlistItems().list(
+			  playlistId=uploads_list_id, 
+			  part="snippet",
+			  pageToken=token, 
+			  maxResults=50
 			)
 			
 		except NameError:
@@ -299,10 +284,11 @@ for channelId in uniques:
 		batch.add(playlistitems_list_request4, callback=list4)
 		
 		batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
-			
-t1 = time.time()
-total2 = t1-t0
-print total2
+
+# Convention if needed to test latency		
+# t1 = time.time()
+# total2 = t1-t0
+# print total2
 
 
 for line in video_list:
