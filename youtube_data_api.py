@@ -255,28 +255,18 @@ for channelId in uniques:
 		
 		for token in tokens:
 		
-		try:
-			playlistitems_list_request + "_" + channelId = youtube.playlistItems().list(
+		  try:
+			playlistitems_list_request + "_" + token = youtube.playlistItems().list(
 			  playlistId=uploads_list_id, 
 			  part="snippet",
 			  pageToken=token, 
 			  maxResults=50
 			)
-			
-		except NameError:
+		  except NameError:
 			break
 
 		def list1(request_id,response,exception):
-			print response
-		
-		def list2(request_id,response,exception):
-			print response
-		
-		def list3(request_id,response,exception):
-			print response
-			
-		def list4(request_id,response,exception):
-			print response
+			return response	
 			
 		batch.add(playlistitems_list_request1, callback=list1)
 		batch.add(playlistitems_list_request2, callback=list2)
