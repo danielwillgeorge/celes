@@ -97,21 +97,29 @@ with open("youtube-v3-discoverydocument.json", "r") as f:
 
 logger.info("Youtube build established.")
 
+# Alternative "build" method to create youtube object
+# youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs", http=credentials.authorize(httplib2.Http()))
 
 
 
 
 
+# Part I - Retrieve the video uploads for a channel
 
-# youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs",
-#   http=credentials.authorize(httplib2.Http()))
+# Retrieve the contentDetails part of the channel resource for the
+# authenticated user's channel.
 
+def get_channels(youtube, channelId):
+  channels_response = youtube.channels().list(
+    id=SIGNED_IN_USER_CHANNEL_ID,
+    part="contentDetails"
+  ).execute()
+    
+  
 
-#Retrieve the contentDetails part of the channel resource for the
-#authenticated user's channel.
 # channels_response = youtube.channels().list(
 #   #mine=True,
-#   id="UCXqK1FO9yS8x7CMGkzLgJmA", #id field here can be used for any channel id, to look up video ids in a playlist
+#   id=ANY_CHANNEL_ID, #id field here can be used for any channel id, to look up video ids in a playlist
 #   part="contentDetails"
 # ).execute()
 # 
@@ -169,6 +177,8 @@ logger.info("Youtube build established.")
 
 
 #### added this part in
+
+# Get the unique commenter channelIds from a channel
  
 # def get_comments(youtube, video_id, channel_id):
 #   results = youtube.commentThreads().list(part="snippet", videoId=video_id, allThreadsRelatedToChannelId=channel_id).execute()
