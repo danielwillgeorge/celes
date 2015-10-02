@@ -376,14 +376,16 @@ for channelId in uniques:
 	video_list = []
 	#Retrieve the contentDetails part of the channel resource for the
 	#authenticated user's channel.
-	channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
-	#mine=True
+	channels_response = youtube.channels().list(
+	  id=channelId, 
+	  part="contentDetails"
+	).execute()
 	
 	for channel in channels_response["items"]:
-		try:
-			uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-		except KeyError:
-			break
+	  try:
+	    uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]\
+	  except KeyError:
+	    break
 			
 		try:
 			print "Videos in list %s" % uploads_list_id
@@ -421,24 +423,6 @@ for channelId in uniques:
 			
 		except NameError:
 			break
-			
-# 		try:
-# 			while playlistitems_list_request:
-# 				try:
-# 					playlistitems_list_response = playlistitems_list_request.execute()
-# 				except HttpError:
-# 					pass
-# 				print playlistitems_list_response
-# 				for playlist_item in playlistitems_list_response["items"]:
-# 					title = playlist_item["snippet"]["title"]
-# 					video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-# 					#print "%s (%s)" % (title, video_id)
-# 					video_list.append([video_id, title])
-# 				playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
-# 				time.sleep(1)
-# 			print "%s,%s" % (channelId, len(video_list))
-# 		except NameError:
-# 			pass
 
 		def list1(request_id,response,exception):
 			print response
@@ -458,7 +442,6 @@ for channelId in uniques:
 		batch.add(playlistitems_list_request4, callback=list4)
 		
 		batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
-		
 			
 t1 = time.time()
 total2 = t1-t0
@@ -499,17 +482,3 @@ print total2
 # 	print line
 # 	
 # logger.info("Script completed successfully.")
-# 	  
-# # 	  while playlistitems_list_request:
-# # 		playlistitems_list_response = playlistitems_list_request.execute()
-# # 
-# # 		# Print information about each video.
-# # 		for playlist_item in playlistitems_list_response["items"]:
-# # 		  title = playlist_item["snippet"]["title"]
-# # 		  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-# # 		  print "%s (%s)" % (title, video_id)
-# # 
-# # 		playlistitems_list_request = youtube.playlistItems().list_next(
-# # 		  playlistitems_list_request, playlistitems_list_response)
-# # 
-# # 	  print
