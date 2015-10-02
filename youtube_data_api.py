@@ -22,6 +22,9 @@ from apiclient.errors import HttpError
 # This is Alex Moothart's channelId, for testing purposes
 uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 
+# These are unique commenters for Alex Moothart's channel, "The Moot Point" for testing purposes
+# channels_list = ["UCdLWVR1C-hwcW4i558GeZ1A","UChuJTHTRhqBTsP3KCKyIieQ","UCTWdDAN_QrxWSumDs0z2bpA","UCQYfPb1c6_vDLAbGxSRUT5A","UC63nu_KBEVeVOlvfo-1D_Kw","UCiNUzLpahS0TjBgjobWdjNg","UCJY4haGpJ3Foymmdjp8S_Tg","UCOH3EONTobdSpSLz_S7W3lQ","UCHqg-aWTWbWHPpUliI2B-Vw","UCB6cbWd75lPW27rntPlLKow","UCcc_zG4pMLpuefQQs25e4bg","UC7Q6GvTqbiCIgqcNsdz-UEw","UCTCiI254D8lP1jNWYoc_RrA","UCM47dPWICE2zhPiMpa2Y-Gg","UCZ9E-vZyFw5YXL75u5PvrxA","UC6hwEfhOV8_kj61n7lk4wNg","UCoXu15iHZqmqIDGVsJlKucg","UC184MUWk-JadrboW8F9wFlQ","UCp1wRB2SHD-5PzL3Kt7crSg","UCUEt0vbfmLBvQEPDIFzAvkA","UCMR2NymnsFVloJxGQ7ILwdg","UC1ahXRNBL9vxmun4W2l8_uw","UCmZBrgkunOCGchMX9fnN96A","UCrlt-HmI8zeJaMhvqQ-MLSg","UC8yhMy7fVE86IfYRvo_PecQ","UC1snbc_vpLJgbDhOXxjbbPA","UCSeMnbw4jSnYNfzcvzvoVYw","UC7mi8f4ikb35Hz81nmNZmWw","UCfYkvwAOpt1zuCn2HkST93w","UCLYOZQ-Q9WDnCac0h7f46fw","UCD_ioRy-ICjX96iA_XZzM8g","UCFL6hdpOCq4bJ8cUsKga89w","UCUbUhCQXRrIoaVAFWvMOXUw","UCPD5r_CobvhHNTDLWVRhysg","UCuU8RHa4InGLMzoKtPBgVKw","UCKyO47S3Qqh7P6azvTPFpog","UCtK_ECnDfnd0z6wSOllMfFg","UCWkuh8bPrMthW49TFo5s1Mg","UCVKXsLBEleteY3Xl5yNIucg","UCvPM5oi1iwxb8DOziDkB-5w","UCGgvlOsxkN0ZqyYKqzTVzdQ","UCiuvBLPXSSefN15duJV36kA","UCxgZjzG87I3fXDcJCsJqlVQ","UChEgEbYmWFkVd46H_sBgajw","UC365Wb-Gk5Dxs0fqSzAmFLg","UCpqhnm8UqttRswwmI5ZWYew","UCWWRX7ZVmDbBhK1g13aDhlw","UCUWRrRcm1gYOpk_jK_svp-w","UCmu4-oVRRFDYk05DpyczotQ","UC9ZOJ3SGXFyOor6-4B1uRrA","UCocFdT9iSKx7osu0rnoNmGQ","UCtK_ECnDfnd0z6wSOllMfFg","UCsvJSMpnq9BP0HcstUASK6g","UC8nuvKdNBtY90ELrGvLSgSA","UCuKZh8xnED8Q6y3mf6Ie09A","UCwKMocTcYbYBm8tBV4kZ--w","UCFUr8bIlkMT1y9-OpT8Xn5g","UCVN_-AmwViHcPbDFhFhMv9Q","UCUMlFGNp4V6oiFCe_1WWaYA","UCkdFlxQe836q841RrDxueiA","UCewaP3rEFibp10FRGgufjZg","UCj-SrH1hCXqlGVC6GfXXvaQ","UCuh4cci7H6Ma66GMJ8s5Q5Q","UCnr1Rx6WF8UAeK00NhERrqA","UCi3qquNhMZWQtgSJiTN5AqA","UCTxTSEL69rrBzk9NAOZDl-g","UCFEZy2WPzGvqvIyr3nL6xBw","UCB7drWRe7B8Z6afod6agRWw","UCN8hZ0Q2bF9tlQ8Lqrfy-zw","UCgf3c6riglg3m9Oqofa7VDQ","UCzxoX7I_AOeMn-yzibquoMA","UCBCyDxn-iQBkx8Keq8aufHg","UCZDvO_3q_xlCzUEzp3DCzlg"]
+
 # list of uploads by user David Levitz,for testing purposes
 # video_list_uploads = ['SvCPECRlF0Y','aFYKjHATc4U','JTF1RfW6TdA','2L6mwNfd9pg','GMGNObMXyh4','sgauaEFs-yI','ZazedtACt2U','r7RWtVcJqXk','H7poks-lCS0','LVLYEfRwPbc','-72dGvS1uXo','ilDNdmlcU5Y','A3X_hpA5-ts','WNIzPXyNTZ4','A6mWPws0n1M','TQvRUcHt1xM','DPrf1pUP7z4','5H2cSV12Qhk','nRRGva6q1UY','YRnf-TaEa_U','sJn4uc5korA','bJ8cb2MQqrg','BvREoDV3J60','FmtgUFLEC7U','WsK6vtlwtdY','_C93BHzKK1k','xdSpQDvKXCI','tTzGe_MkMTw','VGqAX4-oZK0','nAxgkoIqARA','VcyNxckw0iE','RO0HRDvbOHY','Om1Mj27-_6U','1ysu33GZGHI','S3SdptKmhG8','eyVT66_CxnA','4dI_6_Kvfe4','IinCg2kreVw','Os64DMzHqQg','j7Bg8wiVSC8','KDrr-6UtTBU','hYSD_UkfZ24','f-Tv1XdGKrM','RFw8iNPu4Xw','EjJwe8bipbE','ilOEd4_6odc','mC7CfMpRur4','OyL2Kt2mu_E','iPngUGZcbT4','PCVkMVHsb2A','LW_wRyBPH74','73_e4z4my1Y','jAuu1cJA6X0','0I6dqjnXp2U','3MIr8F1C2P4','52e_vp94TMo','yyCNiQ_GC1k','kw7UtLmsOyo','YiXf8v6RpC4','V5HdDlDO32M','bUA2n72TYmM','v0QUO27FzDs','PN-OJ5Yl4tA','X-gc60MSqIU','3sKzMDDQLNQ','UGMNiyE18hA','IEgwhLZSZ30','awpA1BWPb3w','RXjyLLcjSFw','zpZawGa_a1Q','5OACYz6d6_4','4mrul878ksc','LJxkVT98af8','KGHDeNzx1bA','w192pqB4utk','q3TGNfuUHOw','fISm8UYUphs','AgLhxA-GPKA','MY5o4n1Cdk8','H3-5-wKUUVs','GCiofe4Bcbk','FJPbL6k2elU','RhHmUaH_rDA','5KNo-ICZGmQ','mNMeQA9hslk','uRu8FcrbMeI','jbx18ZleRnY','yFd2jJQ-9b4','w0o8gv8BRIk','QMSz7ygw6Hg','v1mrrabPy-Q','oxwVCsM_6j8','TOvuIm4XFdw','dtVD-aG93xY','H5-tPiUFC80','dM-G-_lquLw','vkOX_t5nWFU','VbwJib0g1is','RinpNsztDRM','-F64shQ9F80','b-2A5RA1X00','D5_Y5rK-Mms','LhzKt4JIrnw','w1tMl-ohZxo','6wVdHYGu2uM','BlWVZ5RA-48','XJN_hCqzKKE','MUybQ_sRrUA','lIRmmeSku-M','s8wD1N9dIEE','aWdJGycMzuw','6m4-xnQ0Yk4','iVy7D7423is','6NQyA3sw4G8','CbwOBLTstOc','KSzyT3zkgAQ','kxMyJZZMJ64','29lrP9-YzKI','TqPsxko0JSs','ajnk80GGB8Q','_EsEgKUkASE','Ic4Md5EdBAE','FBoTsX2qios','ItAoMCd-bbU','q9VAqLqow-M','G316xl-qDiM','o7yfxX4vS4A','Eybt-mT4ij8','DD0by6jR97s','3ULuyN9Nag0','q3rMOlDtVh8','Xa-G29_Ee0w','CSXMUzmghnU','n7ImvOpWx1k','n0c3XUmUZHg','ojntvwyxWuc','tfM6XZ3adMs','WO9cUFiR0Yg','0qZB6R9mFiU','fzqMrd6a-qk','GTn63lGCsRs','0Z9knVwhfyk','QvMHNaobJmk','u5_4Xos3twY','uGIYqv3zEJY','vYaMLriaaPk','oXhKGRem-UE','tK-FXlJuIpQ','UzrBxK3h20Y','CgepMP-X5-o','fVOWO727SFU','VMX9jH9eouI','u41fe-V9zus','0DfisfebQHY','ysW3FKVLhu0','r60AaMqKyEU','firDLHqofNc','TCct4s7sU48','JcdEdcn5R68','86e3OpN6a3A','F8VTDg_hzRQ','MmmJCPsD2xE','HaZ_VKo6zN0','aG911UCSChc','RZnSKx27tb4','InfM2FTVqn0','lIO3nZJaFGs','EcjcTFt0aBM','_7O42iSdc0w','2fRiY6I09WQ','1fAmnZ_rz9Q','bAo0HTgmBTE','Y2w0LGLjKWI','GjmdqyAjFFI','sHjLLmn6s7c','b8E7EBOk3Bw','1lT6mtSCxtM','daESLs1mLjM','W64g-pQxskw','HhK9E3uEa8Y','XaFU6PRU_dI','wYuzf-wvhyM','zn5NzNdlki4','oibalZjFh9E','uLPRImYZ0Fs','5vyTCPosD3w','XEaE2JRqEGY','FJw85ghHyI8','4eHgWuZHSWw','LAPHAfE-k0E','FDfYpiyTQSI','rAGOX79Hg_E','GDIx42iEjZM','vXbp0qZjy0M','ECBeaQy7Rmk','RLzrzI0EuaI','kKxcpD6LLYc','7GZL92aWf1M','_8be0Yw9ZsI','BXbmIqnghA4','yPrD_Io8S8c','bUKwgTwesiE','8LJu4bc3lD0','nnOqZEbGL9o','mwvBSoEoP_Y','m3Y8_yPbLIw','B8m95hRJKJQ','W27SO87pyvE','G6PbBRs0Qvg','O4IYHh5304s','mk3O1DqqyKY','P7SAsgBB4LA','mVAJPNEAnxo','CzzU6WbFZdQ','ezjKZkzEBWs','SbwF6X_JqMI','17fTOvfLe-M','F6FCgujn0qY','51dz4NRHYkg','s8zz20va-qY','NrB0V9oWSvc','pjnFok3sOmY','l8_oZvsAecg','_vGigxK2jq0','6SkOAUzNJlI','1Ss4W0XU4_U','M7dak06SEQw','qxigLXvXn80','T4ZaXyYeBkY','sSI9RhHJuyw','Q5pSYvjTgdE','Q7D74XOF_8U','ZJxE47C7nHA','AQlbSmQEblg','aBAyUkQP2Ws','gN-P1hep_qk','gwdbLe6xGa8','zM6kiGmZNCw','T2CGAKS5h3U','sMa2r-hlRLc','hsp5bmnKjGQ','5l6_ZHnt-W0','UYBghexu9ew','m1SaVNqyStg','LuR1zuC7yuQ','YSBKl-DHnBs','zWqC1oKFFsw','VX2HvdqL_-g','CILKHKi28TU','J7YukGw1KxA','NhUkZvjvY2Y','kVXVHT0Lh2o','uv1flJO3Q9w','lL4e5Tn0ZWo','RWB8TEfD_wI','ZPNVn6XnNDw','SUe5MsXVqdM','tThc2KVI99k','k8nw5iYob9M','EmFWrYMe5Ys','kGYBwG_cwbQ','9Et4g1M-Ivc','uoY5h2nNW2o','X2XlhVVQqNU','hTLFSRDLcN4','EudlROef4-I','GmZr-FiXZ1w','8FdqoRATUGk','UuibkXv3ucA','U-SHBPSDRQ0','BKEBwU1oS6s','3a3vE7dldu0','UOPiLl52olo','Y6JGAQpHWQk','6A2RagnrHHI','CcPx3sTnDmg','xczhyM4eDNg','b0KHMEykcIw','Q394V8YnWYE','J03g7Q_O7wE','wS6RgygN_9I','uNUScF0Izo0','_uxKJRdxxMs','Ljd34jrxYOA','SRX-zLeltyI','E0qa4fMV4f8','X1Lwz2iRaD0','g3vSrrf3lXA','HkzvbChKOLE','O4BDZ0A8FL0','aksCkku66QI','AGWdQHgG4Gc','iMmTtXpmcAo','OoX0VYQwSdc','Eg72RfELJ9Y','l9NAcAsqPdA','-iwLPmLT4Fo','_WpGkKyz8aU','7gvASGDdj78','GoDgmvetHEM','05aa0Qjdk1E','t-zwf201dyU','s9O0OAUZjqE','IajWB7D5Aw0','HORjDwnopkE','RhdzEX15IEM','91wTt5EHnPQ']
 
@@ -30,27 +33,15 @@ uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 
 
 
-
 channel_list = []
 video_list = []
 counter = []
 
 
-
-
-# Set up a logger
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
+# Set up a logger, formerly 'example.log'
+logging.basicConfig(filename='sheepdog.log',level=logging.DEBUG) 
 logger = logging.getLogger(__name__)
 
-#channels_list = ["UCdLWVR1C-hwcW4i558GeZ1A"]
-#"UChuJTHTRhqBTsP3KCKyIieQ",
-#"UCTWdDAN_QrxWSumDs0z2bpA",
-#"UCQYfPb1c6_vDLAbGxSRUT5A",
-#"UC63nu_KBEVeVOlvfo-1D_Kw",
-#"UCiNUzLpahS0TjBgjobWdjNg",
-#"UCJY4haGpJ3Foymmdjp8S_Tg",
-#"UCOH3EONTobdSpSLz_S7W3lQ",
-#"UCHqg-aWTWbWHPpUliI2B-Vw","UCB6cbWd75lPW27rntPlLKow","UCcc_zG4pMLpuefQQs25e4bg","UC7Q6GvTqbiCIgqcNsdz-UEw","UCTCiI254D8lP1jNWYoc_RrA","UCM47dPWICE2zhPiMpa2Y-Gg","UCZ9E-vZyFw5YXL75u5PvrxA","UC6hwEfhOV8_kj61n7lk4wNg","UCoXu15iHZqmqIDGVsJlKucg","UC184MUWk-JadrboW8F9wFlQ","UCp1wRB2SHD-5PzL3Kt7crSg","UCUEt0vbfmLBvQEPDIFzAvkA","UCMR2NymnsFVloJxGQ7ILwdg","UC1ahXRNBL9vxmun4W2l8_uw","UCmZBrgkunOCGchMX9fnN96A","UCrlt-HmI8zeJaMhvqQ-MLSg","UC8yhMy7fVE86IfYRvo_PecQ","UC1snbc_vpLJgbDhOXxjbbPA","UCSeMnbw4jSnYNfzcvzvoVYw","UC7mi8f4ikb35Hz81nmNZmWw","UCfYkvwAOpt1zuCn2HkST93w","UCLYOZQ-Q9WDnCac0h7f46fw","UCD_ioRy-ICjX96iA_XZzM8g","UCFL6hdpOCq4bJ8cUsKga89w","UCUbUhCQXRrIoaVAFWvMOXUw","UCPD5r_CobvhHNTDLWVRhysg","UCuU8RHa4InGLMzoKtPBgVKw","UCKyO47S3Qqh7P6azvTPFpog","UCtK_ECnDfnd0z6wSOllMfFg","UCWkuh8bPrMthW49TFo5s1Mg","UCVKXsLBEleteY3Xl5yNIucg","UCvPM5oi1iwxb8DOziDkB-5w","UCGgvlOsxkN0ZqyYKqzTVzdQ","UCiuvBLPXSSefN15duJV36kA","UCxgZjzG87I3fXDcJCsJqlVQ","UChEgEbYmWFkVd46H_sBgajw","UC365Wb-Gk5Dxs0fqSzAmFLg","UCpqhnm8UqttRswwmI5ZWYew","UCWWRX7ZVmDbBhK1g13aDhlw","UCUWRrRcm1gYOpk_jK_svp-w","UCmu4-oVRRFDYk05DpyczotQ","UC9ZOJ3SGXFyOor6-4B1uRrA","UCocFdT9iSKx7osu0rnoNmGQ","UCtK_ECnDfnd0z6wSOllMfFg","UCsvJSMpnq9BP0HcstUASK6g","UC8nuvKdNBtY90ELrGvLSgSA","UCuKZh8xnED8Q6y3mf6Ie09A","UCwKMocTcYbYBm8tBV4kZ--w","UCFUr8bIlkMT1y9-OpT8Xn5g","UCVN_-AmwViHcPbDFhFhMv9Q","UCUMlFGNp4V6oiFCe_1WWaYA","UCkdFlxQe836q841RrDxueiA","UCewaP3rEFibp10FRGgufjZg","UCj-SrH1hCXqlGVC6GfXXvaQ","UCuh4cci7H6Ma66GMJ8s5Q5Q","UCnr1Rx6WF8UAeK00NhERrqA","UCi3qquNhMZWQtgSJiTN5AqA","UCTxTSEL69rrBzk9NAOZDl-g","UCFEZy2WPzGvqvIyr3nL6xBw","UCB7drWRe7B8Z6afod6agRWw","UCN8hZ0Q2bF9tlQ8Lqrfy-zw","UCgf3c6riglg3m9Oqofa7VDQ","UCzxoX7I_AOeMn-yzibquoMA","UCBCyDxn-iQBkx8Keq8aufHg","UCZDvO_3q_xlCzUEzp3DCzlg"]
 
 # The CLIENT_SECRETS_FILE variable specifies the name of a file that contains
 # the OAuth 2.0 information for this application, including its client_id and
@@ -97,14 +88,20 @@ storage = Storage("%s-oauth2.json" % sys.argv[0])
 credentials = storage.get()
 
 if credentials is None or credentials.invalid:
-	flags = argparser.parse_args()
-	credentials = run_flow(flow, storage, flags)
+  flags = argparser.parse_args()
+  credentials = run_flow(flow, storage, flags)
 
 with open("youtube-v3-discoverydocument.json", "r") as f:
-	doc = f.read()
-	youtube = build_from_document(doc, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs", http=credentials.authorize(httplib2.Http(cache=".cache")))
+  doc = f.read()
+  youtube = build_from_document(doc, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs", http=credentials.authorize(httplib2.Http(cache=".cache")))
 
 logger.info("Youtube build established.")
+
+
+
+
+
+
 
 # youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs",
 #   http=credentials.authorize(httplib2.Http()))
