@@ -226,69 +226,82 @@ def get_uploads(channel)
 
 # Part II - get unique commenters for a channel
 
-#### added this part in
-
 # Get the unique commenter channelIds from a channel
  
-# def get_comments(youtube, video_id, channel_id):
-#   results = youtube.commentThreads().list(part="snippet", videoId=video_id, allThreadsRelatedToChannelId=channel_id).execute()
-#   
-#   global nextPageToken
-#   
-#   nextPageToken = results.get("nextPageToken")
-# 
-#   for item in results["items"]:
-#   	comment = item["snippet"]["topLevelComment"]
-#   	author = comment["snippet"]["authorDisplayName"]
-#   	authorChannelId = comment["snippet"]["authorChannelId"]
-#   	channel = authorChannelId.get("value")
-#   	
-#   	channel_list.append(channel)
-#   	
-#   return results["items"]
-#   
-# def get_more_comments(youtube, video_id, channel_id):
-#   results = youtube.commentThreads().list(part="snippet", videoId=video_id, allThreadsRelatedToChannelId=channel_id, pageToken=nextPageToken).execute()
-#   
-#   global nextPageToken
-#   
-#   nextPageToken = results.get("nextPageToken")
-#   
-#   for item in results["items"]:
-#   	comment = item["snippet"]["topLevelComment"]
-#   	author = comment["snippet"]["authorDisplayName"]
-#   	
-#   	try:	
-#   		authorChannelId = comment["snippet"]["authorChannelId"]
-#   	except KeyError:
-#   		pass
-#   	
-#   	channel = authorChannelId.get("value")
-#   	
-#   	channel_list.append(channel)
-#   	
-#   return results["items"]
-#   
-# get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
-# 
-# time.sleep(10)
-# 
-# logger.info("get_comments method successful.")
-# 
-# while nextPageToken:
-# 	get_more_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
-# 	time.sleep(10)
-# 	
-# logger.info("get_more_comments method successful.")
-# logger.info("channel_list populated.")
-# 
-# uniques = list(set(channel_list))
-# uniques.sort()
-# 
-# logger.info("uniques list populated and sorted.")
-# 
-# for line in uniques:
-# 	print line
+def get_comments(youtube, video_id, channel_id):
+  global nextPageToken
+  
+  results = youtube.commentThreads().list(
+      part="snippet", 
+      videoId=video_id, 
+      allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID
+    ).execute()
+
+  nextPageToken = results.get("nextPageToken")
+
+  for item in results["items"]:
+    comment = item["snippet"]["topLevelComment"]
+  	author = comment["snippet"]["authorDisplayName"]
+  	authorChannelId = comment["snippet"]["authorChannelId"]
+  	channel = authorChannelId.get("value")
+  	
+  	channel_list.append(channel)
+  	
+  return results["items"]
+  
+def get_more_comments(youtube, video_id, channel_id):
+  global nextPageToken
+  
+  results = youtube.commentThreads().list(
+    part="snippet", 
+    videoId=video_id, 
+    allThreadsRelatedToChannelId=channel_id, 
+    pageToken=nextPageToken
+  ).execute()
+  
+  nextPageToken = results.get("nextPageToken")
+  
+  for item in results["items"]:
+  	comment = item["snippet"]["topLevelComment"]
+  	author = comment["snippet"]["authorDisplayName"]
+  	
+  	try:	
+  		authorChannelId = comment["snippet"]["authorChannelId"]
+  	except KeyError:
+  		pass
+  	
+  	channel = authorChannelId.get("value")
+  	
+  	channel_list.append(channel)
+  	
+  return results["items"]
+  
+get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+
+time.sleep(10)
+
+logger.info("get_comments function successful.")
+
+while nextPageToken:
+	get_more_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+	time.sleep(10)
+	
+logger.info("get_more_comments function successful.")
+logger.info("channel_list populated.")
+
+uniques = list(set(channel_list))
+uniques.sort()
+
+logger.info("uniques list populated and sorted.")
+
+for line in uniques:
+	print line
+
+
+
+
+
+
 
 ##### #####
 
