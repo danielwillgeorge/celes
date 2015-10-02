@@ -106,16 +106,65 @@ logger.info("Youtube build established.")
 
 # Part I - Retrieve the video uploads for a channel
 
-# Retrieve the contentDetails part of the channel resource for the
-# authenticated user's channel.
-
 def get_channels(youtube, channelId):
+  """Retrieve the contentDetails part of the channel resource for the
+     authenticated user's channel."""
   channels_response = youtube.channels().list(
-    id=SIGNED_IN_USER_CHANNEL_ID,
+    id=AUTH_USER_CHANNEL_ID,
     part="contentDetails"
   ).execute()
-    
   
+  return channels_response["items"]
+
+def get_uploads(channel)
+  """From the API response, extract the playlist ID that identifies the list
+     of videos uploaded to the authenticated user's channel."""
+  try:
+    uploads_list_Id = channel["contentDetails"]["relatedPlaylists"]["uploads"]
+  except KeyError:
+    pass
+
+  try:
+	"""Retrieve the list of videos uploaded to the authenticated user's channel."""
+	playlistitems_list_request = youtube.playlistItems().list(
+	  playlistId=uploads_list_Id,
+	  part="snippet",
+	  maxResults=50
+	)
+  except NameError:
+	pass
+
+  try:
+	while playlistitems_list_request:
+	  try:
+	  	playlistitems_list_response = playlistitems_list_request.execute()
+	  except HttpError:
+	  	pass
+	  for playlist_item in playlistitems_list_response["items"]:
+		video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+		video_list_uploads.append(video_id)
+		
+		# Returns the title of the video, if needed
+		# title = playlist_item["snippet"]["title"]
+		#print "%s (%s)" % (title, video_id)
+	  try:
+	  	playlistitems_list_request = youtube.playlistItems().list_next(
+	  	  playlistitems_list_request, 
+	  	  playlistitems_list_response
+	  	)
+	  except HttpError:
+	  	pass
+  except NameError:
+	pass
+
+
+    
+
+
+
+
+  
+# early code; this works for sure, leave it in to test if needed
 
 # channels_response = youtube.channels().list(
 #   #mine=True,
@@ -123,10 +172,7 @@ def get_channels(youtube, channelId):
 #   part="contentDetails"
 # ).execute()
 # 
-# for channel in channels_response["items"]:
-#   # From the API response, extract the playlist ID that identifies the list
-#   # of videos uploaded to the authenticated user's channel.
-#   
+# for channel in channels_response["items"]:  
 #   try:
 # 	uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["uploads"]
 #   except KeyError:
