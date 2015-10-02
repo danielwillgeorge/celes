@@ -231,66 +231,6 @@ logger.info("uniques list populated and sorted.")
 
 # Part III
 
-t0 = time.time()
-for channelId in uniques:
-	video_list = []
-	#Retrieve the contentDetails part of the channel resource for the
-	#authenticated user's channel.
-	channels_response = youtube.channels().list(
-      id=channelId, 
-      part="contentDetails"
-    ).execute()
-	
-	for channel in channels_response["items"]:
-		try:
-			uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-		except KeyError:
-			break
-			
-		try:
-			print "Videos in list %s" % uploads_list_id
-		except NameError:
-			pass
-		
-		try:
-			playlistitems_list_request = youtube.playlists().list(
-			id=uploads_list_id, 
-			part="contentDetails" 
-			#fields="etag,nextPageToken,items(snippet(thumbnails/default,title,resourceId(videoId)))",
-			#maxResults=50
-			).execute()
-			
-			"""Return a count of all of the videoIds in the Likes playlist."""			
-			for playlist_item in playlistitems_list_request["items"]:
-				count = playlist_item["contentDetails"]["itemCount"]
-				print "%s,%s" % (channelId, count)
-		except NameError:
-			break
-			
-# 		try:
-# 			while playlistitems_list_request:
-# 				try:
-# 					playlistitems_list_response = playlistitems_list_request.execute()
-# 				except HttpError:
-# 					pass
-# 				for playlist_item in playlistitems_list_response["items"]:
-# 					title = playlist_item["snippet"]["title"]
-# 					video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-# 					#print "%s (%s)" % (title, video_id)
-# 					video_list.append([video_id, title])
-# 				playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
-# 				time.sleep(1)
-# 			print "%s,%s" % (channelId, len(video_list))
-# 		except NameError:
-# 			pass
-# 			
-# t1 = time.time()
-# total1 = t1-t0
-# print total1
-
-
-#### should take longer (this is the original)
-
 batch = BatchHttpRequest()
 
 t0 = time.time()
@@ -364,38 +304,38 @@ t1 = time.time()
 total2 = t1-t0
 print total2
 
-# 
-# for line in video_list:
-# 	counter.append(video_list.count(line))
-# 	
-# logger.info("counter list populated.")
-# 
-# for line in video_list:
-# 	line.insert(0, counter[video_list.index(line)])
-# 	try:
-# 		line[1] = str(line[1])
-# 		line[2] = str(line[2])
-# 	except UnicodeEncodeError:
-# 		pass
-# 
-# logger.info("video_list populated with counter.")
-# 
-# video_list.sort()
-# 
-# final = list(video_list for video_list,_ in itertools.groupby(video_list))
-# 
-# logger.info("final sorted and duplicates removed.")
-# 
-# final.sort()
-# 
-# #remove video ids belonging to initial user channel
-# 
-# for line in video_list_uploads:
-# 	for i in final:
-# 		if i[1] == line:
-# 			final.remove(i)
-# 			
-# for line in final:
-# 	print line
-# 	
-# logger.info("Script completed successfully.")
+
+for line in video_list:
+	counter.append(video_list.count(line))
+	
+logger.info("counter list populated.")
+
+for line in video_list:
+	line.insert(0, counter[video_list.index(line)])
+	try:
+		line[1] = str(line[1])
+		line[2] = str(line[2])
+	except UnicodeEncodeError:
+		pass
+
+logger.info("video_list populated with counter.")
+
+video_list.sort()
+
+final = list(video_list for video_list,_ in itertools.groupby(video_list))
+
+logger.info("final sorted and duplicates removed.")
+
+final.sort()
+
+#remove video ids belonging to initial user channel
+
+for line in video_list_uploads:
+	for i in final:
+		if i[1] == line:
+			final.remove(i)
+			
+for line in final:
+	print line
+	
+logger.info("Script completed successfully.")
