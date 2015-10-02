@@ -166,7 +166,10 @@ def get_comments(youtube, video_id, channel_id):
   for item in results["items"]:
     comment = item["snippet"]["topLevelComment"]
   	author = comment["snippet"]["authorDisplayName"]
-  	authorChannelId = comment["snippet"]["authorChannelId"]
+  	try:
+  	  authorChannelId = comment["snippet"]["authorChannelId"]
+  	except KeyError:
+  	  pass
   	channel = authorChannelId.get("value")
   	
   	channel_list.append(channel)
