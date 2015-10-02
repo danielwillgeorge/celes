@@ -225,8 +225,6 @@ def get_uploads(channel)
 
 
 # Part II - get unique commenters for a channel
-
-# Get the unique commenter channelIds from a channel
  
 def get_comments(youtube, video_id, channel_id):
   """Retrieve the authors' channelIds of all of the comments, 
@@ -278,6 +276,14 @@ def get_more_comments(youtube, video_id, channel_id):
   	
   return results["items"]
   
+
+
+
+
+
+
+
+
 get_comments(youtube, None, AUTH_USER_CHANNEL_ID)
 
 time.sleep(10)
@@ -301,45 +307,43 @@ logger.info("uniques list populated and sorted.")
 
 
 
+# Part III
 
-
-##### #####
-
-# channels_list = ["UCdLWVR1C-hwcW4i558GeZ1A", "UChuJTHTRhqBTsP3KCKyIieQ", "UCTWdDAN_QrxWSumDs0z2bpA",
-# "UCQYfPb1c6_vDLAbGxSRUT5A"]
-
-# t0 = time.time()
-# for channelId in uniques:
-# 	video_list = []
-# 	#Retrieve the contentDetails part of the channel resource for the
-# 	#authenticated user's channel.
-# 	channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
-# 	#mine=True
-# 	
-# 	for channel in channels_response["items"]:
-# 		try:
-# 			uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-# 		except KeyError:
-# 			break
-# 			
-# 		try:
-# 			print "Videos in list %s" % uploads_list_id
-# 		except NameError:
-# 			pass
-# 		
-# 		try:
-# 			playlistitems_list_request = youtube.playlists().list(
-# 			id=uploads_list_id, 
-# 			part="contentDetails" 
-# 			#fields="etag,nextPageToken,items(snippet(thumbnails/default,title,resourceId(videoId)))",
-# 			#maxResults=50
-# 			).execute()
-# 			
-# 			for playlist_item in playlistitems_list_request["items"]:
-# 				count = playlist_item["contentDetails"]["itemCount"]
-# 				print "%s,%s" % (channelId, count)
-# 		except NameError:
-# 			break
+t0 = time.time()
+for channelId in uniques:
+	video_list = []
+	#Retrieve the contentDetails part of the channel resource for the
+	#authenticated user's channel.
+	channels_response = youtube.channels().list(
+      id=channelId, 
+      part="contentDetails"
+    ).execute()
+	
+	for channel in channels_response["items"]:
+		try:
+			uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+		except KeyError:
+			break
+			
+		try:
+			print "Videos in list %s" % uploads_list_id
+		except NameError:
+			pass
+		
+		try:
+			playlistitems_list_request = youtube.playlists().list(
+			id=uploads_list_id, 
+			part="contentDetails" 
+			#fields="etag,nextPageToken,items(snippet(thumbnails/default,title,resourceId(videoId)))",
+			#maxResults=50
+			).execute()
+			
+			"""Return a count of all of the videoIds in the Likes playlist."""			
+			for playlist_item in playlistitems_list_request["items"]:
+				count = playlist_item["contentDetails"]["itemCount"]
+				print "%s,%s" % (channelId, count)
+		except NameError:
+			break
 			
 # 		try:
 # 			while playlistitems_list_request:
