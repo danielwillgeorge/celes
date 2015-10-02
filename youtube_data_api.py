@@ -117,6 +117,7 @@ def get_channels(youtube, channelId):
   return channels_response["items"]
 
 def get_uploads(channel)
+  video_list_uploads = []
   """From the API response, extract the playlist ID that identifies the list
      of videos uploaded to the authenticated user's channel."""
   try:
@@ -146,7 +147,8 @@ def get_uploads(channel)
 		
 		# Returns the title of the video, if needed
 		# title = playlist_item["snippet"]["title"]
-		#print "%s (%s)" % (title, video_id)
+		# Prints the title and videoId for testing, if needed
+		# print "%s (%s)" % (title, video_id)
 	  try:
 	  	playlistitems_list_request = youtube.playlistItems().list_next(
 	  	  playlistitems_list_request, 
@@ -157,6 +159,7 @@ def get_uploads(channel)
   except NameError:
 	pass
 
+  return video_list_uploads
 
     
 
@@ -221,6 +224,7 @@ def get_uploads(channel)
 
 
 
+# Part II - get unique commenters for a channel
 
 #### added this part in
 
