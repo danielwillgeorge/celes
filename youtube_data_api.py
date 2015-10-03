@@ -266,12 +266,14 @@ for channelId in uniques:
 			break
 
 		def list1(request_id,response,exception):
-			return response	
+		  for playlist_item in response["items"]:
+		    video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+		    print video_id
 			
 		batch.add(playlistitems_list_request1, callback=list1)
-		batch.add(playlistitems_list_request2, callback=list2)
-		batch.add(playlistitems_list_request3, callback=list3)
-		batch.add(playlistitems_list_request4, callback=list4)
+		batch.add(playlistitems_list_request2, callback=list1)
+		batch.add(playlistitems_list_request3, callback=list1)
+		batch.add(playlistitems_list_request4, callback=list1)
 		
 		batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
 
