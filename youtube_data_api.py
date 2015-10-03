@@ -256,7 +256,7 @@ for channelId in uniques:
 		for token in tokens:
 		
 		  try:
-			playlistitems_list_request + "_" + token = youtube.playlistItems().list(
+			playlistitems_list_request = youtube.playlistItems().list(
 			  playlistId=uploads_list_id, 
 			  part="snippet",
 			  pageToken=token, 
@@ -270,12 +270,9 @@ for channelId in uniques:
 		    video_id = playlist_item["snippet"]["resourceId"]["videoId"]
 		    print video_id
 			
-		batch.add(playlistitems_list_request1, callback=list1)
-		batch.add(playlistitems_list_request2, callback=list1)
-		batch.add(playlistitems_list_request3, callback=list1)
-		batch.add(playlistitems_list_request4, callback=list1)
+		batch.add(playlistitems_list_request, callback=list1)
 		
-		batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
+	batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
 
 # Convention if needed to test latency		
 # t1 = time.time()
