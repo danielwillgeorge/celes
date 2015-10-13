@@ -225,10 +225,6 @@ uniques.sort()
 
 logger.info("uniques list populated and sorted.")
 
-
-
-
-
 # Part III
 
 batch = BatchHttpRequest()
@@ -236,43 +232,42 @@ batch = BatchHttpRequest()
 # t0 = time.time()
 
 for channelId in uniques:
-	video_list = []
-	tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
-	
-	
-	#Retrieve the contentDetails part of the channel resource for the
-	#authenticated user's channel.
-	channels_response = youtube.channels().list(
-	  id=channelId, 
-	  part="contentDetails"
-	).execute()
-	
-	for channel in channels_response["items"]:
-	  try:
-	    uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-	  except KeyError:
-	    break
-		
-		for token in tokens:
-		
-		  try:
-			playlistitems_list_request = youtube.playlistItems().list(
-			  playlistId=uploads_list_id, 
-			  part="snippet",
-			  pageToken=token, 
-			  maxResults=50
-			)
-		  except NameError:
-			break
+  video_list = []
+  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
+  
+  #Retrieve the contentDetails part of the channel resource for the
+  #authenticated user's channel.
+  channels_response = youtube.channels().list(
+	id=channelId, 
+	part="contentDetails"
+  ).execute()
+  
+  for channel in channels_response["items"]:
+	try:
+	  uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+	except KeyError:
+	  break
+	  
+	  for token in tokens:
+	  
+		try:
+		  playlistitems_list_request = youtube.playlistItems().list(
+			playlistId=uploads_list_id, 
+			part="snippet",
+			pageToken=token, 
+			maxResults=50
+		  )
+		except NameError:
+		  break
 
-		def list1(request_id,response,exception):
-		  for playlist_item in response["items"]:
-		    video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-		    print video_id
-			
-		batch.add(playlistitems_list_request, callback=list1)
-		
-	batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
+	  def list1(request_id,response,exception):
+		for playlist_item in response["items"]:
+		  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+		  print video_id
+		  
+	  batch.add(playlistitems_list_request, callback=list1)
+	  
+  batch.execute(http=credentials.authorize(httplib2.Http(cache=".cache")))
 
 # Convention if needed to test latency		
 # t1 = time.time()
@@ -281,17 +276,17 @@ for channelId in uniques:
 
 
 for line in video_list:
-	counter.append(video_list.count(line))
+  counter.append(video_list.count(line))
 	
 logger.info("counter list populated.")
 
 for line in video_list:
-	line.insert(0, counter[video_list.index(line)])
-	try:
-		line[1] = str(line[1])
-		line[2] = str(line[2])
-	except UnicodeEncodeError:
-		pass
+  line.insert(0, counter[video_list.index(line)])
+  try:
+	line[1] = str(line[1])
+	line[2] = str(line[2])
+  except UnicodeEncodeError:
+	pass
 
 logger.info("video_list populated with counter.")
 
@@ -306,11 +301,11 @@ final.sort()
 #remove video ids belonging to initial user channel
 
 for line in video_list_uploads:
-	for i in final:
-		if i[1] == line:
-			final.remove(i)
+  for i in final:
+	if i[1] == line:
+	  final.remove(i)
 			
 for line in final:
-	print line
+  print line
 	
 logger.info("Script completed successfully.")
