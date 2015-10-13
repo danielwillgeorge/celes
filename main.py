@@ -16,11 +16,15 @@ import MySQLdb
 
 from sheepdog import *
 	
-#from googleapiclient.discovery import build_from_document
+# from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
 # from oauth2client.file import Storage
 # from oauth2client.tools import argparser, run_flow
-#from apiclient.errors import HttpError
+# from apiclient.errors import HttpError
+
+# @Author Daniel George
+# Sheepdog
+# @Version 0.9.1
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
