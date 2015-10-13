@@ -13,6 +13,8 @@ import logging
 import logging.config
 import time
 import MySQLdb
+
+from sheepdog import *
 	
 #from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
@@ -100,8 +102,7 @@ def hello():
   		db = MySQLdb.connect(
     	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
     	user='root',
-    	db='sheepdog',
-    	passwd='Basket21!')
+    	db='sheepdog')
 	else:
   	# You may also assign an IP Address from the access control
   	# page and use it to connect from an external network.
@@ -115,6 +116,11 @@ def hello():
 	#s = cursor.fetchall()
 
 	return render_template('index.html') #, title = s, numbers = video_list_uploads
+	
+@app.route('/user')
+def user():
+	f = frozen('Princess Elsa')
+	return render_template('user.html', title=f)
 
 @app.errorhandler(404)
 def page_not_found(e):
