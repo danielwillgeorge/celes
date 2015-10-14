@@ -10,7 +10,7 @@ def get_upload_list(youtube, channelId):
     part="contentDetails"
   ).execute()
   
-  for channel in channels_reponse["items"]:
+  for channel in channels_response["items"]:
   
 	video_list_uploads = []
 	"""From the API response, extract the playlist ID that identifies the list
