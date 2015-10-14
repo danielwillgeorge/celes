@@ -45,12 +45,13 @@ YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ss
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
+youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
+
+
 @app.route('/')
 def hello():
 	video_list_uploads = []
-    
 
-	
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 	
 # 	storage = Storage("static/main.py-oauth2.json")
@@ -64,7 +65,6 @@ def hello():
 # 	json_data = open("static/youtube-v3-discoverydocument.json")
 # 	doc = json.load(json_data)
 	
-	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
 	#http=credentials.authorize(httplib2.Http()))
    	
 	for channelId in channel_list:
@@ -125,7 +125,8 @@ def hello():
 	
 @app.route('/user')
 def user():
-	f = frozen('Princess Elsa')
+	#f = frozen('Princess Elsa')
+	f = get_upload_list(youtube,"UCgJA3nqJEUZBkZivasUSdJg")
 	return render_template('user.html', title=f)
 
 @app.errorhandler(404)
