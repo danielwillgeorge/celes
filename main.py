@@ -41,14 +41,15 @@ global user
 channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
 
 CLIENT_SECRETS_FILE = "client_secrets.json"
+YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
+YOUTUBE_API_SERVICE_NAME = "youtube"
+YOUTUBE_API_VERSION = "v3"
 
 @app.route('/')
 def hello():
 	video_list_uploads = []
     
-	YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
-	YOUTUBE_API_SERVICE_NAME = "youtube"
-	YOUTUBE_API_VERSION = "v3"
+
 	
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
 	
