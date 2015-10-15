@@ -233,7 +233,7 @@ batch = BatchHttpRequest()
 
 for channelId in uniques:
   video_list = []
-  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
+  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA"]
   
   #Retrieve the contentDetails part of the channel resource for the
   #authenticated user's channel.
