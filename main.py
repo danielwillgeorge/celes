@@ -35,10 +35,12 @@ app.config['DEBUG'] = True
 global channel_id
 global channel_Id
 global user
+global nextPageToken
 
 #video_list_uploads = ['Daniel','George']
 
 channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
+channel_list_ = []
 
 CLIENT_SECRETS_FILE = "client_secrets.json"
 YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
@@ -127,7 +129,27 @@ def hello():
 def user():
 	#f = frozen('Princess Elsa')
 	f = get_upload_list(youtube,"UCgJA3nqJEUZBkZivasUSdJg")
-	return render_template('user.html', title=f)
+	#return render_template('user.html', title=f)
+	
+	get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+
+	time.sleep(5)
+
+	#logger.info("get_comments function successful.")
+
+# 	while nextPageToken:
+# 		get_more_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+# 		time.sleep(5)
+	
+	#logger.info("get_more_comments function successful.")
+	#logger.info("channel_list populated.")
+
+	uniques = list(set(channel_list))
+	uniques.sort()
+	
+	return render_template('user.html', uniques=f)
+
+	#logger.info("uniques list populated and sorted.")
 
 @app.errorhandler(404)
 def page_not_found(e):
