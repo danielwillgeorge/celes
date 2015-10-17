@@ -55,3 +55,62 @@ def get_upload_list(youtube, channelId):
 	  pass
 
 	return video_list_uploads
+	
+# Part II - get unique commenters for a channel
+ 
+def get_comments(youtube, video_id, channel_id):
+  """Retrieve the authors' channelIds of all of the comments, 
+     of all of the uploaded videos, for the authorized user's channel."""
+  global nextPageToken
+  
+  results = youtube.commentThreads().list(
+      part="snippet", 
+      videoId=video_id, 
+      #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID
+      allThreadsRelatedToChannelId=channel_id
+    ).execute()
+
+  nextPageToken = results.get("nextPageToken")
+
+  for item in results["items"]:
+    comment = item["snippet"]["topLevelComment"]
+    author = comment["snippet"]["authorDisplayName"]
+    
+    try:
+      authorChannelId = comment["snippet"]["authorChannelId"]
+    except KeyError:
+      pass
+    channel = authorChannelId.get("value")
+    
+    channel_list_.append(channel)
+  	
+  return results["items"]
+  
+def get_more_comments(youtube, video_id, channel_id):
+  global nextPageToken
+  
+  results = youtube.commentThreads().list(
+    part="snippet", 
+    videoId=video_id, 
+    #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID,
+    allThreadsRelatedToChannelId=channel_id, 
+    pageToken=nextPageToken
+  ).execute()
+  
+  nextPageToken = results.get("nextPageToken")
+  
+  for item in results["items"]:
+  	comment = item["snippet"]["topLevelComment"]
+  	author = comment["snippet"]["authorDisplayName"]
+  	
+  	try:
+  	  authorChannelId = comment["snippet"]["authorChannelId"]
+  	except KeyError:
+  	  pass
+  	
+  	channel = authorChannelId.get("value")
+  	
+  	channel_list_.append(channel)
+  	
+  return results["items"]
+
