@@ -113,4 +113,3 @@ def get_more_comments(youtube, video_id, channel_id):
   	channel_list_.append(channel)
   	
   return results["items"]
-
