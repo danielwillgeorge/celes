@@ -263,7 +263,7 @@ for channelId in uniques:
 	  def list1(request_id,response,exception):
 		for playlist_item in response["items"]:
 		  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-		  print video_id
+		  video_list.append(video_id)
 		  
 	  batch.add(playlistitems_list_request, callback=list1)
 	  
