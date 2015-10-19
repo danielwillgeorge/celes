@@ -175,30 +175,35 @@ def user():
 		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
 		except KeyError:
 		  break
-	
-		  for token in tokens:
-	
-			try:
-			  playlistitems_list_request = youtube.playlistItems().list(
-				playlistId=likes_list_id, 
-				part="snippet",
-				pageToken=token, 
-				maxResults=50
-			  )
-			except NameError:
-			  break
+		
+		logging.debug('Kate Upton is the hottest chick.')
+		
+		for token in tokens:
+  
+		  try:
+			playlistitems_list_request = youtube.playlistItems().list(
+			  playlistId=likes_list_id, 
+			  part="snippet",
+			  pageToken=token, 
+			  maxResults=50
+			)
+			
+			logging.debug("Kate Upton is so hot.")
+			
+		  except NameError:
+			break
 
 		  def list1(request_id,response,exception):
 			for playlist_item in response["items"]:
 			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
 			  #print video_id
-			  #video_list.append(video_id)
-		
+			  video_list.append(video_id)
+			  
 		  batch.add(playlistitems_list_request, callback=list1)
 	
 	  batch.execute(http=http)
 	  
-	  return render_template('user.html', video_list=f)
+	return render_template('user.html', title=video_list)
 
 @app.errorhandler(404)
 def page_not_found(e):
