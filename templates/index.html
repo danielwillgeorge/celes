@@ -40,7 +40,9 @@
 		<script>
       		function onSignIn(googleUser) { 
         	  var id_token = googleUser.getAuthResponse();
+        	  var profile = googleUser.getBasicProfile();
         	  console.log(id_token);              
+        	  console.log(profile);
         	};
     	</script>
 	</body>
