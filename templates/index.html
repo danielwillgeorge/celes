@@ -3,11 +3,11 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
 		<link rel=stylesheet type="text/css" href="/static/style.css" />
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-				
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">		
 		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
 		<meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script type="text/javascript" src="/static/jquery.js"></script>
 	</head>
 	<body>	
 		<div class=box>
@@ -44,11 +44,13 @@
         	  var profile = googleUser.getBasicProfile();
         	  console.log(id_token);              
         	  console.log(profile);
+        	  var name = profile.getName();
+        	  var email = profile.getEmail();
         	  var data = "Kate Upton is so sexy";
         	  $.ajax({
     		    type : "POST",
     		    url : "http://peppy-linker-102423.appspot.com/",
-    		    data: JSON.stringify(data, null, '\t'),
+    		    data: JSON.stringify(email, null, '\t'),
     		    contentType: 'application/json;charset=UTF-8',
     		    success: function(result) {
     		      console.log(result);
