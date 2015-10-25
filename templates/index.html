@@ -47,10 +47,12 @@
         	  var name = profile.getName();
         	  var email = profile.getEmail();
         	  var data = "Kate Upton is so sexy";
+        	  var arr = {"name" : name,
+        	             "email" : email};
         	  $.ajax({
     		    type : "POST",
     		    url : "http://peppy-linker-102423.appspot.com/",
-    		    data: JSON.stringify(email, null, '\t'),
+    		    data: JSON.stringify(arr, null, '\t'),
     		    contentType: 'application/json;charset=UTF-8',
     		    success: function(result) {
     		      console.log(result);
