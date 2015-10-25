@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, Markup, json
+from flask import Flask, render_template, flash, Markup, json, request
 #import urllib
 #import webapp2
 import os
@@ -54,7 +54,7 @@ YOUTUBE_API_VERSION = "v3"
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def hello():
 	video_list_uploads = []
 
@@ -126,6 +126,9 @@ def hello():
 	cursor.execute("""INSERT INTO sheepdog.videoIds_sample (videoId) VALUES ('TjqH3XiiUF8'),('Hc0ZPYhl_VE');""")
 	db.commit()
 	#s = cursor.fetchall()
+	
+	logging.debug(request.url)
+	logging.debug(request.json)
 
 	return render_template('index.html') #, title = s, numbers = video_list_uploads
 	
