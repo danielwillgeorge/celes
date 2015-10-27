@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, Markup, json, request
+from flask import Flask, render_template, flash, Markup, json, jsonify, request
 #import urllib
 #import webapp2
 import os
@@ -127,8 +127,22 @@ def hello():
 	db.commit()
 	#s = cursor.fetchall()
 	
-	logging.debug(request.url)
-	logging.debug(request.json)
+	#cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES %s, %s;""", [request.json["name"], request.json["email"]])
+	#db.commit()
+	
+	
+	if request.method == "POST":
+		r = request.get_json()
+		logging.debug(r)
+		logging.debug(r['name'])
+	
+	#time.sleep(2)
+	
+	#logging.debug(r['name'])
+	
+	#logging.debug(request.url)
+	#logging.debug(r)
+	#logging.debug(request.get_json()['name'])
 
 	return render_template('index.html') #, title = s, numbers = video_list_uploads
 	
