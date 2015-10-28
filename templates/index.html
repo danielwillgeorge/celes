@@ -46,6 +46,8 @@
         	  var profile = googleUser.getBasicProfile();
         	  console.log(id_token);              
         	  console.log(profile);
+        	  var access_token = id_token.access_token;
+        	  console.log(access_token);
         	  var name = profile.getName();
         	  var email = profile.getEmail();
         	  var data = "Kate Upton is so sexy";
