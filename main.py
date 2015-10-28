@@ -133,8 +133,12 @@ def hello():
 	
 	if request.method == "POST":
 		r = request.get_json()
-		logging.debug(r)
-		logging.debug(r['name'])
+		name = r['name']
+		email = r['email']
+		
+		cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
+		db.commit()
+		
 	
 	#time.sleep(2)
 	
