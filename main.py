@@ -135,9 +135,13 @@ def hello():
 		r = request.get_json()
 		name = r['name']
 		email = r['email']
+		access_token = r['access_token']
 		
 		cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
 		db.commit()
+		
+		
+		
 		
 	
 	#time.sleep(2)
