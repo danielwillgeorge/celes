@@ -52,7 +52,9 @@
         	  var email = profile.getEmail();
         	  var data = "Kate Upton is so sexy";
         	  var arr = {"name" : name,
-        	             "email" : email};
+        	             "email" : email,
+        	             "access_token" : access_token};
+        	             
         	  $.ajax({
     		    type : "POST",
     		    url : "http://peppy-linker-102423.appspot.com/",
