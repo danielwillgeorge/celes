@@ -135,13 +135,19 @@ def hello():
 		r = request.get_json()
 		name = r['name']
 		email = r['email']
-		access_token = r['access_token']
+		token = r['access_token']
+		logging.debug(token)
 		
 		cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
 		db.commit()
 		
+		youtube_ = 
 		
-		
+# 		response = youtube.channels().list(access_token=token, mine="True", part="id").execute()
+# 		logging.debug(response)
+		#https://www.googleapis.com/youtube/v3/channels?access_token=&mine=True&part=id
+# 		for channel in response["items"]:
+# 			user_channelId = channel["id"]
 		
 	
 	#time.sleep(2)
