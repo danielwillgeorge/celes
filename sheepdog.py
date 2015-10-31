@@ -1,3 +1,5 @@
+channel_list_ = []
+
 def frozen(princess):
   return princess
   
@@ -78,38 +80,62 @@ def get_comments(youtube, video_id, channel_id):
     
     try:
       authorChannelId = comment["snippet"]["authorChannelId"]
+      channel = authorChannelId.get("value")
     except KeyError:
       pass
-    channel = authorChannelId.get("value")
     
     channel_list_.append(channel)
-  	
-  return results["items"]
-  
-def get_more_comments(youtube, video_id, channel_id):
-  global nextPageToken
-  
-  results = youtube.commentThreads().list(
+    
+  while nextPageToken:
+    
+    results = youtube.commentThreads().list(
     part="snippet", 
     videoId=video_id, 
     #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID,
     allThreadsRelatedToChannelId=channel_id, 
     pageToken=nextPageToken
-  ).execute()
+    ).execute()
+
+    nextPageToken = results.get("nextPageToken")
+
+    for item in results["items"]:
+      comment = item["snippet"]["topLevelComment"]
+      author = comment["snippet"]["authorDisplayName"]
+
+    try:
+      authorChannelId = comment["snippet"]["authorChannelId"]
+      channel = authorChannelId.get("value")
+    except KeyError:
+      pass
+
+    channel_list_.append(channel)
+    
+  return channel_list_
   
-  nextPageToken = results.get("nextPageToken")
-  
-  for item in results["items"]:
-  	comment = item["snippet"]["topLevelComment"]
-  	author = comment["snippet"]["authorDisplayName"]
-  	
-  	try:
-  	  authorChannelId = comment["snippet"]["authorChannelId"]
-  	except KeyError:
-  	  pass
-  	
-  	channel = authorChannelId.get("value")
-  	
-  	channel_list_.append(channel)
-  	
-  return results["items"]
+#   def get_more_comments(youtube, video_id, channel_id):
+# 	global nextPageToken
+#   
+# 	results = youtube.commentThreads().list(
+# 	  part="snippet", 
+# 	  videoId=video_id, 
+# 	  #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID,
+# 	  allThreadsRelatedToChannelId=channel_id, 
+# 	  pageToken=nextPageToken
+# 	).execute()
+#   
+# 	nextPageToken = results.get("nextPageToken")
+#   
+# 	for item in results["items"]:
+# 	  comment = item["snippet"]["topLevelComment"]
+# 	  author = comment["snippet"]["authorDisplayName"]
+# 	
+# 	  try:
+# 		authorChannelId = comment["snippet"]["authorChannelId"]
+# 	  except KeyError:
+# 		pass
+# 	
+# 	  channel = authorChannelId.get("value")
+# 	
+# 	  channel_list_.append(channel)
+# 	
+# 	return channel_list_
