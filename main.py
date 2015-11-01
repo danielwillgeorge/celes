@@ -180,33 +180,32 @@ def user():
   		pass
 
 	cursor = db.cursor()
+	cursor.execute("""TRUNCATE sheepdog.videoIds;""")
 
 	batch = BatchHttpRequest()
  	f = frozen('Princess Elsa')
-	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
-# 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
-# 	#return render_template('user.html', title=f)
-# 	
-#  	for videoId in f:
-#  	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
-#  	  
-# 	  def list1(request_id,response,exception):
-# 		for item in response["items"]:
-# 		  comment = item["snippet"]["topLevelComment"]
-# 		  try:
-# 		    authorChannelId = comment["snippet"]["authorChannelId"]
-# 		    channel = authorChannelId.get("value")
-# 		  except KeyError:
-# 		    pass
-# 		  channel_list_.append(channel)
-# 		  
-# 	  batch.add(request, callback=list1)
-# 
-# 	batch.execute(http=http)
-# 	
-# 	uniques = list(set(channel_list_))
-# 	uniques.sort()
-# 	logging.debug(len(uniques))
+# 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
+	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
+	
+ 	for videoId in f:
+ 	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
+ 	  
+	  def list1(request_id,response,exception):
+		for item in response["items"]:
+		  comment = item["snippet"]["topLevelComment"]
+		  try:
+		    authorChannelId = comment["snippet"]["authorChannelId"]
+		    channel = authorChannelId.get("value")
+		  except KeyError:
+		    pass
+		  channel_list_.append(channel)
+		  
+	  batch.add(request, callback=list1)
+
+	batch.execute(http=http)
+	
+	uniques = list(set(channel_list_))
+	uniques.sort()
  		
 # 	batch = BatchHttpRequest() 	
 	video_list = []
@@ -255,8 +254,7 @@ def user():
 		  def list1(request_id,response,exception):
 			for playlist_item in response["items"]:
 			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-			  #print video_id
-			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (video_id);""")
+			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
 			  db.commit()
 		  batch.add(playlistitems_list_request, callback=list1)
 	
