@@ -166,25 +166,46 @@ def hello():
 	
 @app.route('/user')
 def user():
+	batch = BatchHttpRequest()
 	#f = frozen('Princess Elsa')
 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
 	#return render_template('user.html', title=f)
 	
- 	f = get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
- 	
- 	logging.debug(f)
-# 	time.sleep(5)
+ 	for videoId in f:
+ 	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
+ 	  
+	  def list1(request_id,response,exception):
+		for item in response["items"]:
+		  comment = item["snippet"]["topLevelComment"]
+		  try:
+		    authorChannelId = comment["snippet"]["authorChannelId"]
+		    channel = authorChannelId.get("value")
+		  except KeyError:
+		    pass
+		  channel_list_.append(channel)
+		  
+	  batch.add(request, callback=list1)
 
-	#logger.info("get_comments function successful.")
+	batch.execute(http=http)
 	
-	#logger.info("get_more_comments function successful.")
-	#logger.info("channel_list populated.")
-
- 	uniques = list(set(f))
- 	uniques.sort()
+	uniques = list(set(channel_list_))
+	uniques.sort()
+	logging.debug(len(uniques))
  	
- 	logging.debug(len(uniques))
+ 	
+#  	logging.debug(f)
+# # 	time.sleep(5)
+# 
+# 	#logger.info("get_comments function successful.")
+# 	
+# 	#logger.info("get_more_comments function successful.")
+# 	#logger.info("channel_list populated.")
+# 
+#  	uniques = list(set(f))
+#  	uniques.sort()
+#  	
+#  	logging.debug(len(uniques))
 	
 	#return render_template('user.html', uniques=f)
 
@@ -210,15 +231,15 @@ def user():
 # 		except KeyError:
 # 		  break
 
-        try:
-          playlist_item_count = youtube.playlistItems().list(
-            playlistId=likes_list_id,
-            part="id"
-          ).execute()
-          
-          count = playlist_item_count["pageInfo"]["totalResults"]
-          
-          n = count/50 + 1
+#         try:
+#           playlist_item_count = youtube.playlistItems().list(
+#             playlistId=likes_list_id,
+#             part="id"
+#           ).execute()
+#           
+#           count = playlist_item_count["pageInfo"]["totalResults"]
+#           
+#           n = count/50 + 1
           
 # 		
 # 		logging.debug('Kate Upton is the hottest chick.')
