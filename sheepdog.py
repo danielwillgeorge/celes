@@ -73,23 +73,25 @@ def get_comments(youtube, video_id, channel_id):
       #allThreadsRelatedToChannelId=channel_id,
       fields="items/snippet/topLevelComment/snippet/authorChannelId",
       maxResults=100
-    ).execute()
+    )
+    
+  return results  
     
   #nextPageToken = results.get("nextPageToken")
-
-  for item in results["items"]:
-    comment = item["snippet"]["topLevelComment"]
-    #author = comment["snippet"]["authorDisplayName"]
-    
-    try:
-      authorChannelId = comment["snippet"]["authorChannelId"]
-      #authorChannelId = ["snippet"]["topLevelComment"]["snippet"]["authorChannelId"]
-      channel = authorChannelId.get("value")
-    except KeyError:
-      pass
-    
-    channel_list_.append(channel)
-    
+# 
+#   for item in results["items"]:
+#     comment = item["snippet"]["topLevelComment"]
+#     #author = comment["snippet"]["authorDisplayName"]
+#     
+#     try:
+#       authorChannelId = comment["snippet"]["authorChannelId"]
+#       #authorChannelId = ["snippet"]["topLevelComment"]["snippet"]["authorChannelId"]
+#       channel = authorChannelId.get("value")
+#     except KeyError:
+#       pass
+#     
+#     channel_list_.append(channel)
+#     
     #time.sleep(1)
     
 #   while nextPageToken:
