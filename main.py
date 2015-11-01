@@ -166,7 +166,6 @@ def hello():
 	
 @app.route('/user')
 def user():
-
 	env = os.getenv('SERVER_SOFTWARE')
 	if (env and env.startswith('Google App Engine/')):
   	# Connecting from App Engine
@@ -181,9 +180,10 @@ def user():
 
 	cursor = db.cursor()
 	cursor.execute("""TRUNCATE sheepdog.videoIds;""")
+	db.commit()
 
 	batch = BatchHttpRequest()
- 	f = frozen('Princess Elsa')
+ 	fr = frozen('Princess Elsa')
 # 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
 	
@@ -206,10 +206,12 @@ def user():
 	
 	uniques = list(set(channel_list_))
 	uniques.sort()
+	
+	time.sleep(1)
  		
 # 	batch = BatchHttpRequest() 	
 	video_list = []
-	for channelId in uniques:
+	for channelId in uniques[:25]:
 	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
 
 	  #Retrieve the contentDetails part of the channel resource for the
@@ -225,42 +227,42 @@ def user():
 		except KeyError:
 		  break
 		  
-		playlist_item_count = youtube.playlistItems().list(
-		playlistId=likes_list_id,
-		part="id"
-		).execute()
-	
-		count = playlist_item_count["pageInfo"]
-		count = count.get("totalResults")
-		n = count/50
-		if count % 50 != 0:
-		  n = n + 1
-		
-		for token in tokens[:n]:
+# 		playlist_item_count = youtube.playlistItems().list(
+# 		playlistId=likes_list_id,
+# 		part="id"
+# 		).execute()
+# 	
+# 		count = playlist_item_count["pageInfo"]
+# 		count = count.get("totalResults")
+# 		n = count/50
+# 		if count % 50 != 0:
+# 		  n = n + 1
+# 		
+# 		for token in tokens[:n]:
   
-		  try:
-			playlistitems_list_request = youtube.playlistItems().list(
-			  playlistId=likes_list_id, 
-			  part="snippet",
-			  pageToken=token, 
-			  maxResults=50
-			)
-			
-			#logging.debug("Kate Upton is so hot.")
-			
-		  except NameError:
-			break
+		try:
+		  playlistitems_list_request = youtube.playlistItems().list(
+			playlistId=likes_list_id, 
+			part="snippet",
+			pageToken="", 
+			maxResults=50
+		  )
+		  
+		  #logging.debug("Kate Upton is so hot.")
+		  
+		except NameError:
+		  break
 
-		  def list1(request_id,response,exception):
-			for playlist_item in response["items"]:
-			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
-			  db.commit()
-		  batch.add(playlistitems_list_request, callback=list1)
+		def list1(request_id,response,exception):
+		  for playlist_item in response["items"]:
+			video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+			cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
+			db.commit()
+		batch.add(playlistitems_list_request, callback=list1)
 	
 	batch.execute(http=http)
 	  
-	return render_template('user.html', title=f)
+	return render_template('user.html', title=fr)
 
 @app.errorhandler(404)
 def page_not_found(e):
