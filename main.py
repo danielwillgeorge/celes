@@ -6,6 +6,8 @@ import os
 from apiclient.discovery import build
 from apiclient.http import BatchHttpRequest
 from google.appengine.api import memcache
+from google.appengine.api import urlfetch
+
 #from google.appengine.ext import ext
 
 import httplib2
@@ -23,6 +25,8 @@ from sheepdog import *
 # from oauth2client.file import Storage
 # from oauth2client.tools import argparser, run_flow
 # from apiclient.errors import HttpError
+
+urlfetch.set_default_fetch_deadline(60)
 
 # @Author Daniel George
 # Sheepdog
@@ -141,7 +145,7 @@ def hello():
 		cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
 		db.commit()
 		
-		youtube_ = 
+# 		youtube_ = 
 		
 # 		response = youtube.channels().list(access_token=token, mine="True", part="id").execute()
 # 		logging.debug(response)
@@ -164,77 +168,87 @@ def hello():
 def user():
 	#f = frozen('Princess Elsa')
 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
-	f = get_upload_list(youtube,"UCgJA3nqJEUZBkZivasUSdJg")
+	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
 	#return render_template('user.html', title=f)
 	
-	get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
-
-	time.sleep(5)
+ 	f = get_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
+ 	
+ 	logging.debug(f)
+# 	time.sleep(5)
 
 	#logger.info("get_comments function successful.")
-
-# 	while nextPageToken:
-# 		get_more_comments(youtube, None, "UCXqK1FO9yS8x7CMGkzLgJmA")
-# 		time.sleep(5)
 	
 	#logger.info("get_more_comments function successful.")
 	#logger.info("channel_list populated.")
 
-	#uniques = list(set(channel_list))
-	#uniques.sort()
+ 	uniques = list(set(f))
+ 	uniques.sort()
+ 	
+ 	logging.debug(len(uniques))
 	
 	#return render_template('user.html', uniques=f)
 
 	#logger.info("uniques list populated and sorted.")
 	
-	batch = BatchHttpRequest()
-	
-	for channelId in uniques:
-	  video_list = []
-	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
-	  #"CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
+# 	batch = BatchHttpRequest()
+# 	
+# 	for channelId in uniques:
+# 	  video_list = []
+# 	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
+# 	  #"CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
+# 
+# 	  #Retrieve the contentDetails part of the channel resource for the
+# 	  #authenticated user's channel.
+# 	  channels_response = youtube.channels().list(
+# 		id=channelId, 
+# 		part="contentDetails"
+# 	  ).execute()
+# 
+# 	  for channel in channels_response["items"]:
+# 		try:
+# 		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+# 		except KeyError:
+# 		  break
 
-	  #Retrieve the contentDetails part of the channel resource for the
-	  #authenticated user's channel.
-	  channels_response = youtube.channels().list(
-		id=channelId, 
-		part="contentDetails"
-	  ).execute()
-
-	  for channel in channels_response["items"]:
-		try:
-		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-		except KeyError:
-		  break
-		
-		logging.debug('Kate Upton is the hottest chick.')
-		
-		for token in tokens:
-  
-		  try:
-			playlistitems_list_request = youtube.playlistItems().list(
-			  playlistId=likes_list_id, 
-			  part="snippet",
-			  pageToken=token, 
-			  maxResults=50
-			)
-			
-			logging.debug("Kate Upton is so hot.")
-			
-		  except NameError:
-			break
-
-		  def list1(request_id,response,exception):
-			for playlist_item in response["items"]:
-			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-			  #print video_id
-			  video_list.append(video_id)
-			  
-		  batch.add(playlistitems_list_request, callback=list1)
-	
-	  batch.execute(http=http)
+        try:
+          playlist_item_count = youtube.playlistItems().list(
+            playlistId=likes_list_id,
+            part="id"
+          ).execute()
+          
+          count = playlist_item_count["pageInfo"]["totalResults"]
+          
+          n = count/50 + 1
+          
+# 		
+# 		logging.debug('Kate Upton is the hottest chick.')
+# 		
+# 		for token in tokens[:n]:
+#   
+# 		  try:
+# 			playlistitems_list_request = youtube.playlistItems().list(
+# 			  playlistId=likes_list_id, 
+# 			  part="snippet",
+# 			  pageToken=token, 
+# 			  maxResults=50
+# 			)
+# 			
+# 			logging.debug("Kate Upton is so hot.")
+# 			
+# 		  except NameError:
+# 			break
+# 
+# 		  def list1(request_id,response,exception):
+# 			for playlist_item in response["items"]:
+# 			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+# 			  #print video_id
+# 			  video_list.append(video_id)
+# 			  
+# 		  batch.add(playlistitems_list_request, callback=list1)
+# 	
+# 	  batch.execute(http=http)
 	  
-	return render_template('user.html', title=video_list)
+	return render_template('user.html', title=uniques)
 
 @app.errorhandler(404)
 def page_not_found(e):
