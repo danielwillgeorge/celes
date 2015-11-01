@@ -166,80 +166,70 @@ def hello():
 	
 @app.route('/user')
 def user():
-	batch = BatchHttpRequest()
-	#f = frozen('Princess Elsa')
+# 	batch = BatchHttpRequest()
+ 	f = frozen('Princess Elsa')
 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
-	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
-	#return render_template('user.html', title=f)
-	
- 	for videoId in f:
- 	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
- 	  
-	  def list1(request_id,response,exception):
-		for item in response["items"]:
-		  comment = item["snippet"]["topLevelComment"]
-		  try:
-		    authorChannelId = comment["snippet"]["authorChannelId"]
-		    channel = authorChannelId.get("value")
-		  except KeyError:
-		    pass
-		  channel_list_.append(channel)
-		  
-	  batch.add(request, callback=list1)
-
-	batch.execute(http=http)
-	
-	uniques = list(set(channel_list_))
-	uniques.sort()
-	logging.debug(len(uniques))
- 	
- 	
-#  	logging.debug(f)
-# # 	time.sleep(5)
-# 
-# 	#logger.info("get_comments function successful.")
+# 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
+# 	#return render_template('user.html', title=f)
 # 	
-# 	#logger.info("get_more_comments function successful.")
-# 	#logger.info("channel_list populated.")
+#  	for videoId in f:
+#  	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
+#  	  
+# 	  def list1(request_id,response,exception):
+# 		for item in response["items"]:
+# 		  comment = item["snippet"]["topLevelComment"]
+# 		  try:
+# 		    authorChannelId = comment["snippet"]["authorChannelId"]
+# 		    channel = authorChannelId.get("value")
+# 		  except KeyError:
+# 		    pass
+# 		  channel_list_.append(channel)
+# 		  
+# 	  batch.add(request, callback=list1)
 # 
-#  	uniques = list(set(f))
-#  	uniques.sort()
-#  	
-#  	logging.debug(len(uniques))
-	
-	#return render_template('user.html', uniques=f)
-
-	#logger.info("uniques list populated and sorted.")
-	
+# 	batch.execute(http=http)
+# 	
+# 	uniques = list(set(channel_list_))
+# 	uniques.sort()
+# 	logging.debug(len(uniques))
+ 		
 # 	batch = BatchHttpRequest()
 # 	
-# 	for channelId in uniques:
-# 	  video_list = []
-# 	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
-# 	  #"CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
-# 
-# 	  #Retrieve the contentDetails part of the channel resource for the
-# 	  #authenticated user's channel.
-# 	  channels_response = youtube.channels().list(
-# 		id=channelId, 
-# 		part="contentDetails"
-# 	  ).execute()
-# 
-# 	  for channel in channels_response["items"]:
-# 		try:
-# 		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-# 		except KeyError:
-# 		  break
+	for channelId in uniques:
+	  video_list = []
+	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA"]
+	  #"CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
 
-#         try:
-#           playlist_item_count = youtube.playlistItems().list(
-#             playlistId=likes_list_id,
-#             part="id"
-#           ).execute()
-#           
-#           count = playlist_item_count["pageInfo"]["totalResults"]
-#           
-#           n = count/50 + 1
+	  #Retrieve the contentDetails part of the channel resource for the
+	  #authenticated user's channel.
+	  channels_response = youtube.channels().list(
+		id=channelId, 
+		part="contentDetails"
+	  ).execute()
+
+	  for channel in channels_response["items"]:
+		try:
+		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+		except KeyError:
+		  break
+		  
+		playlist_item_count = youtube.playlistItems().list(
+		playlistId=likes_list_id,
+		part="id"
+		).execute()
+	
+		count = playlist_item_count["pageInfo"]
+		logging.debug(count)
+		count = count.get("totalResults")
+	  
+		n = count/50
+		
+		logging.debug(n)
+	  
+		if count % 50 != 0:
+		  n = n + 1
+		logging.debug(n)
+        
           
 # 		
 # 		logging.debug('Kate Upton is the hottest chick.')
@@ -269,7 +259,7 @@ def user():
 # 	
 # 	  batch.execute(http=http)
 	  
-	return render_template('user.html', title=uniques)
+	return render_template('user.html', title=f)
 
 @app.errorhandler(404)
 def page_not_found(e):
