@@ -166,6 +166,21 @@ def hello():
 	
 @app.route('/user')
 def user():
+
+	env = os.getenv('SERVER_SOFTWARE')
+	if (env and env.startswith('Google App Engine/')):
+  	# Connecting from App Engine
+  		db = MySQLdb.connect(
+    	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+    	user='root',
+    	db='sheepdog')
+	else:
+  	# You may also assign an IP Address from the access control
+  	# page and use it to connect from an external network.
+  		pass
+
+	cursor = db.cursor()
+
 	batch = BatchHttpRequest()
  	f = frozen('Princess Elsa')
 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
@@ -241,13 +256,13 @@ def user():
 			for playlist_item in response["items"]:
 			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
 			  #print video_id
-			  video_list.append(video_id)
-			  
+			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (video_id);""")
+			  db.commit()
 		  batch.add(playlistitems_list_request, callback=list1)
 	
 	batch.execute(http=http)
 	  
-	return render_template('user.html', title=video_list)
+	return render_template('user.html', title=f)
 
 @app.errorhandler(404)
 def page_not_found(e):
