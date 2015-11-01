@@ -1,4 +1,5 @@
 channel_list_ = []
+import time
 
 def frozen(princess):
   return princess
@@ -63,52 +64,61 @@ def get_upload_list(youtube, channelId):
 def get_comments(youtube, video_id, channel_id):
   """Retrieve the authors' channelIds of all of the comments, 
      of all of the uploaded videos, for the authorized user's channel."""
-  global nextPageToken
+  #global nextPageToken
   
   results = youtube.commentThreads().list(
       part="snippet", 
       videoId=video_id, 
       #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID
-      allThreadsRelatedToChannelId=channel_id
+      #allThreadsRelatedToChannelId=channel_id,
+      fields="items/snippet/topLevelComment/snippet/authorChannelId",
+      maxResults=100
     ).execute()
-
-  nextPageToken = results.get("nextPageToken")
+    
+  #nextPageToken = results.get("nextPageToken")
 
   for item in results["items"]:
     comment = item["snippet"]["topLevelComment"]
-    author = comment["snippet"]["authorDisplayName"]
+    #author = comment["snippet"]["authorDisplayName"]
     
     try:
       authorChannelId = comment["snippet"]["authorChannelId"]
+      #authorChannelId = ["snippet"]["topLevelComment"]["snippet"]["authorChannelId"]
       channel = authorChannelId.get("value")
     except KeyError:
       pass
     
     channel_list_.append(channel)
     
-  while nextPageToken:
+    #time.sleep(1)
     
-    results = youtube.commentThreads().list(
-    part="snippet", 
-    videoId=video_id, 
-    #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID,
-    allThreadsRelatedToChannelId=channel_id, 
-    pageToken=nextPageToken
-    ).execute()
-
-    nextPageToken = results.get("nextPageToken")
-
-    for item in results["items"]:
-      comment = item["snippet"]["topLevelComment"]
-      author = comment["snippet"]["authorDisplayName"]
-
-    try:
-      authorChannelId = comment["snippet"]["authorChannelId"]
-      channel = authorChannelId.get("value")
-    except KeyError:
-      pass
-
-    channel_list_.append(channel)
+#   while nextPageToken:
+#     
+#     results = youtube.commentThreads().list(
+#     part="snippet", 
+#     videoId=video_id, 
+#     #allThreadsRelatedToChannelId=AUTH_USER_CHANNEL_ID,
+#     allThreadsRelatedToChannelId=channel_id, 
+#     pageToken=nextPageToken,
+#     fields="items/snippet/topLevelComment/snippet/authorChannelId",
+#     maxResults=100
+#     ).execute()
+# 
+#     nextPageToken = results.get("nextPageToken")
+# 
+#     for item in results["items"]:
+#       comment = item["snippet"]["topLevelComment"]
+# #       author = comment["snippet"]["authorDisplayName"]
+# 
+#     try:
+#       authorChannelId = comment["snippet"]["authorChannelId"]
+#       channel = authorChannelId.get("value")
+#     except KeyError:
+#       pass
+# 
+#     channel_list_.append(channel)
+    
+    #time.sleep(2)
     
   return channel_list_
   
