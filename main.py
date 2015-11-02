@@ -7,6 +7,7 @@ from apiclient.discovery import build
 from apiclient.http import BatchHttpRequest
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
+from google.appengine.api import taskqueue
 
 #from google.appengine.ext import ext
 
@@ -60,6 +61,7 @@ youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIz
 
 @app.route('/', methods=["GET", "POST"])
 def hello():
+	taskqueue.add()
 	video_list_uploads = []
 
 #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
@@ -187,6 +189,10 @@ def user():
 # 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
 	
+	for video_id in f:
+	  cursor.execute("""INSERT INTO sheepdog.user_uploads (videoId) VALUES (%s);""", [video_id])
+	  db.commit()
+	
  	for videoId in f:
  	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
  	  
@@ -209,9 +215,9 @@ def user():
 	
 	time.sleep(1)
  		
-# 	batch = BatchHttpRequest() 	
+	
 	video_list = []
-	for channelId in uniques[:25]:
+	for channelId in uniques[:1]:
 	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
 
 	  #Retrieve the contentDetails part of the channel resource for the
@@ -227,40 +233,36 @@ def user():
 		except KeyError:
 		  break
 		  
-# 		playlist_item_count = youtube.playlistItems().list(
-# 		playlistId=likes_list_id,
-# 		part="id"
-# 		).execute()
-# 	
-# 		count = playlist_item_count["pageInfo"]
-# 		count = count.get("totalResults")
-# 		n = count/50
-# 		if count % 50 != 0:
-# 		  n = n + 1
-# 		
-# 		for token in tokens[:n]:
-  
-		try:
-		  playlistitems_list_request = youtube.playlistItems().list(
-			playlistId=likes_list_id, 
-			part="snippet",
-			pageToken="", 
-			maxResults=50
-		  )
-		  
-		  #logging.debug("Kate Upton is so hot.")
-		  
-		except NameError:
-		  break
-
-		def list1(request_id,response,exception):
-		  for playlist_item in response["items"]:
-			video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-			cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
-			db.commit()
-		batch.add(playlistitems_list_request, callback=list1)
+		playlist_item_count = youtube.playlistItems().list(
+		playlistId=likes_list_id,
+		part="id"
+		).execute()
 	
-	batch.execute(http=http)
+		count = playlist_item_count["pageInfo"]
+		count = count.get("totalResults")
+		n = count/50
+		if count % 50 != 0:
+		  n = n + 1
+		
+		for token in tokens[:n]:
+  
+		  try:
+			playlistitems_list_request = youtube.playlistItems().list(
+			  playlistId=likes_list_id, 
+			  part="snippet",
+			  pageToken="", 
+			  maxResults=50)	  
+		  except NameError:
+			break
+
+		  def list1(request_id,response,exception):
+			for playlist_item in response["items"]:
+			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
+			  db.commit()
+		  batch.add(playlistitems_list_request, callback=list1)
+	
+ 	  batch.execute(http=http)
 	  
 	return render_template('user.html', title=fr)
 
