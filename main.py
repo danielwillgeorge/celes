@@ -265,6 +265,11 @@ def user():
  	  batch.execute(http=http)
 	  
 	return render_template('user.html', title=fr)
+	
+@app.route('/_ah/queue/default', methods=["POST"])
+def task():
+  logging.debug('Frozen is the best movie ever.')
+  return 'string'
 
 @app.errorhandler(404)
 def page_not_found(e):
