@@ -10,8 +10,8 @@ inbound_services:
 handlers:
 - url: .*
   script: main.app
-- url: /
-  script: task.app
+- url: /_ah/queue/default
+  script: main.app
 
 libraries:
 - name: jinja2
