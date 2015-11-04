@@ -268,7 +268,9 @@ def user():
 	
 @app.route('/_ah/queue/default', methods=["POST"])
 def task():
-  logging.debug('Frozen is the best movie ever.')
+  if request.method == "POST":
+    f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
+    logging.debug(f)
   return 'string'
 
 @app.errorhandler(404)
