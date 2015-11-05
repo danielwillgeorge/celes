@@ -297,9 +297,23 @@ def task():
     
   uniques = list(set(channel_list_))
   uniques.sort()
-  
-  
-  
+#   
+#   video_list = []
+#   for channelId in uniques[:1]:
+#     tokens = []
+#     
+#     channels_response = youtube.channels().list(
+#       id=channelId,
+#       part="contentDetails",
+#     ).execute()
+#     
+#     for channel in channels_response["items"]:
+#       try:
+#         likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+#       except KeyError:
+#         break
+    
+    
   
     
   return 'string'
