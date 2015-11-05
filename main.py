@@ -79,39 +79,41 @@ def hello():
 	
 	#http=credentials.authorize(httplib2.Http()))
    	
-	for channelId in channel_list:
-
-		channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
-	
-		for channel in channels_response["items"]:
-	
-			try:
-				uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-			except KeyError:
-				pass
-
-			try:
-				playlistitems_list_request = youtube.playlistItems().list(playlistId=uploads_list_id, part="snippet", maxResults=50)
-			except NameError:
-				pass
-		
-			try:
-				while playlistitems_list_request:
-					try:
-						playlistitems_list_response = playlistitems_list_request.execute()
-					except HttpError:
-						pass
-						# Print information about each video.
-					for playlist_item in playlistitems_list_response["items"]:
-					#title = playlist_item["snippet"]["title"]
-						video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-						video_list_uploads.append([video_id])
-					try:
-						playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
-					except HttpError:
-						pass
-			except NameError:
-				pass
+# 1st attempt with Google App Engine and
+# the YouTube Data API.
+# 	for channelId in channel_list:
+# 
+# 		channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
+# 	
+# 		for channel in channels_response["items"]:
+# 	
+# 			try:
+# 				uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+# 			except KeyError:
+# 				pass
+# 
+# 			try:
+# 				playlistitems_list_request = youtube.playlistItems().list(playlistId=uploads_list_id, part="snippet", maxResults=50)
+# 			except NameError:
+# 				pass
+# 		
+# 			try:
+# 				while playlistitems_list_request:
+# 					try:
+# 						playlistitems_list_response = playlistitems_list_request.execute()
+# 					except HttpError:
+# 						pass
+# 						# Print information about each video.
+# 					for playlist_item in playlistitems_list_response["items"]:
+# 					#title = playlist_item["snippet"]["title"]
+# 						video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+# 						video_list_uploads.append([video_id])
+# 					try:
+# 						playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
+# 					except HttpError:
+# 						pass
+# 			except NameError:
+# 				pass
 				
 				
 	env = os.getenv('SERVER_SOFTWARE')
@@ -296,7 +298,9 @@ def task():
   uniques = list(set(channel_list_))
   uniques.sort()
   
-  logging.debug(uniques)
+  
+  
+  
     
   return 'string'
 
