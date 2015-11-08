@@ -297,22 +297,55 @@ def task():
     
   uniques = list(set(channel_list_))
   uniques.sort()
-#   
-#   video_list = []
-#   for channelId in uniques[:1]:
-#     tokens = []
-#     
-#     channels_response = youtube.channels().list(
-#       id=channelId,
-#       part="contentDetails",
-#     ).execute()
-#     
-#     for channel in channels_response["items"]:
-#       try:
-#         likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-#       except KeyError:
-#         break
+  
+  video_list = []
+  for channelId in uniques[:1]:
+    tokens = []
     
+    channels_response = youtube.channels().list(
+      id=channelId,
+      part="contentDetails",
+    ).execute()
+    
+    for channel in channels_response["items"]:
+      try:
+        likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+      except KeyError:
+        break
+        
+    playlist_item_count = youtube.playlistItems().list(
+    playlistId=likes_list_id,
+    part="id"
+    ).execute()
+    
+    count = playlist_item_count["pageInfo"]
+    count = count.get("totalResults")
+    n = count/50
+    if count % 50 != 0:
+      n = n + 1
+      
+    for token in tokens[:n]:
+      try:
+        playlistitems_list_request = youtube.playlistItems().list(
+          playlistId=likes_list_id,
+          part="snippet",
+          pageToken=token,
+          maxResults=50
+          )
+      except NameError:
+        break
+        
+      def list1(request_id,response,exception):
+        for playlist_item in response["items"]:
+          video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+          cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
+          db.commit()
+      batch.add(playlistitems_list_request, callback=list1)
+      
+  batch.execute(http=http)
+  
+  #Google Cloud SQL Query to pull top 10 videoIds
+  cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
     
   
     
