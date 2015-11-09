@@ -346,7 +346,12 @@ def task():
   
   #Google Cloud SQL Query to pull top 10 videoIds
   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
-    
+  output = cursor.fetchall()
+  
+  for videoId in output:
+    results = youtube.videos().list(id=videoId, part="id,snippet").execute()
+    for item in results["items"]:
+      videoId_ = results["snippet"]["videoId"]
   
     
   return 'string'
