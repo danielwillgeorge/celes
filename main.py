@@ -298,10 +298,13 @@ def task():
   uniques = list(set(channel_list_))
   uniques.sort()
   
+  logging.debug(uniques)
+  
   video_list = []
   for channelId in uniques[:1]:
     tokens = []
     
+    #add code to read 50 channelIds at once
     channels_response = youtube.channels().list(
       id=channelId,
       part="contentDetails",
@@ -309,20 +312,22 @@ def task():
     
     for channel in channels_response["items"]:
       try:
+        #create a list of likes_list_ids?
         likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
       except KeyError:
         break
+        
         
     playlist_item_count = youtube.playlistItems().list(
     playlistId=likes_list_id,
     part="id"
     ).execute()
     
-#     count = playlist_item_count["pageInfo"]
-#     count = count.get("totalResults")
-#     n = count/50
-#     if count % 50 != 0:
-#       n = n + 1
+    count = playlist_item_count["pageInfo"]
+    count = count.get("totalResults")
+    n = count/50
+    if count % 50 != 0:
+      n = n + 1
 #       
 #     for token in tokens[:n]:
 #       try:
