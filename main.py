@@ -318,40 +318,46 @@ def task():
     part="id"
     ).execute()
     
-    count = playlist_item_count["pageInfo"]
-    count = count.get("totalResults")
-    n = count/50
-    if count % 50 != 0:
-      n = n + 1
-      
-    for token in tokens[:n]:
-      try:
-        playlistitems_list_request = youtube.playlistItems().list(
-          playlistId=likes_list_id,
-          part="snippet",
-          pageToken=token,
-          maxResults=50
-          )
-      except NameError:
-        break
-        
-      def list1(request_id,response,exception):
-        for playlist_item in response["items"]:
-          video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-          cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
-          db.commit()
-      batch.add(playlistitems_list_request, callback=list1)
-      
-  batch.execute(http=http)
+#     count = playlist_item_count["pageInfo"]
+#     count = count.get("totalResults")
+#     n = count/50
+#     if count % 50 != 0:
+#       n = n + 1
+#       
+#     for token in tokens[:n]:
+#       try:
+#         playlistitems_list_request = youtube.playlistItems().list(
+#           playlistId=likes_list_id,
+#           part="snippet",
+#           pageToken=token,
+#           maxResults=50
+#           )
+#       except NameError:
+#         break
+#         
+#       def list1(request_id,response,exception):
+#         for playlist_item in response["items"]:
+#           video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+#           cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
+#           db.commit()
+#       batch.add(playlistitems_list_request, callback=list1)
+#       
+#   batch.execute(http=http)
   
   #Google Cloud SQL Query to pull top 10 videoIds
-  cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
-  output = cursor.fetchall()
-  
-  for videoId in output:
-    results = youtube.videos().list(id=videoId, part="id,snippet").execute()
-    for item in results["items"]:
-      videoId_ = results["snippet"]["videoId"]
+#   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
+#   output = cursor.fetchall()
+#   
+#   for videoId in output:
+#     results = youtube.videos().list(id=videoId, part="id,snippet").execute()
+#     for item in results["items"]:
+#       videoId_ = results["snippet"]["videoId"]
+#       channelTitle_ = results["snippet"]["channelTitle"]
+#       channelId_ = results["snippet"]["channelId"]
+#       thumbnail = results["snippet"]["thumbnails"]["default"]["url"]
+#       title_ = results["snippet"]["title"]
+      
+      
   
     
   return 'string'
