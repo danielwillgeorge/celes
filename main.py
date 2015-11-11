@@ -274,6 +274,16 @@ def task():
     f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
     batch = BatchHttpRequest()
     
+    env = os.getenv('SERVER_SOFTWARE')
+    if (env and env.startswith('Google App Engine/')):
+      db = MySQLdb.connect(
+      unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+      user='root',
+      db='sheepdog')
+      
+      
+    cursor = db.cursor()
+    
 #     for video_id in f:
 #       cursor.execute("""INSERT INTO sheepdog.user_uploads (videoId) VALUES (%s);""", [video_id])
 #       db.commit()
@@ -300,13 +310,13 @@ def task():
   
   video_list = []
   likes_list_ids = []
-  
+  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
+
   def channelId_group(seq, size):
     return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
   
   for group in channelId_group(uniques, 50):
     group = ','.join(group)
-    tokens = []
     
     channels_response = youtube.channels().list(
       id=group,
@@ -319,21 +329,9 @@ def task():
         likes_list_ids.append(likes_list_id)
       except KeyError:
         pass
-        
-  logging.debug(likes_list_ids)
-        
-#     Remove this part of the code to determine the playlist items count / 50.
-#     playlist_item_count = youtube.playlistItems().list(
-#     playlistId=likes_list_id,
-#     part="id"
-#     ).execute()
-      
-#     count = playlist_item_count["pageInfo"]
-#     count = count.get("totalResults")
-#     n = count/50
-#     if count % 50 != 0:
-#       n = n + 1
-#     for likes_list_id in likes_list_ids:
+
+  for likes_list_id in likes_list_ids:
+    taskqueue.add(queue_name="default", url="/google", params={"user":likes_list_id})
 #     for token in tokens[:20]:
 #       try:
 #         playlistitems_list_request = youtube.playlistItems().list(
@@ -343,7 +341,7 @@ def task():
 #           maxResults=50
 #           )
 #       except NameError:
-#         break
+#         pass
 #         
 #       def list1(request_id,response,exception):
 #         for playlist_item in response["items"]:
@@ -353,6 +351,9 @@ def task():
 #       batch.add(playlistitems_list_request, callback=list1)
 #       
 #   batch.execute(http=http)
+  
+#@app.route("/")
+#  task loop right here
   
   #Google Cloud SQL Query to pull top 10 videoIds
 #   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
@@ -369,6 +370,42 @@ def task():
       
       
   
+    
+  return 'string'
+
+@app.route("/google", methods=["POST"])
+def Daniel(): 
+  if request.method == "POST":
+    env = os.getenv('SERVER_SOFTWARE')
+    if (env and env.startswith('Google App Engine/')):
+      db = MySQLdb.connect(
+      unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+      user='root',
+      db='sheepdog')  
+    cursor = db.cursor()
+    tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
+    batch = BatchHttpRequest()
+    user = request.form.get('user')
+    
+    for token in tokens[:20]:
+      try:
+        playlistitems_list_request = youtube.playlistItems().list(
+          playlistId=user,
+          part="snippet",
+          pageToken=token,
+          maxResults=50
+          )
+      except NameError:
+        pass
+        
+      def list1(request_id,response,exception):
+        for playlist_item in response["items"]:
+          video_id = playlist_item["snippet"]["resourceId"]["videoId"]
+          cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
+          db.commit()
+      batch.add(playlistitems_list_request, callback=list1)
+      
+    batch.execute(http=http)
     
   return 'string'
 
