@@ -298,38 +298,43 @@ def task():
   uniques = list(set(channel_list_))
   uniques.sort()
   
-  logging.debug(uniques)
-  
   video_list = []
-  for channelId in uniques[:1]:
+  likes_list_ids = []
+  
+  def channelId_group(seq, size):
+    return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
+  
+  for group in channelId_group(uniques, 50):
+    group = ','.join(group)
     tokens = []
     
-    #add code to read 50 channelIds at once
     channels_response = youtube.channels().list(
-      id=channelId,
+      id=group,
       part="contentDetails",
     ).execute()
     
     for channel in channels_response["items"]:
       try:
-        #create a list of likes_list_ids?
         likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
+        likes_list_ids.append(likes_list_id)
       except KeyError:
-        break
+        pass
         
+  logging.debug(likes_list_ids)
         
-    playlist_item_count = youtube.playlistItems().list(
-    playlistId=likes_list_id,
-    part="id"
-    ).execute()
-    
-    count = playlist_item_count["pageInfo"]
-    count = count.get("totalResults")
-    n = count/50
-    if count % 50 != 0:
-      n = n + 1
-#       
-#     for token in tokens[:n]:
+#     Remove this part of the code to determine the playlist items count / 50.
+#     playlist_item_count = youtube.playlistItems().list(
+#     playlistId=likes_list_id,
+#     part="id"
+#     ).execute()
+      
+#     count = playlist_item_count["pageInfo"]
+#     count = count.get("totalResults")
+#     n = count/50
+#     if count % 50 != 0:
+#       n = n + 1
+#     for likes_list_id in likes_list_ids:
+#     for token in tokens[:20]:
 #       try:
 #         playlistitems_list_request = youtube.playlistItems().list(
 #           playlistId=likes_list_id,
