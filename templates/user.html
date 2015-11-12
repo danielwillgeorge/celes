@@ -7,56 +7,16 @@
 
 	<body>
 		<div class="box">
-		{{ title }}
-		</div>
+			<table>
 		
-		<div class="box">
-		<table>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
+				{% for i in range(0, urls|count) %}
+				<tr>
+					<td><img src={{ urls[i] }}></td>
+					<td>{{ videoIds[i] }}</td>
+					<td>{{ channelIds[i] }}</td>
+				</tr>
+				{% endfor %}
+			</table>
 		</div>
-		
 	</body>
 </html>
-
-
-
