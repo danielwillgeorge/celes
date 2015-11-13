@@ -8,6 +8,7 @@ from apiclient.http import BatchHttpRequest
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.api import taskqueue
+from google.appengine.api import urlfetch
 
 #from google.appengine.ext import ext
 
@@ -20,7 +21,7 @@ import time
 import MySQLdb
 
 from sheepdog import *
-	
+
 # from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
 # from oauth2client.file import Storage
@@ -44,8 +45,6 @@ global channel_Id
 global user
 global nextPageToken
 
-#video_list_uploads = ['Daniel','George']
-
 channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
 channel_list_ = []
 #uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
@@ -56,118 +55,47 @@ YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ss
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs") 
-
+youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs")
 
 @app.route('/', methods=["GET", "POST"])
 def hello():
-# 	taskqueue.add()
-# 	video_list_uploads = []
-# 
-# #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
-# 	
-# # 	storage = Storage("static/main.py-oauth2.json")
-# # 	credentials = storage.get()
-# # 	
-# # 	logging.debug(storage)
-# # 	logging.debug(credentials)
-# 	
-# #	return render_template('index.html', title = "Princess Elsa" , numbers = video_list_uploads)
-# 	
-# # 	json_data = open("static/youtube-v3-discoverydocument.json")
-# # 	doc = json.load(json_data)
-# 	
-# 	#http=credentials.authorize(httplib2.Http()))
-#    	
-# # 1st attempt with Google App Engine and
-# # the YouTube Data API.
-# # 	for channelId in channel_list:
-# # 
-# # 		channels_response = youtube.channels().list(id=channelId, part="contentDetails").execute()
-# # 	
-# # 		for channel in channels_response["items"]:
-# # 	
-# # 			try:
-# # 				uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-# # 			except KeyError:
-# # 				pass
-# # 
-# # 			try:
-# # 				playlistitems_list_request = youtube.playlistItems().list(playlistId=uploads_list_id, part="snippet", maxResults=50)
-# # 			except NameError:
-# # 				pass
-# # 		
-# # 			try:
-# # 				while playlistitems_list_request:
-# # 					try:
-# # 						playlistitems_list_response = playlistitems_list_request.execute()
-# # 					except HttpError:
-# # 						pass
-# # 						# Print information about each video.
-# # 					for playlist_item in playlistitems_list_response["items"]:
-# # 					#title = playlist_item["snippet"]["title"]
-# # 						video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-# # 						video_list_uploads.append([video_id])
-# # 					try:
-# # 						playlistitems_list_request = youtube.playlistItems().list_next(playlistitems_list_request, playlistitems_list_response)
-# # 					except HttpError:
-# # 						pass
-# # 			except NameError:
-# # 				pass
-# 				
-# 				
-# 	env = os.getenv('SERVER_SOFTWARE')
-# 	if (env and env.startswith('Google App Engine/')):
-#   	# Connecting from App Engine
-#   		db = MySQLdb.connect(
-#     	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
-#     	user='root',
-#     	db='sheepdog')
-# 	else:
-#   	# You may also assign an IP Address from the access control
-#   	# page and use it to connect from an external network.
-#   		pass
-# 
-# 	cursor = db.cursor()
-# 	cursor.execute("""TRUNCATE sheepdog.videoIds_sample;""")
-# 	db.commit()
-# 	cursor.execute("""INSERT INTO sheepdog.videoIds_sample (videoId) VALUES ('TjqH3XiiUF8'),('Hc0ZPYhl_VE');""")
-# 	db.commit()
-# 	#s = cursor.fetchall()
-# 	
-# 	#cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES %s, %s;""", [request.json["name"], request.json["email"]])
-# 	#db.commit()
-# 	
-# 	
-# 	if request.method == "POST":
-# 		r = request.get_json()
-# 		name = r['name']
-# 		email = r['email']
-# 		token = r['access_token']
-# 		logging.debug(token)
-# 		
-# 		cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
-# 		db.commit()
-# 		
-# # 		youtube_ = 
-# 		
-# # 		response = youtube.channels().list(access_token=token, mine="True", part="id").execute()
-# # 		logging.debug(response)
-# 		#https://www.googleapis.com/youtube/v3/channels?access_token=&mine=True&part=id
-# # 		for channel in response["items"]:
-# # 			user_channelId = channel["id"]
-# 		
-# 	
-# 	#time.sleep(2)
-# 	
-# 	#logging.debug(r['name'])
-# 	
-# 	#logging.debug(request.url)
-# 	#logging.debug(r)
-# 	#logging.debug(request.get_json()['name'])
+#   taskqueue.add()
+  video_list_uploads = []
 
-	return render_template('index.html') #, title = s, numbers = video_list_uploads
-	
+  env = os.getenv('SERVER_SOFTWARE')
+  if (env and env.startswith('Google App Engine/')):
+  # Connecting from App Engine
+    db = MySQLdb.connect(
+    unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+    user='root',
+    db='sheepdog')
+  else:
+  # You may also assign an IP Address from the access control
+  # page and use it to connect from an external network.
+    pass
+  cursor = db.cursor()
+  
+#   cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES %s, %s;""", [request.json["name"], request.json["email"]])
+#   db.commit()
+
+  if request.method == "POST":
+    r = request.get_json()
+    name = r['name']
+    email = r['email']
+    token = r['access_token']
+    logging.debug(token)
+
+    cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
+    db.commit()
+
+    url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
+    result = urlfetch.fetch(url)
+    logging.debug(result.content)
+
+  #logging.debug(request.url)
+
+  return render_template('index.html')
+
 @app.route('/user')
 def user():
 # 	env = os.getenv('SERVER_SOFTWARE')
