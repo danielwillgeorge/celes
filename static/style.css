@@ -1,12 +1,12 @@
 body         { font-family: 'Georgia', serif; font-size: 17px; background-color: #eee; }
-h5           { text-align: center; }
+h5           { font-size: 38px; text-align: center; color: #FF7600;}
 a            { color: #004B6B; font-size: 13px;}
 a:hover      { color: #6D4100; text-decoration: none;}
 .box         { width: 540px; margin: 0 auto; text-align: center; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);} /* original was width: 540px; margin: 40px auto; changed 9/25 */
 h2, h3, h4   { font-family: 'Garamond', 'Georgia', serif; font-weight: normal; }
-h1           { background: url(/static/flask.png) no-repeat center; color : #4FADE3;}
+h1           { background: url(/static/flask.png) no-repeat center; color : #757575;}
 h1 span      { display: none; }
-h2           { font-size: 30px; margin: 15px 0 5px 0; color : #4FADE3;}
+h2           { font-size: 30px; margin: 15px 0 5px 0; color : #757575;}
 h3           { font-size: 24px; margin: 15px 0 5px 0; }
 h4           { font-size: 19px; margin: 15px 0 5px 0; }
 textarea, code,
