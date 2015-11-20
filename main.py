@@ -74,9 +74,6 @@ def hello():
   # page and use it to connect from an external network.
     pass
   cursor = db.cursor()
-  
-#   cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES %s, %s;""", [request.json["name"], request.json["email"]])
-#   db.commit()
 
   if request.method == "POST":
     r = request.get_json()
