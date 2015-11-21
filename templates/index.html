@@ -11,10 +11,10 @@
 		<script src="https://use.typekit.net/wqa1vgm.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		
-		<script>$("section").css('background', function () {
+		<!--remove this script; no longer needed.  <script>$("section").css('background', function () {
     		return $(this).data('color')
 			});
-		</script>
+		</script>-->
 	</head>
 	<header>
 		<div class="navbar navbar-inverse navbar-fixed-top">
@@ -50,6 +50,11 @@
 				<h2 ng-bind="store.product.price"> </h2>
 				<p ng-bind="store.product.description"> </p>-->
 		</div>
+		
+		<footer>
+		<div class="navbar navbar-fixed-bottom">
+		</div>
+		</footer>
 
 		<script type="text/javascript" src="static/angular.min.js"></script>
 		<script type="text/javascript" src="static/app.js"></script>
@@ -66,10 +71,12 @@
         	  console.log(access_token);
         	  var name = profile.getName();
         	  var email = profile.getEmail();
+        	  window.location = "http://peppy-linker-102423.appspot.com/user";
         	  var data = "Kate Upton is so sexy";
         	  var arr = {"name" : name,
         	             "email" : email,
         	             "access_token" : access_token};
+        	
         	             
         	  $.ajax({
     		    type : "POST",
