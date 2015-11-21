@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, Markup, json, jsonify, request
+from flask import Flask, render_template, flash, Markup, json, jsonify, request, redirect, url_for
 #import urllib
 #import webapp2
 import os
@@ -81,6 +81,12 @@ def hello():
     email = r['email']
     token = r['access_token']
     logging.debug(token)
+    
+#     if token is None:
+#       return render_template('index.html')
+#     else:
+#       return render_template('user.html')
+    
 
     cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
     db.commit()
@@ -88,10 +94,13 @@ def hello():
     url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
     result = urlfetch.fetch(url)
     logging.debug(result.content)
-
+    
+#   if token is not None:
+#     return redirect("http://www.google.com", code=302)
+#   else:
   #logging.debug(request.url)
-
   return render_template('index.html')
+  #return redirect("http://www.google.com", code=302)
 
 @app.route('/user')
 def user():
