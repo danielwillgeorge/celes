@@ -3,6 +3,7 @@ h5           { font-size: 38px; text-align: center; color: #FF7600;}
 a            { color: #004B6B; font-size: 13px;}
 a:hover      { color: #6D4100; text-decoration: none;}
 .box         { margin: 0 auto; text-align: center; position: fixed; top: 35%; left: 50%; transform: translate(-50%, -50%);} /* original was width: 540px; margin: 40px auto; changed 9/25 */
+.jpg		 { display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 30px; /* or 50% */ border-radius: 30px; /* or 50% */ }
 h2, h3, h4   { font-family: 'Garamond', 'Georgia', serif; font-weight: normal; }
 h1           { background: url(/static/flask.png) no-repeat center; color : #757575;}
 h1 span      { display: none; }
