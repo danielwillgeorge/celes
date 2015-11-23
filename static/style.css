@@ -35,9 +35,9 @@ blockquote   { margin: 0; font-style: italic; color: #444; }
 .twitter li  { margin: 15px 0; line-height: 1.2; font-size: 15px; }
 .twitter li:before { content: "â™¯"; padding-left: 4px; }
 .twitter .meta, .twitter .meta a { color: #888; font-size: 13px; }
-table        { border: 1px solid black; border-collapse: collapse;
+table        { /*border: 1px solid black;*/ border-collapse: collapse;
                margin: 15px 0; }
-td, th       { border: 1px solid black; padding: 4px 10px;
+td, th       { /*border: 1px solid black;*/ padding: 4px 10px;
                text-align: left; }
 th           { background: #eee; font-weight: normal; }
 
