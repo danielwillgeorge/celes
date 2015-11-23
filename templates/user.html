@@ -11,11 +11,26 @@
 			<h5>Sheepdog</h5>
 		</div>
 	</header>
-	<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
 	<body>
 		<div class="box">
+			<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
+
 			<div style="width: 20%; float:left">
 			Top 10 Videos Liked By Fans
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+			
+			<div style="width: 80%; float:right">
+			Top 10 Users Liked By Fans
 			<table>
 				{% for i in range(5, urls|count) %}
 				<tr>
