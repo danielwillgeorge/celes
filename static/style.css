@@ -20,7 +20,7 @@ p            { line-height: 1.4; }
 ul li:before { color: #888; position: absolute; margin-left: -19px; }*/
 ul			 { display: block; text-align: center; padding-right: 60px; padding-top: 30px; }
 ul li		 { display: inline-block; text-align: center; margin-left: 50px; }
-ul li a		 { font-color: #333; }
+ul li a		 { color: #333; }
 ol           { line-height: 1.4; margin: 15px 0 15px 30px; padding: 0; }
 blockquote   { margin: 0; font-style: italic; color: #444; }
 .footer      { font-size: 13px; color: #888; text-align: right; margin-top: 25px; }
