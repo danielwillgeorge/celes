@@ -23,10 +23,16 @@
 	</header>
 	
 	<body>	
-		<div class=box>
-		    <h1>For anyone with a YouTube channel.</h1>
-		    <h2>Discover what your fans love to watch on YouTube.</h2>
-		    <h2>For free.</h2>
+		<div id="index" class=box>
+		    <h1>The easiest way to discover what your fans love to watch on YouTube.</h1>
+		    <ul class="i">
+		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: black; margin-left: 10px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Inspire ideas for new content</span></li>
+		    	<li><i class="fa fa-plus fa-2x" style="color: black; margin-left: 5px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Identify other creators and collaborate</span></li>
+		    	<li><i class="fa fa-refresh fa-2x" style="color: black; margin-left: 3px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Connect with your fans</span></li>
+		    	<li><i class="fa fa-youtube-play fa-2x" style="color: black;"></i><span style="vertical-align: 5px; margin-left: 15px;">Grow your channel</span></li>
+		    </ul>
+		    	
+		    <h2>Sign in with your YouTube account and try it, for free.</h2>	
 			<!-- The div and class for the 
 	             Google signin button -->
 	        <style>.abcRioButtonLightBlue { background-color: #4FADE3; color: #fff; } .abcRioButtonIcon { background-color: #fff;}  </style>
@@ -49,6 +55,42 @@
 				<h1 ng-bind="store.product.name">  </h1>
 				<h2 ng-bind="store.product.price"> </h2>
 				<p ng-bind="store.product.description"> </p>-->
+		</div>
+		
+		<div id="user" style="display:none">
+		<h1>amoot18</h1>
+			<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
+
+			<a href="#" onclick="signOut();">Sign Out</a>
+
+			<div style="width: 40%; float: right; font-size: 30px;">
+			Top 10 Videos Liked By Fans
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+			
+			<div style="width: 40%; float: right; font-size: 30px;">
+			Top 10 Users Liked By Fans
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+		<!--</div>-->
 		</div>
 		
 		<footer>
@@ -77,11 +119,14 @@
         	  console.log(access_token);
         	  var name = profile.getName();
         	  var email = profile.getEmail();
-        	  window.location = "http://peppy-linker-102423.appspot.com/user";
+        	  /*window.location = "http://peppy-linker-102423.appspot.com/user";*/
         	  var data = "Kate Upton";
         	  var arr = {"name" : name,
         	             "email" : email,
         	             "access_token" : access_token};
+        	             
+        	  $("#user").show();
+        	  $("#index").hide("slow");
         	
         	             
         	  $.ajax({
@@ -99,6 +144,8 @@
     		  var auth2 = gapi.auth2.getAuthInstance();
     		  auth2.signOut().then(function () {
       			console.log('User signed out.');
+      			$("#user").hide("slow");
+        	    $("#index").show();
     			});
   			}
     	</script>
