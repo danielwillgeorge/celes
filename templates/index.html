@@ -16,23 +16,24 @@
 			});
 		</script>-->
 	</head>
+	
+	<body>
 	<header>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<h5>Sheepdog</h5>
 		</div>
 	</header>
 	
-	<body>	
 		<div id="index" class=box>
-		    <h1>The easiest way to discover what your fans love to watch on YouTube.</h1>
+		    <h1>The easiest way to discover what your fans love to watch on YouTube</h1>
 		    <ul class="i">
-		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: black; margin-left: 10px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Inspire ideas for new content</span></li>
-		    	<li><i class="fa fa-plus fa-2x" style="color: black; margin-left: 5px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Identify other creators and collaborate</span></li>
-		    	<li><i class="fa fa-refresh fa-2x" style="color: black; margin-left: 3px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Connect with your fans</span></li>
-		    	<li><i class="fa fa-youtube-play fa-2x" style="color: black;"></i><span style="vertical-align: 5px; margin-left: 15px;">Grow your channel</span></li>
+		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: #FF7600; margin-left: 30.5625px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Inspire ideas for new content</span></li>
+		    	<li><i class="fa fa-refresh fa-2x" style="color: #FF7600; margin-left: 23.8437px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Identify other creators and collaborate</span></li>
+		    	<li><i class="fa fa-plus fa-2x" style="color: #FF7600; margin-left: 25.2812px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Connect with your fans</span></li>
+		    	<li><i class="fa fa-youtube-play fa-2x" style="color: #FF7600; margin-left: 20px;"></i><span style="vertical-align: 5px; margin-left: 15px;">Grow your channel</span></li>
 		    </ul>
 		    	
-		    <h2>Sign in with your YouTube account and try it, for free.</h2>	
+		    <h2>Sign in with your YouTube account and try it for free!</h2>	
 			<!-- The div and class for the 
 	             Google signin button -->
 	        <style>.abcRioButtonLightBlue { background-color: #4FADE3; color: #fff; } .abcRioButtonIcon { background-color: #fff;}  </style>
@@ -92,6 +93,7 @@
 			</div>
 		<!--</div>-->
 		</div>
+		<div class="modal"><!-- Place at bottom of page --></div>
 		
 		<footer>
 		<div class="navbar navbar-fixed-bottom">
@@ -110,6 +112,14 @@
 		<!-- Javascript for Google
 		     signin button -->
 		<script>
+		
+			$body = $("body");
+
+			$(document).on({
+    			ajaxStart: function() { $body.addClass("loading");    },
+     			ajaxStop: function() { $body.removeClass("loading"); }    
+			});
+			
       		function onSignIn(googleUser) { 
         	  var id_token = googleUser.getAuthResponse();
         	  var profile = googleUser.getBasicProfile();
@@ -124,11 +134,7 @@
         	  var arr = {"name" : name,
         	             "email" : email,
         	             "access_token" : access_token};
-        	             
-        	  $("#user").show();
-        	  $("#index").hide("slow");
         	
-        	             
         	  $.ajax({
     		    type : "POST",
     		    url : "http://peppy-linker-102423.appspot.com/",
@@ -138,17 +144,21 @@
     		      console.log(result);
     		    }
     		  });
+    		  
+    		  $("#user").show();
+        	  $("#index").hide();
         	};
         	
         	function signOut() {
     		  var auth2 = gapi.auth2.getAuthInstance();
     		  auth2.signOut().then(function () {
       			console.log('User signed out.');
-      			$("#user").hide("slow");
+      			$("#user").hide();
         	    $("#index").show();
     			});
   			}
     	</script>
+    	
     	<!--<script>
     	 AJAX call for
     	     variables to Flask
