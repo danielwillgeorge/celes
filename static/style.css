@@ -4,6 +4,7 @@ a            { color: #004B6B; /*font-size: 13px;*/ font-size: 16px;}
 a:hover      { /*color: #6D4100;*/ color: #4FADE3; text-decoration: none;}
 .box         { margin: 0 auto; text-align: center; position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); width: 580px;} /* original was width: 540px; margin: 40px auto; changed 9/25 */
 span img	 { display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; /* or 30px */ border-radius: 50%; /* or 30px */ margin-left: auto; margin-right: auto; }
+img			 { height: 60px; }
 h2, h3, h4   { font-family: 'Garamond', 'Georgia', serif; font-weight: normal; }
 h1           { background: url(/static/flask.png) no-repeat center; color : #757575; font-weight: 300; margin-top: 50px;}
 h1 span      { display: none; }
