@@ -24,12 +24,12 @@
 		</div>
 	</header>
 	
-		<div id="index" class=box>
+		<div id="index" class="box">
 		    <h1>The easiest way to discover what your fans love to watch on YouTube</h1>
 		    <ul class="i">
-		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: #FF7600;"></i><span style="vertical-align: 5px; margin-left: 30.5625px;">Inspire ideas for new content</span></li>
-		    	<li><i class="fa fa-refresh fa-2x" style="color: #FF7600;"></i><span style="vertical-align: 5px;  margin-left: 23.8437px;">Identify other creators and collaborate</span></li>
-		    	<li><i class="fa fa-plus fa-2x" style="color: #FF7600;"></i><span style="vertical-align: 5px; margin-left: 25.2812px;">Connect with your fans</span></li>
+		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: #FF7600; margin-left: 10px;"></i><span style="vertical-align: 5px; margin-left: 30.5625px;">Inspire ideas for new content</span></li>
+		    	<li><i class="fa fa-refresh fa-2x" style="color: #FF7600; margin-left: 3px;"></i><span style="vertical-align: 5px;  margin-left: 23.8437px;">Identify other creators and collaborate</span></li>
+		    	<li><i class="fa fa-plus fa-2x" style="color: #FF7600; margin-left: 5px;"></i><span style="vertical-align: 5px; margin-left: 25.2812px;">Connect with your fans</span></li>
 		    	<li><i class="fa fa-youtube-play fa-2x" style="color: #FF7600;"></i><span style="vertical-align: 5px; margin-left: 20px;">Grow your channel</span></li>
 		    </ul>
 		    	
@@ -65,21 +65,40 @@
 			<a href="#" onclick="signOut();">Sign Out</a>
 
 			<div style="width: 40%; float: right; font-size: 30px;">
-			Top 10 Videos Liked By Fans
-			<table>
-				{% for i in range(5, urls|count) %}
-				<tr>
-					<td>{{ i }}</td>
-					<td><img src={{ urls[i] }}></td>
-					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
-					<!--<td>{{ channelIds[i] }}</td>-->
-				</tr>
-				{% endfor %}
-			</table>
+			<span style="font-weight: 200;">Top 10 Videos Liked By Fans</span>
+				<div style="width: 40%; float: right; font-size: 30px;">
+				<table>
+					{% for i in range(5, urls|count) %}
+					<tr>
+						<td>{{ i }}</td>
+						<td><img src={{ urls[i] }}></td>
+						<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+						<!--<td>{{ channelIds[i] }}</td>-->
+					</tr>
+					{% endfor %}
+				</table>
+				</div>
+			
+				<div style="width: 40%; float: right; font-size: 30px;">
+				<table>
+					{% for i in range(5, urls|count) %}
+					<tr>
+						<td>{{ i }}</td>
+						<td><img src={{ urls[i] }}></td>
+						<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+						<!--<td>{{ channelIds[i] }}</td>-->
+					</tr>
+					{% endfor %}
+				</table>
+				</div>
+			
+			
 			</div>
 			
 			<div style="width: 40%; float: right; font-size: 30px;">
-			Top 10 Users Liked By Fans
+			<span style="font-weight: 200;">Top 10 Users Liked By Fans</span>
+			
+			<div>
 			<table>
 				{% for i in range(5, urls|count) %}
 				<tr>
@@ -92,6 +111,23 @@
 			</table>
 			</div>
 		<!--</div>-->
+		
+			<div style="width: 40%; float: right; font-size: 30px;">
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+		
+		
+		
+		</div>
 		</div>
 		<div class="modal"><!-- Place at bottom of page --></div>
 		
@@ -147,6 +183,7 @@
     		  
     		  $("#user").show();
         	  $("#index").hide();
+        	  $("#h5").hide();
         	};
         	
         	function signOut() {
