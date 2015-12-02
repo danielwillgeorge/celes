@@ -20,7 +20,7 @@
 	<body>
 	<header>
 		<div class="navbar navbar-inverse navbar-fixed-top">
-			<h5>Sheepdog</h5>
+			<h5 id="title" >Sheepdog</h5>
 		</div>
 	</header>
 	
@@ -183,7 +183,7 @@
     		  
     		  $("#user").show();
         	  $("#index").hide();
-        	  $("#h5").hide();
+        	  $("#title").hide();
         	};
         	
         	function signOut() {
@@ -192,6 +192,7 @@
       			console.log('User signed out.');
       			$("#user").hide();
         	    $("#index").show();
+        	    $("#title").show();
     			});
   			}
     	</script>
