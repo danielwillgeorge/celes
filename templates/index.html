@@ -58,12 +58,12 @@
 				<p ng-bind="store.product.description"> </p>-->
 		</div>
 		
-		<div id="user" style="display:none">
+		<div id="user" class="box" style="display:none; width: 100%;">
 		<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span><h1>amoot18</h1>
 
-			<div style="width: 40%; float: right; font-size: 30px;">
+			<div style="width: 50%; float: right; font-size: 30px;">
 			<span style="font-weight: 200;">Top 10 Videos Liked By Fans</span>
-				<div style="width: 40%; float: right; font-size: 30px;">
+				<div style="width: 50%; float: right; font-size: 30px;">
 				<table>
 					{% for i in range(5, urls|count) %}
 					<tr>
@@ -76,7 +76,7 @@
 				</table>
 				</div>
 			
-				<div style="width: 40%; float: right; font-size: 30px;">
+				<div style="width: 50%; float: right; font-size: 30px;">
 				<table>
 					{% for i in range(5, urls|count) %}
 					<tr>
@@ -92,10 +92,10 @@
 			
 			</div>
 			
-			<div style="width: 40%; float: right; font-size: 30px;">
+			<div style="width: 50%; float: right; font-size: 30px;">
 			<span style="font-weight: 200;">Top 10 Users Liked By Fans</span>
 			
-			<div style="width: 40%; float: right; font-size: 30px;">
+			<div style="width: 50%; float: right; font-size: 30px;">
 			<table>
 				{% for i in range(5, urls|count) %}
 				<tr>
@@ -109,7 +109,7 @@
 			</div>
 		<!--</div>-->
 		
-			<div style="width: 40%; float: right; font-size: 30px;">
+			<div style="width: 50%; float: right; font-size: 30px;">
 			<table>
 				{% for i in range(5, urls|count) %}
 				<tr>
@@ -122,10 +122,11 @@
 			</table>
 			</div>
 		
+		</div>
 		<a href="#" onclick="signOut();">Sign Out</a>
 		
 		</div>
-		</div>
+		
 		<div class="modal"><!-- Place at bottom of page --></div>
 		
 		<footer>
