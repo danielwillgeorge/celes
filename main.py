@@ -104,7 +104,7 @@ def hello():
   videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=z1PoNhYb3K4","http://youtube.com/watch?v=Kcwo_mhyqTw","http://youtube.com/watch?v=C7dxBlTC_9c","http://youtube.com/watch?v=PPdE3rbqf_Q","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=R1VUrOxRUsE","http://youtube.com/watch?v=3mKNyqK1CMI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=piW59SBH8KY"]
   channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
   urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg","https://i.ytimg.com/vi/z1PoNhYb3K4/default.jpg","https://i.ytimg.com/vi/Kcwo_mhyqTw/default.jpg","https://i.ytimg.com/vi/C7dxBlTC_9c/default.jpg","https://i.ytimg.com/vi/PPdE3rbqf_Q/default.jpg","https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg","https://i.ytimg.com/vi/R1VUrOxRUsE/default.jpg","https://i.ytimg.com/vi/3mKNyqK1CMI/default.jpg","https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg",""]
-  titles=["Video 1","Video 2","Video 3","Video 4","Video 5","Video 6","Video 7","Video 8","Video 9","Video 10"]
+  titles=["Video 1","Video 2","Video 3","Video 4","Video 5","So I Googled Myself...","Oops We're All Humans // Grace Helbig","The Proposal: Joshua and Colleen","If My Period Was A Person ft. Connor Franta","None"]
   #return render_template('user.html', videoIds=videoIds, channelIds=channelIds, urls=urls, titles=titles)
 
   return render_template('index.html', videoIds=videoIds, channelIds=channelIds, urls=urls, titles=titles)
