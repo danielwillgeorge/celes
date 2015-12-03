@@ -355,6 +355,10 @@ def Daniel():
     batch.execute(http=http)
     
   return 'string'
+  
+@app.route("/terms")
+def terms():
+  return render_template("terms-of-service.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
