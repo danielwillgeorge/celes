@@ -21,6 +21,8 @@ p            { line-height: 1.4; }
 ul li:before { color: #888; position: absolute; margin-left: -19px; }*/
 ul.i		 { margin: 25px 0 25px 125px; padding: 0; list-style: none; line-height: 1.4; text-align: left; font-weight: 100;}
 ul.i li		 { color: #888; margin-left: -19px; }
+ul.u		 { margin: 25px 0 25px 125px; padding: 0; list-style: none; line-height: 1.4; text-align: center; font-weight: 100;}
+ul.u li		 { color: #888; margin-left: -19px; }
 ul			 { display: block; text-align: center; padding-right: 60px; /*padding-top: 30px; */}
 ul li		 { display: inline-block; text-align: center; margin-left: 50px; }
 ul li a		 { color: #333; font-weight: 300;}
