@@ -64,12 +64,13 @@
 		<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
 
 			<div style="width: 50%; float: right; font-size: 30px;">
+			<i class="fa fa-users fa-2x" style="color: #FF7600;"></i>
 			<span style="font-weight: 300;">Top 10 Videos Liked By Fans</span>
 				<div style="width: 50%; float: right; font-size: 30px;">
 				<table>
-					{% for i in range(5, urls|count) %}
+					{% for i in range(1, 5) %}
 					<tr>
-						<td>{{ i + 1 }}</td>
+						<td>{{ i }}</td>
 						<td><img src={{ urls[i] }}></td>
 						<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
 						<!--<td>{{ channelIds[i] }}</td>-->
@@ -95,13 +96,14 @@
 			</div>
 			
 			<div style="width: 50%; float: right; font-size: 30px;">
+			<i class="fa fa-users fa-2x" style="color: #FF7600;"></i>
 			<span style="font-weight: 300;">Top 10 Users Liked By Fans</span>
 			
 			<div style="width: 50%; float: right; font-size: 30px;">
 			<table>
-				{% for i in range(5, urls|count) %}
+				{% for i in range(1, 5) %}
 				<tr>
-					<td>{{ i + 1 }}</td>
+					<td>{{ i }}</td>
 					<td><img src={{ urls[i] }}></td>
 					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
 					<!--<td>{{ channelIds[i] }}</td>-->
