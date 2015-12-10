@@ -22,6 +22,9 @@ import MySQLdb
 
 from sheepdog import *
 
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 # from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
 # from oauth2client.file import Storage
