@@ -48,9 +48,7 @@ global channel_Id
 global user
 global nextPageToken
 
-channel_list = ['UCgJA3nqJEUZBkZivasUSdJg']
 channel_list_ = []
-#uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
 http = httplib2.Http(cache=memcache)
 
 CLIENT_SECRETS_FILE = "client_secrets.json"
@@ -63,7 +61,6 @@ youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIz
 @app.route('/', methods=["GET", "POST"])
 def hello():
 #   taskqueue.add()
-  video_list_uploads = []
 
   env = os.getenv('SERVER_SOFTWARE')
   if (env and env.startswith('Google App Engine/')):
@@ -91,6 +88,10 @@ def hello():
     url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
     result = urlfetch.fetch(url)
     logging.debug(result.content)
+    
+    if form.validate_on_submit():
+      if "signIn" in request.form:
+        logging.debug("Kate Upton is so hot.")
 
   videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=h23oPnh1WJM","http://youtube.com/watch?v=KWZGAExj-es","http://youtube.com/watch?v=k9W5XWekhMI","http://youtube.com/watch?v=2SexonKBB_U","http://youtube.com/watch?v=diU70KshcjA","http://youtube.com/watch?v=XLlSiCkKmDQ","http://youtube.com/watch?v=sCxzaHC30Ec"]
   channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
@@ -100,111 +101,6 @@ def hello():
   titles=["Coming Out","If My Period Was A Person ft. Connor Franta","So I Googled Myself…","My 200th Video","Sia - Elastic Heart feat. Shia LaBeouf & Maddie Ziegler (Official Video)","So Relatable","3 MILLION SUBS GIVEAWAY!","After Ever After - DISNEY Parody","Do you want to build a snowman? FROZEN","Draw My Life- Jenna Marbles"]
 
   return render_template('index.html', videoIds=videoIds, channelIds=channelIds, urls=urls, titles=titles, urls_=urls_, users_=users_)
-
-@app.route('/user')
-def user():
-	env = os.getenv('SERVER_SOFTWARE')
-	if (env and env.startswith('Google App Engine/')):
-  	# Connecting from App Engine
-  		db = MySQLdb.connect(
-    	unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
-    	user='root',
-    	db='sheepdog')
-	else:
-  	# You may also assign an IP Address from the access control
-  	# page and use it to connect from an external network.
-  		pass
-
-	cursor = db.cursor()
-	cursor.execute("""TRUNCATE sheepdog.videoIds;""")
-	db.commit()
-
-	batch = BatchHttpRequest()
- 	fr = frozen('Princess Elsa')
-# 	uniques = ['UCXqK1FO9yS8x7CMGkzLgJmA']
-# 	f = get_upload_list(youtube,"UCXqK1FO9yS8x7CMGkzLgJmA")
-	
-	for video_id in f:
-	  cursor.execute("""INSERT INTO sheepdog.user_uploads (videoId) VALUES (%s);""", [video_id])
-	  db.commit()
-	
- 	for videoId in f:
- 	  request = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
- 	  
-	  def list1(request_id,response,exception):
-		for item in response["items"]:
-		  comment = item["snippet"]["topLevelComment"]
-		  try:
-		    authorChannelId = comment["snippet"]["authorChannelId"]
-		    channel = authorChannelId.get("value")
-		  except KeyError:
-		    pass
-		  channel_list_.append(channel)
-		  
-	  batch.add(request, callback=list1)
-
-	batch.execute(http=http)
-	
-	uniques = list(set(channel_list_))
-	uniques.sort()
-	
-	time.sleep(1)
- 		
-	
-	video_list = []
-	for channelId in uniques[:1]:
-	  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
-
-	  #Retrieve the contentDetails part of the channel resource for the
-	  #authenticated user's channel.
-	  channels_response = youtube.channels().list(
-		id=channelId, 
-		part="contentDetails"
-	  ).execute()
-
-	  for channel in channels_response["items"]:
-		try:
-		  likes_list_id = channel["contentDetails"]["relatedPlaylists"]["likes"]
-		except KeyError:
-		  break
-		  
-		playlist_item_count = youtube.playlistItems().list(
-		playlistId=likes_list_id,
-		part="id"
-		).execute()
-	
-		count = playlist_item_count["pageInfo"]
-		count = count.get("totalResults")
-		n = count/50
-		if count % 50 != 0:
-		  n = n + 1
-		
-		for token in tokens[:n]:
-  
-		  try:
-			playlistitems_list_request = youtube.playlistItems().list(
-			  playlistId=likes_list_id, 
-			  part="snippet",
-			  pageToken="", 
-			  maxResults=50)	  
-		  except NameError:
-			break
-
-		  def list1(request_id,response,exception):
-			for playlist_item in response["items"]:
-			  video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-			  cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
-			  db.commit()
-		  batch.add(playlistitems_list_request, callback=list1)
-	
- 	  batch.execute(http=http)
-
-    fr="Princess Elsa"
-    videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=z1PoNhYb3K4","http://youtube.com/watch?v=Kcwo_mhyqTw","http://youtube.com/watch?v=C7dxBlTC_9c","http://youtube.com/watch?v=PPdE3rbqf_Q","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=R1VUrOxRUsE","http://youtube.com/watch?v=3mKNyqK1CMI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=piW59SBH8KY"]
-    channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
-    urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg","https://i.ytimg.com/vi/z1PoNhYb3K4/default.jpg","https://i.ytimg.com/vi/Kcwo_mhyqTw/default.jpg","https://i.ytimg.com/vi/C7dxBlTC_9c/default.jpg","https://i.ytimg.com/vi/PPdE3rbqf_Q/default.jpg","https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg","https://i.ytimg.com/vi/R1VUrOxRUsE/default.jpg","https://i.ytimg.com/vi/3mKNyqK1CMI/default.jpg","https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg",""]
-    titles=["Video 1","Video 2","Video 3","Video 4","Video 5","Video 6","Video 7","Video 8","Video 9","Video 10"]
-    return render_template('user.html', videoIds=videoIds, channelIds=channelIds, urls=urls, titles=titles)
     
 @app.route('/_ah/queue/default', methods=["POST"])
 def task():
@@ -219,12 +115,11 @@ def task():
       user='root',
       db='sheepdog')
       
-      
     cursor = db.cursor()
     
-#     for video_id in f:
-#       cursor.execute("""INSERT INTO sheepdog.user_uploads (videoId) VALUES (%s);""", [video_id])
-#       db.commit()
+    for video_id in f:
+      cursor.execute("""INSERT INTO sheepdog.user_uploads (videoId) VALUES (%s);""", [video_id])
+      db.commit()
     
     for videoId in f:
       r = get_comments(youtube, videoId, "UCXqK1FO9yS8x7CMGkzLgJmA")
@@ -305,10 +200,7 @@ def task():
 #       channelId_ = results["snippet"]["channelId"]
 #       thumbnail = results["snippet"]["thumbnails"]["default"]["url"]
 #       title_ = results["snippet"]["title"]
-      
-      
-  
-    
+
   return 'string'
 
 @app.route("/google", methods=["POST"])
