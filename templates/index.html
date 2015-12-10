@@ -12,6 +12,10 @@
 		<script src="https://use.typekit.net/wqa1vgm.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		
+		<style>
+		  #button:hover{background-color:#4285f4;}
+		</style>
+		
 		<!--remove this script; no longer needed.  <script>$("section").css('background', function () {
     		return $(this).data('color')
 			});
@@ -60,20 +64,21 @@
 				<p ng-bind="store.product.description"> </p>-->
 		</div>
 		
-		<div id="user" class="box" style="display:none; width: 100%; top: 450px;">
-		<h5 style="font-size: 48px;">amoot18<h5>
+		<div id="user" class="box" style="display:none; width: 100%; top: 385px;">
+		<h5 style="font-size: 48px; margin-bottom: 1px;">amoot18</h5>
 		<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
 
 			<div style="width: 46%; float: left; font-size: 30px;">
 			<i class="fa fa-video-camera fa-2x" style="color: #FF7600;"></i>
-			<span style="font-weight: 300;">Top 10 Videos Liked By Fans</span>
+			<br>
+			<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Videos Liked By Fans</span>
 				<div style="width: 50%; float: left; font-size: 30px;">
 				<table>
 					{% for i in range(1, 6) %}
 					<tr>
-						<td>{{ i }}</td>
+						<td style="color: #757575; font-weight: 200;">{{ i }}</td>
 						<td><img src={{ urls[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+						<td style="width: 60px;"><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
 						<!--<td>{{ channelIds[i] }}</td>-->
 					</tr>
 					{% endfor %}
@@ -84,9 +89,9 @@
 				<table>
 					{% for i in range(5, urls|count) %}
 					<tr>
-						<td>{{ i + 1 }}</td>
+						<td style="color: #757575; font-weight: 200;">{{ i + 1 }}</td>
 						<td><img src={{ urls[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+						<td style="width: 60px;"><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
 						<!--<td>{{ channelIds[i] }}</td>-->
 					</tr>
 					{% endfor %}
@@ -98,13 +103,14 @@
 			
 			<div style="width: 46%; float: right; font-size: 30px;">
 			<i class="fa fa-users fa-2x" style="color: #FF7600;"></i>
-			<span style="font-weight: 300;">Top 10 Users Liked By Fans</span>
+			<br>
+			<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Users Liked By Fans</span>
 			
 			<div style="width: 50%; float: left; font-size: 30px;">
 			<table>
 				{% for i in range(1, 6) %}
 				<tr>
-					<td>{{ i }}</td>
+					<td style="color: #757575; font-weight: 200;">{{ i }}</td>
 					<td><img src={{ urls_[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
 					<td><a href={{ videoIds[i] }}>{{ users_[i] }}</a></td>
 					<!--<td>{{ channelIds[i] }}</td>-->
@@ -118,7 +124,7 @@
 			<table>
 				{% for i in range(5, urls_|count) %}
 				<tr>
-					<td>{{ i + 1 }}</td>
+					<td style="color: #757575; font-weight: 200;">{{ i + 1 }}</td>
 					<td><img src={{ urls_[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;" ></td>
 					<td><a href={{ videoIds[i] }}>{{ users_[i] }}</a></td>
 					<!--<td>{{ channelIds[i] }}</td>-->
@@ -134,7 +140,8 @@
 				<li>Engage: Is there something new or different about these videos that you could include on your channel?  Maybe your fans love videos that encourage participation.  Go for it!</li>
 				<li>Collaborate: check out those users.  Do you see anyone you think would make for a great collaboration?  Reach out, and mention them on your own channel!</li>
 			</ul>-->
-		<button type="button" style="margin-left: auto; margin-right: auto; height: 50px; width: 200px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: relative; text-align: center; vertical-align: middle; white-space: nowrap;"><a href="#" onclick="signOut();">Sign Out</a></span>
+		<br>
+		<div style="display: inline-block; padding: 20px;"><button type="button" style="border: none; margin:0 auto; height: 50px; width: 200px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: relative; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block;" onclick="signOut();">Sign Out</button></div>
 		</div>
 		
 		<div class="modal">Yaaaas, this may take a minute...processing millions of lines of data.</div>
