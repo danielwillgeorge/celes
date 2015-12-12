@@ -58,10 +58,14 @@ YOUTUBE_API_VERSION = "v3"
 
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIzaSyBRgM5ARXMih_F9HviEUFYDpnkEmA4FPCs")
 
-@app.route('/', methods=["GET", "POST"])
-def hello():
-#   taskqueue.add()
-
+@app.route('/')
+def root():
+  return render_template('index.html', videoIds=[], channelIds=[], urls=[], titles=[], urls_=[], users_=[])
+#   if request.method == "POST":
+#     return render_template('index.html', videoIds=["Hello"], channelIds=["there"], urls=["world"], titles=["Daniel"], urls_=["George"], users_=["yas"])
+  
+@app.route('/', methods=["POST"])
+def root_():
   env = os.getenv('SERVER_SOFTWARE')
   if (env and env.startswith('Google App Engine/')):
   # Connecting from App Engine
@@ -74,33 +78,37 @@ def hello():
   # page and use it to connect from an external network.
     pass
   cursor = db.cursor()
+  
+  r = request.get_json()
+  name = r['name']
+  email = r['email']
+  token = r['access_token']
+  logging.debug(token)
 
-  if request.method == "POST":
-    r = request.get_json()
-    name = r['name']
-    email = r['email']
-    token = r['access_token']
-    logging.debug(token)
+  cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
+  db.commit()
 
-    cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
-    db.commit()
-
-    url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
-    result = urlfetch.fetch(url)
-    logging.debug(result.content)
+  url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
+  result = urlfetch.fetch(url)
+  logging.debug(result.content)
+  
+  if token:
+    logging.debug("Kate Upton")
+    videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=h23oPnh1WJM","http://youtube.com/watch?v=KWZGAExj-es","http://youtube.com/watch?v=k9W5XWekhMI","http://youtube.com/watch?v=2SexonKBB_U","http://youtube.com/watch?v=diU70KshcjA","http://youtube.com/watch?v=XLlSiCkKmDQ","http://youtube.com/watch?v=sCxzaHC30Ec"]
+    channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
+    urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg","https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg","https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg","https://i.ytimg.com/vi/h23oPnh1WJM/default.jpg","https://i.ytimg.com/vi/KWZGAExj-es/default.jpg","https://i.ytimg.com/vi/k9W5XWekhMI/default.jpg","https://i.ytimg.com/vi/2SexonKBB_U/default.jpg","https://i.ytimg.com/vi/diU70KshcjA/default.jpg","https://i.ytimg.com/vi/XLlSiCkKmDQ/default.jpg","https://i.ytimg.com/vi/sCxzaHC30Ec/default.jpg"]
+    urls_=["https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-dDvEj5lMd9c/AAAAAAAAAAI/AAAAAAAAAAA/EULm0R9mEtk/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-ssT-qFQ2_UM/AAAAAAAAAAI/AAAAAAAAAAA/mqixgAYWk1E/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-SRcAgeuJbj8/AAAAAAAAAAI/AAAAAAAAAAA/YsJPiCWZUXY/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-EddJTwKC45c/AAAAAAAAAAI/AAAAAAAAAAA/dffQCcr3Tu4/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-E2z0657tkRo/AAAAAAAAAAI/AAAAAAAAAAA/Avs9FI5wSkA/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg"]
+    users_=["ConnorFranta","IISuperwomanII","ConnorFranta","JennaMarbles","SiaVEVO","ConnorFranta","JoeyGraceffa","Paint","SHAYTARDS","JennaMarbles"]
+    titles=["Coming Out","If My Period Was A Person ft. Connor Franta","So I Googled Myself...","My 200th Video","Sia - Elastic Heart feat. Shia LaBeouf & Maddie Ziegler (Official Video)","So Relatable","3 MILLION SUBS GIVEAWAY!","After Ever After - DISNEY Parody","Do you want to build a snowman? FROZEN","Draw My Life- Jenna Marbles"]
+    #taskqueue.add()
     
-    if form.validate_on_submit():
-      if "signIn" in request.form:
-        logging.debug("Kate Upton is so hot.")
-
-  videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=h23oPnh1WJM","http://youtube.com/watch?v=KWZGAExj-es","http://youtube.com/watch?v=k9W5XWekhMI","http://youtube.com/watch?v=2SexonKBB_U","http://youtube.com/watch?v=diU70KshcjA","http://youtube.com/watch?v=XLlSiCkKmDQ","http://youtube.com/watch?v=sCxzaHC30Ec"]
-  channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
-  urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg","https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg","https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg","https://i.ytimg.com/vi/h23oPnh1WJM/default.jpg","https://i.ytimg.com/vi/KWZGAExj-es/default.jpg","https://i.ytimg.com/vi/k9W5XWekhMI/default.jpg","https://i.ytimg.com/vi/2SexonKBB_U/default.jpg","https://i.ytimg.com/vi/diU70KshcjA/default.jpg","https://i.ytimg.com/vi/XLlSiCkKmDQ/default.jpg","https://i.ytimg.com/vi/sCxzaHC30Ec/default.jpg"]
-  urls_=["https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-dDvEj5lMd9c/AAAAAAAAAAI/AAAAAAAAAAA/EULm0R9mEtk/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-ssT-qFQ2_UM/AAAAAAAAAAI/AAAAAAAAAAA/mqixgAYWk1E/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-SRcAgeuJbj8/AAAAAAAAAAI/AAAAAAAAAAA/YsJPiCWZUXY/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-EddJTwKC45c/AAAAAAAAAAI/AAAAAAAAAAA/dffQCcr3Tu4/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-E2z0657tkRo/AAAAAAAAAAI/AAAAAAAAAAA/Avs9FI5wSkA/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg"]
-  users_=["ConnorFranta","IISuperwomanII","ConnorFranta","JennaMarbles","SiaVEVO","ConnorFranta","JoeyGraceffa","Paint","SHAYTARDS","JennaMarbles"]
-  titles=["Coming Out","If My Period Was A Person ft. Connor Franta","So I Googled Myself…","My 200th Video","Sia - Elastic Heart feat. Shia LaBeouf & Maddie Ziegler (Official Video)","So Relatable","3 MILLION SUBS GIVEAWAY!","After Ever After - DISNEY Parody","Do you want to build a snowman? FROZEN","Draw My Life- Jenna Marbles"]
-
-  return render_template('index.html', videoIds=videoIds, channelIds=channelIds, urls=urls, titles=titles, urls_=urls_, users_=users_)
+    keys = ["videoIds","channelIds","urls","urls_","users_","titles"]
+    values = [videoIds,channelIds,urls,urls_,users_,titles]
+    res = dict(zip(keys, values))
+    
+    return jsonify(result=res)
+    
+  return "string"
     
 @app.route('/_ah/queue/default', methods=["POST"])
 def task():
@@ -143,8 +151,7 @@ def task():
   
   video_list = []
   likes_list_ids = []
-  tokens = ["","CDIQAA","CGQQAA","CJYBEAA","CMgBEAA","CPoBEAA","CKwCEAA","CN4CEAA","CJADEAA","CMIDEAA","CPQDEAA","CKYEEAA", "CNgEEAA", "CIoFEAA", "CLwFEAA", "CO4FEAA", "CKAGEAA", "CNIGEAA", "CIQHEAA", "CLYHEAA", "COgHEAA", "CJoIEAA", "CMwIEAA", "CP4IEAA", "CLAJEAA", "COIJEAA", "CJQKEAA", "CMYKEAA", "CPgKEAA", "CKoLEAA", "CNwLEAA", "CI4MEAA", "CMAMEAA", "CPIMEAA", "CKQNEAA", "CNYNEAA", "CIgOEAA", "CLoOEAA", "COwOEAA", "CJ4PEAA", "CNAPEAA", "CIIQEAA", "CLQQEAA", "COYQEAA", "CJgREAA", "CMoREAA", "CPwREAA", "CK4SEAA", "COASEAA", "CJITEAA", "CMQTEAA", "CPYTEAA", "CKgUEAA", "CNoUEAA", "CIwVEAA", "CL4VEAA", "CPAVEAA", "CKIWEAA", "CNQWEAA", "CIYXEAA", "CLgXEAA", "COoXEAA", "CJwYEAA", "CM4YEAA", "CIAZEAA", "CLIZEAA", "COQZEAA", "CJYaEAA", "CMgaEAA", "CPoaEAA", "CKwbEAA", "CN4bEAA", "CJAcEAA", "CMIcEAA", "CPQcEAA", "CKYdEAA", "CNgdEAA", "CIoeEAA", "CLweEAA", "CO4eEAA", "CKAfEAA", "CNIfEAA", "CIQgEAA", "CLYgEAA", "COggEAA", "CJohEAA", "CMwhEAA", "CP4hEAA", "CLAiEAA", "COIiEAA", "CJQjEAA", "CMYjEAA", "CPgjEAA", "CKokEAA", "CNwkEAA", "CI4lEAA", "CMAlEAA", "CPIlEAA", "CKQmEAA", "CNYmEAA", ]
-
+  
   def channelId_group(seq, size):
     return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
   
@@ -165,31 +172,9 @@ def task():
 
   for likes_list_id in likes_list_ids:
     taskqueue.add(queue_name="default", url="/google", params={"user":likes_list_id})
-#     for token in tokens[:20]:
-#       try:
-#         playlistitems_list_request = youtube.playlistItems().list(
-#           playlistId=likes_list_id,
-#           part="snippet",
-#           pageToken=token,
-#           maxResults=50
-#           )
-#       except NameError:
-#         pass
-#         
-#       def list1(request_id,response,exception):
-#         for playlist_item in response["items"]:
-#           video_id = playlist_item["snippet"]["resourceId"]["videoId"]
-#           cursor.execute("""INSERT INTO sheepdog.videoIds (videoId) VALUES (%s);""", [video_id])
-#           db.commit()
-#       batch.add(playlistitems_list_request, callback=list1)
-#       
-#   batch.execute(http=http)
-  
-#@app.route("/")
-#  task loop right here
   
   #Google Cloud SQL Query to pull top 10 videoIds
-#   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
+#   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.user_uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
 #   output = cursor.fetchall()
 #   
 #   for videoId in output:
