@@ -75,11 +75,10 @@
 				<div style="width: 50%; float: left; font-size: 30px;">
 				<table>
 					{% for i in range(1, 6) %}
-					<tr>
+					<tr id="g{{ i - 1}}">
 						<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-						<td><img src={{ urls[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td style="width: 60px;"><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
-						<!--<td>{{ channelIds[i] }}</td>-->
+						<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+						<td style="width: 60px;"><a></a></td>
 					</tr>
 					{% endfor %}
 				</table>
@@ -87,12 +86,11 @@
 			
 				<div style="width: 50%; float: left; font-size: 30px;">
 				<table>
-					{% for i in range(5, urls|count) %}
-					<tr>
-						<td style="color: #757575; font-weight: 200;">{{ i + 1 }}</td>
-						<td><img src={{ urls[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td style="width: 60px;"><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
-						<!--<td>{{ channelIds[i] }}</td>-->
+					{% for i in range(6, 11) %} <!-- urls|count -->
+					<tr id="h{{ i - 1}}">
+						<td style="color: #757575; font-weight: 200;">{{ i }}</td>
+						<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+						<td style="width: 60px;"><a></a></td>
 					</tr>
 					{% endfor %}
 				</table>
@@ -109,10 +107,10 @@
 			<div style="width: 50%; float: left; font-size: 30px;">
 			<table>
 				{% for i in range(1, 6) %}
-				<tr>
+				<tr id="i{{ i - 1}}">
 					<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-					<td><img src={{ urls_[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-					<td><a href={{ videoIds[i] }}>{{ users_[i] }}</a></td>
+					<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+					<td><a></a></td> <!-- href={{ videoIds[i] }} {{ users_[i] }} -->
 					<!--<td>{{ channelIds[i] }}</td>-->
 				</tr>
 				{% endfor %}
@@ -122,11 +120,11 @@
 		
 			<div style="width: 50%; float: left; font-size: 30px;">
 			<table>
-				{% for i in range(5, urls_|count) %}
-				<tr>
-					<td style="color: #757575; font-weight: 200;">{{ i + 1 }}</td>
-					<td><img src={{ urls_[i] }} style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;" ></td>
-					<td><a href={{ videoIds[i] }}>{{ users_[i] }}</a></td>
+				{% for i in range(6, 11) %}
+				<tr id="j{{ i - 1}}">
+					<td style="color: #757575; font-weight: 200;">{{ i }}</td>
+					<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+					<td><a></a></td>
 					<!--<td>{{ channelIds[i] }}</td>-->
 				</tr>
 				{% endfor %}
@@ -192,7 +190,43 @@
     		    data: JSON.stringify(arr, null, '\t'),
     		    contentType: 'application/json',
     		    success: function(result) {
-    		      console.log(result);
+    		      /*console.log(result);*/
+    		      r = result;
+    		      
+    		      function addTable() {
+    		        var i = 0;
+    		        var num = 4;
+    		        for(i = 0; i <= num; i++)
+    		          {
+    		            document.getElementById("g" + i).cells[1].getElementsByTagName("img")[0].src = r.result.urls[i];
+    		            document.getElementById("g" + i).cells[2].getElementsByTagName("a")[0].href = r.result.videoIds[i];
+    		            document.getElementById("g" + i).cells[2].getElementsByTagName("a")[0].innerHTML = r.result.titles[i];
+    		            
+    		            document.getElementById("i" + i).cells[1].getElementsByTagName("img")[0].src = r.result.urls_[i];
+    		            document.getElementById("i" + i).cells[2].getElementsByTagName("a")[0].href = r.result.videoIds[i];
+    		            document.getElementById("i" + i).cells[2].getElementsByTagName("a")[0].innerHTML = r.result.users_[i];
+    		              
+    		          }
+    		      
+    		      
+    		        var k = 5;
+    		        var num_ = 9;
+    		        for(k = 5; k <= num_; k++)
+    		          {
+    		            document.getElementById("h" + k).cells[1].getElementsByTagName("img")[0].src = r.result.urls[k];
+    		            document.getElementById("h" + k).cells[2].getElementsByTagName("a")[0].href = r.result.videoIds[k];
+    		            document.getElementById("h" + k).cells[2].getElementsByTagName("a")[0].innerHTML = r.result.titles[k];
+    		            
+    		            document.getElementById("j" + k).cells[1].getElementsByTagName("img")[0].src = r.result.urls_[k];
+    		            document.getElementById("j" + k).cells[2].getElementsByTagName("a")[0].href = r.result.videoIds[k];
+    		            document.getElementById("j" + k).cells[2].getElementsByTagName("a")[0].innerHTML = r.result.users_[k];
+    		          
+    		          }
+    		      
+    		      }
+    		      
+    		     addTable(); 
+    		      
     		    }
     		  });
     		  
