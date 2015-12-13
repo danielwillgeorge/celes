@@ -61,8 +61,6 @@ youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey="AIz
 @app.route('/')
 def root():
   return render_template('index.html', videoIds=[], channelIds=[], urls=[], titles=[], urls_=[], users_=[])
-#   if request.method == "POST":
-#     return render_template('index.html', videoIds=["Hello"], channelIds=["there"], urls=["world"], titles=["Daniel"], urls_=["George"], users_=["yas"])
   
 @app.route('/', methods=["POST"])
 def root_():
@@ -176,6 +174,8 @@ def task():
   #Google Cloud SQL Query to pull top 10 videoIds
 #   cursor.execute("""SELECT v.videoId FROM sheepdog.videoIds v WHERE v.videoId NOT IN (SELECT u.videoId FROM sheepdog.user_uploads u) GROUP BY v.videoId ORDER BY COUNT(v.videoId) DESC LIMIT 10""")
 #   output = cursor.fetchall()
+
+#   logging.debug(output)
 #   
 #   for videoId in output:
 #     results = youtube.videos().list(id=videoId, part="id,snippet").execute()
