@@ -189,7 +189,7 @@ def task():
   return 'string'
 
 @app.route("/google", methods=["POST"])
-def Daniel(): 
+def task_(): 
   if request.method == "POST":
     env = os.getenv('SERVER_SOFTWARE')
     if (env and env.startswith('Google App Engine/')):
@@ -227,6 +227,18 @@ def Daniel():
 @app.route('/terms')
 def terms():
   return render_template('terms-of-service.html')
+  
+@app.route('/privacy')
+def privacy():
+  return render_template('privacy.html')
+  
+@app.route('/contact')
+def contact():
+  return render_template('contact.html')
+  
+@app.route('/support')
+def support():
+  return render_template('support.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
