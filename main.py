@@ -64,18 +64,18 @@ def root():
   
 @app.route('/', methods=["POST"])
 def root_():
-  env = os.getenv('SERVER_SOFTWARE')
-  if (env and env.startswith('Google App Engine/')):
-  # Connecting from App Engine
-    db = MySQLdb.connect(
-    unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
-    user='root',
-    db='sheepdog')
-  else:
-  # You may also assign an IP Address from the access control
-  # page and use it to connect from an external network.
-    pass
-  cursor = db.cursor()
+#   env = os.getenv('SERVER_SOFTWARE')
+#   if (env and env.startswith('Google App Engine/')):
+#   # Connecting from App Engine
+#     db = MySQLdb.connect(
+#     unix_socket='/cloudsql/peppy-linker-102423:daniel-george',
+#     user='root',
+#     db='sheepdog')
+#   else:
+#   # You may also assign an IP Address from the access control
+#   # page and use it to connect from an external network.
+#     pass
+#   cursor = db.cursor()
   
   r = request.get_json()
   name = r['name']
@@ -83,8 +83,8 @@ def root_():
   token = r['access_token']
   logging.debug(token)
 
-  cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
-  db.commit()
+#   cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
+#   db.commit()
 
   url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
   result = urlfetch.fetch(url)
