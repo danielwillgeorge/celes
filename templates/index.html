@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="/static/jquery.js"></script>
 		<script src="https://use.typekit.net/wqa1vgm.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<link rel="icon" href="favicon.ico">
 		
 		<style>
 		  #button:hover{background-color:#4285f4;}
@@ -26,7 +27,8 @@
 	<body>
 	<header>
 		<div class="navbar navbar-inverse navbar-fixed-top">
-			<h5 id="title" >Sheepdog</h5>
+			<h5 id="title">Sheepdog<img class="style" src="/static/sheepdog-logo.png"></h5>
+			<h6 id="user-title" style="display:none;"><img src="/static/sheepdog-logo.png"></h6>
 		</div>
 	</header>
 	
@@ -230,6 +232,7 @@
     		  $("#user").show();
         	  $("#index").hide();
         	  $("#title").hide();
+        	  $("#user-title").show();
         	  
         	};
         	
@@ -240,6 +243,7 @@
       			$("#user").hide();
         	    $("#index").show();
         	    $("#title").show();
+        	    $("#user-title").hide();
     			});
   			}
     	</script>
