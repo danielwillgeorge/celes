@@ -86,18 +86,120 @@ def root_():
 #   cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
 #   db.commit()
 
+  _videos = ["WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
+  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
+  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
+  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4"]
+  for videoId_ in _videos:
+    response_ = youtube.videos().list(id=videoId_, part="snippet").execute()
+
   url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
   result = urlfetch.fetch(url)
   logging.debug(result.content)
   
   if token:
     logging.debug("Kate Upton")
-    videoIds=["http://youtube.com/watch?v=WYodBfRxKWI","http://youtube.com/watch?v=gkRDqSeCFes","http://youtube.com/watch?v=4oEvM9-XhP8","http://youtube.com/watch?v=h23oPnh1WJM","http://youtube.com/watch?v=KWZGAExj-es","http://youtube.com/watch?v=k9W5XWekhMI","http://youtube.com/watch?v=2SexonKBB_U","http://youtube.com/watch?v=diU70KshcjA","http://youtube.com/watch?v=XLlSiCkKmDQ","http://youtube.com/watch?v=sCxzaHC30Ec"]
+    videoIds=["http://youtube.com/watch?v=WYodBfRxKWI",
+    "http://youtube.com/watch?v=gkRDqSeCFes",
+    "http://youtube.com/watch?v=4oEvM9-XhP8",
+    "http://youtube.com/watch?v=h23oPnh1WJM",
+    "http://youtube.com/watch?v=KWZGAExj-es",
+    "http://youtube.com/watch?v=k9W5XWekhMI",
+    "http://youtube.com/watch?v=2SexonKBB_U",
+    "http://youtube.com/watch?v=diU70KshcjA",
+    "http://youtube.com/watch?v=XLlSiCkKmDQ",
+    "http://youtube.com/watch?v=sCxzaHC30Ec",
+    "http://youtube.com/watch?v=lExW80sXsHs",
+    "http://youtube.com/watch?v=Mt22-VMiR-Y",
+    "http://youtube.com/watch?v=hlVBg7_08n0",
+    "http://youtube.com/watch?v=389TMUtqX3E",
+    "http://youtube.com/watch?v=ijvwFU4_5jk",
+    "http://youtube.com/watch?v=e-ORhEE9VVg",
+    "http://youtube.com/watch?v=HZJ2U-lYc30",
+    "http://youtube.com/watch?v=3mKNyqK1CMI",
+    "http://youtube.com/watch?v=kfpBmzatyX0",
+    "http://youtube.com/watch?v=gNS04P8djk4"]
     channelIds=["UCudeRz9YntRrmKBSqnHyKGQ","UCGCPAOQDZa_TTTXDr5byjww","UCGCPAOQDZa_TTTXDr5byjww","UC9gFih9rw0zNCK3ZtoKQQyA","UCN9wHzrHRdKVzCSeV-5RuzA","UCudeRz9YntRrmKBSqnHyKGQ","UCIiBf-JbtCazHSFqXV4JgoA","UCeNfkWyfEXpZ8d1DmvwDt_w","UCfm4y4rHF5HGrSr-qbvOwOg",""]
-    urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg","https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg","https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg","https://i.ytimg.com/vi/h23oPnh1WJM/default.jpg","https://i.ytimg.com/vi/KWZGAExj-es/default.jpg","https://i.ytimg.com/vi/k9W5XWekhMI/default.jpg","https://i.ytimg.com/vi/2SexonKBB_U/default.jpg","https://i.ytimg.com/vi/diU70KshcjA/default.jpg","https://i.ytimg.com/vi/XLlSiCkKmDQ/default.jpg","https://i.ytimg.com/vi/sCxzaHC30Ec/default.jpg"]
-    urls_=["https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-dDvEj5lMd9c/AAAAAAAAAAI/AAAAAAAAAAA/EULm0R9mEtk/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-ssT-qFQ2_UM/AAAAAAAAAAI/AAAAAAAAAAA/mqixgAYWk1E/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-SRcAgeuJbj8/AAAAAAAAAAI/AAAAAAAAAAA/YsJPiCWZUXY/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-EddJTwKC45c/AAAAAAAAAAI/AAAAAAAAAAA/dffQCcr3Tu4/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-E2z0657tkRo/AAAAAAAAAAI/AAAAAAAAAAA/Avs9FI5wSkA/s88-c-k-no/photo.jpg","https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg"]
-    users_=["ConnorFranta","IISuperwomanII","ConnorFranta","JennaMarbles","SiaVEVO","ConnorFranta","JoeyGraceffa","Paint","SHAYTARDS","JennaMarbles"]
-    titles=["Coming Out","If My Period Was A Person ft. Connor Franta","So I Googled Myself...","My 200th Video","Sia - Elastic Heart feat. Shia LaBeouf & Maddie Ziegler (Official Video)","So Relatable","3 MILLION SUBS GIVEAWAY!","After Ever After - DISNEY Parody","Do you want to build a snowman? FROZEN","Draw My Life- Jenna Marbles"]
+    urls=["https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg",
+    "https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg",
+    "https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg",
+    "https://i.ytimg.com/vi/h23oPnh1WJM/default.jpg",
+    "https://i.ytimg.com/vi/KWZGAExj-es/default.jpg",
+    "https://i.ytimg.com/vi/k9W5XWekhMI/default.jpg",
+    "https://i.ytimg.com/vi/2SexonKBB_U/default.jpg",
+    "https://i.ytimg.com/vi/diU70KshcjA/default.jpg",
+    "https://i.ytimg.com/vi/XLlSiCkKmDQ/default.jpg",
+    "https://i.ytimg.com/vi/sCxzaHC30Ec/default.jpg",
+    "https://i.ytimg.com/vi/lExW80sXsHs/default.jpg",
+    "https://i.ytimg.com/vi/Mt22-VMiR-Y/default.jpg",
+    "https://i.ytimg.com/vi/hlVBg7_08n0/default.jpg",
+    "https://i.ytimg.com/vi/389TMUtqX3E/default.jpg",
+    "https://i.ytimg.com/vi/ijvwFU4_5jk/default.jpg",
+    "https://i.ytimg.com/vi/e-ORhEE9VVg/default.jpg",
+    "https://i.ytimg.com/vi/HZJ2U-lYc30/default.jpg",
+    "https://i.ytimg.com/vi/3mKNyqK1CMI/default.jpg",
+    "https://i.ytimg.com/vi/kfpBmzatyX0/default.jpg",
+    "https://i.ytimg.com/vi/gNS04P8djk4/default.jpg"]
+    urls_=["https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-dDvEj5lMd9c/AAAAAAAAAAI/AAAAAAAAAAA/EULm0R9mEtk/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-bVdLMZDmXCk/AAAAAAAAAAI/AAAAAAAAAAA/SChajO2mTd8/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-34FbM3JM5Ck/AAAAAAAAAAI/AAAAAAAAAAA/qVlymUN44C8/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-ssT-qFQ2_UM/AAAAAAAAAAI/AAAAAAAAAAA/mqixgAYWk1E/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-PS6pgnf-7pY/AAAAAAAAAAI/AAAAAAAAAAA/QCBjV6iZUBI/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-SRcAgeuJbj8/AAAAAAAAAAI/AAAAAAAAAAA/YsJPiCWZUXY/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-EddJTwKC45c/AAAAAAAAAAI/AAAAAAAAAAA/dffQCcr3Tu4/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-E2z0657tkRo/AAAAAAAAAAI/AAAAAAAAAAA/Avs9FI5wSkA/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-w9XVuaKslpI/AAAAAAAAAAI/AAAAAAAAAAA/nhdbMmmKHGw/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-eMIdMVUl8OY/AAAAAAAAAAI/AAAAAAAAAAA/PrGrBG6Msjk/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-oJPyDp_XGV4/AAAAAAAAAAI/AAAAAAAAAAA/9Pi4ede175o/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-UFViqc6g5Io/AAAAAAAAAAI/AAAAAAAAAAA/XlanOV59iL4/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-_ya5gFNpWJs/AAAAAAAAAAI/AAAAAAAAAAA/memuFEGr4PQ/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-0A9XKZpCDjA/AAAAAAAAAAI/AAAAAAAAAAA/2TsFWukFl1Q/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-udmucUrJtoA/AAAAAAAAAAI/AAAAAAAAAAA/4XCFlSwE2lI/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-PR9CBGuWD-M/AAAAAAAAAAI/AAAAAAAAAAA/InqDjkxP5ss/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-8m4a8uXtWQs/AAAAAAAAAAI/AAAAAAAAAAA/badhAi9IqyI/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-u6o2bSQoW2M/AAAAAAAAAAI/AAAAAAAAAAA/6PiIY2suRck/s88-c-k-no/photo.jpg",
+    "https://yt3.ggpht.com/-Pmv3XiLq6i0/AAAAAAAAAAI/AAAAAAAAAAA/PzA830mDGNo/s88-c-k-no/photo.jpg"]
+    users_=["ConnorFranta",
+    "IISuperwomanII",
+    "TylerOakley",
+    "JennaMarbles",
+    "SiaVEVO",
+    "TaylorSwiftVEVO",
+    "JoeyGraceffa",
+    "Paint",
+    "SHAYTARDS",
+    "PTXOfficial",
+    "Ryan Lewis",
+    "MyHarto",
+    "JoshuaDTV",
+    "MarkE Miller",
+    "Troye Sivan",
+    "TheNotAdam",
+    "shep689",
+    "Grace Helbig",
+    "shane",
+    "AdeleVEVO"]
+    titles=["Coming Out",
+    "If My Period Was A Person ft. Connor Franta",
+    "So I Googled Myself...",
+    "My 200th Video",
+    "Sia - Elastic Heart feat. Shia LaBeouf & Maddie Ziegler (Official Video)",
+    "So Relatable",
+    "3 MILLION SUBS GIVEAWAY!",
+    "After Ever After - DISNEY Parody",
+    "Do you want to build a snowman? FROZEN",
+    "Draw My Life- Jenna Marbles",
+    "Evolution of Music - Pentatonix",
+    "Guess The Body Part",
+    "MACKLEMORE & RYAN LEWIS - SAME LOVE feat. MARY LAMBERT (OFFICIAL VIDEO)",
+    "MY DRUNK KITCHEN: No Quitter Fritters",
+    "Pet Peeves",
+    "Taylor Swift - Blank Space",
+    "The Photobooth Challenge (ft. MirandaSings) | Tyler Oakley",
+    "The Proposal: Joshua and Colleen",
+    "Twerking With Jessie J (#AskTyler #31) | Tyler Oakley",
+    "Tyler Oakley Reacts to Teens React to Tyler Oakley"]
     #taskqueue.add()
     
     keys = ["videoIds","channelIds","urls","urls_","users_","titles"]
