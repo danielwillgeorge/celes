@@ -6,7 +6,7 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">		
 		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
 		<meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="user-scalable=0,width=device-width,initial-scale=0.5,maximum-scale=0.5">
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script type="text/javascript" src="/static/jquery.js"></script>
 		<script src="https://use.typekit.net/wqa1vgm.js"></script>
@@ -26,14 +26,18 @@
 	
 	<body>
 	<header>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<h5 id="title">Sheepdog<img class="style" src="/static/sheepdog-logo.png"></h5>
-			<h6 id="user-title" style="display:none;"><img src="/static/sheepdog-logo.png"></h6>
+		<div id="navbar" class="navbar navbar-inverse navbar-fixed-top" style="text-align: center; display:none;">
+			<!--<h5 id="title" style="margin-bottom: 0px;">Sheepdog</h5>-->
+			<img id="home-img" class="style" src="/static/sheepdog-logo.png">
+			<h6 id="user-title" style="display:none; margin-top: 5px; margin-bottom: 5px;"><img class="user-style" src="/static/sheepdog-logo-small.png"></h6>
 		</div>
 	</header>
 	
 		<div id="index" class="box">
-		    <h1>The easiest way to discover what your fans love to watch on YouTube</h1>
+		
+			<img id="home-img" class="style" src="/static/sheepdog-logo.png">
+			<h1>Your best friend in YouTube strategy. <a href="" style="font-size: 20px; color: #4FADE3;">Learn more.</a></h1>
+		    <!--<h1>The easiest way to discover what your fans love to watch on YouTube</h1>
 		    <ul class="i">
 		    	<li><i class="fa fa-lightbulb-o fa-2x" style="color: #FF7600; margin-left: 10px;"></i><span style="vertical-align: 5px; margin-left: 30.5625px;">Inspire ideas for new content</span></li>
 		    	<li><i class="fa fa-refresh fa-2x" style="color: #FF7600; margin-left: 3px;"></i><span style="vertical-align: 5px;  margin-left: 23.8437px;">Identify other creators and collaborate</span></li>
@@ -41,10 +45,10 @@
 		    	<li><i class="fa fa-youtube-play fa-2x" style="color: #FF7600;"></i><span style="vertical-align: 5px; margin-left: 20px;">Grow your channel</span></li>
 		    </ul>
 		    	
-		    <h2>Sign in with your YouTube account and try it for free!</h2>	
+		    <h2>Sign in with your YouTube account and try it for free!</h2>	-->
 			<!-- The div and class for the 
 	             Google signin button -->
-	        <style>.abcRioButtonLightBlue { background-color: #4FADE3; color: #fff; } .abcRioButtonIcon { background-color: #fff;}  </style>
+	        <style>.abcRioButtonLightBlue { background-color: #4FADE3; color: #fff; } .abcRioButtonIcon { background-color: #fff;}  .abcRioButtonContents { font-family: Helvetica Neue; margin: 0; }</style>
 			<div style="display: inline-block; padding: 20px;" name="signIn" value="signIn" class="g-signin2" data-onsuccess="onSignIn" data-width="200px" data-height="50px" data-longtitle="true"></div>
 			
 			<!-- Jinja2 template -->
@@ -61,73 +65,213 @@
 				<p ng-bind="store.product.description"> </p>-->
 		</div>
 		
-		<div id="user" class="box" style="display:none; width: 100%; top: 385px;">
-		<h5 style="font-size: 48px; margin-bottom: 1px;">amoot18</h5>
-		<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
+		<div id="user" class="box" style="display:none; width: 100%; top: 400px; background-color: #eee; height: 100%;">
+		
 
-			<div style="width: 46%; float: left; font-size: 30px;">
-			<i class="fa fa-video-camera fa-2x" style="color: #FF7600;"></i>
-			<br>
-			<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Videos Liked By Fans</span>
+			<div style="border: 1px solid #eeeeee; border-radius: 3px; background-color: #FFFFFF; padding-bottom: 10px; margin: 0 auto; max-width: 950px; position: relative;">
+		
+				<h5 style="font-size: 48px; margin-bottom: 1px; font-family: helvetica neue; ">amoot18</h5>
+				<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
+			</div>
+			
+			<div id="ascensorBuilding">
+			
+			<section>
+				<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+				
+				
+				<div style="position: absolute; top: 40px; right: 0; left: 0; bottom: 50%">
+				<div style="width: 50%; float: left; font-size: 20px;">
+				<i class="fa fa-youtube-play fa-2x" style="color: #FF7600;"></i>
+				<br>
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Subjects for Your Next Content</span>
+				<table style="margin: 0 auto;">
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">LGBT Rights</td></tr>
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">Teen relationships and daily life</td></tr>
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">Pop music</td></tr>
+				</table>
+				</div>
+				
+				<div style="width: 50%; float: left; font-size: 20px;">
+				<i class="fa fa-fast-forward fa-2x" style="color: #FF7600;"></i>
+				<br>
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Best Types of Content</span>
+				<table style="margin: 0 auto;">
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">Funny</td></tr>
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">Musical</td></tr>
+				<tr><td style="max-width: none; text-align: center; font-size: 16px;">Vlog</td></tr>
+				</table>
+				</div>
+				</div>
+				
+				<div style="position: absolute; top: 50%; right: 0; left: 0; bottom: 0;">
+				<div style="width: 50%; float: left; font-size: 20px;">
+				<i class="fa fa-lightbulb-o fa-2x" style="color: #FF7600;"></i>
+				<br>
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 3 Inspiring Videos</span>
+				<table style="margin: 0 auto;">
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="width: 35px; height: 35px; border-radius: 50%;" src="https://i.ytimg.com/vi/WYodBfRxKWI/default.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=WYodBfRxKWI">Coming Out</a></td>
+				</tr>
+				
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="width: 35px; height: 35px; border-radius: 50%;" src="https://i.ytimg.com/vi/gkRDqSeCFes/default.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=gkRDqSeCFes">If My Period Was A Person ft. Connor Franta</a></td>
+				</tr>
+				
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="width: 35px; height: 35px; border-radius: 50%;" src="https://i.ytimg.com/vi/4oEvM9-XhP8/default.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=4oEvM9-XhP8">So I Googled Myself...</a></td>
+				</tr>
+				
+				</table>
+				</div>
+				
+				<div style="width: 50%; float: left; font-size: 20px;">
+				<i class="fa fa-plus fa-2x" style="color: #FF7600;"></i>
+				<br>
+
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 3 Collaborators</span>
+				<table style="margin: 0 auto;">
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="height: 35px; border-radius: 50%;" src="https://yt3.ggpht.com/-q3sXx_4QjjE/AAAAAAAAAAI/AAAAAAAAAAA/BVwUKML3cNQ/s88-c-k-no/photo.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=WYodBfRxKWI">ConnorFranta</a></td>
+				</tr>
+				
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="height: 35px; border-radius: 50%;" src="https://yt3.ggpht.com/-dDvEj5lMd9c/AAAAAAAAAAI/AAAAAAAAAAA/EULm0R9mEtk/s88-c-k-no/photo.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=gkRDqSeCFes">IISuperwomanII</a></td>
+				</tr>
+				
+				<tr>
+				<td style="max-width: none; text-align: center; font-size: 16px;"><img style="height: 35px; border-radius: 50%;" src="https://yt3.ggpht.com/-bVdLMZDmXCk/AAAAAAAAAAI/AAAAAAAAAAA/SChajO2mTd8/s88-c-k-no/photo.jpg"></td>
+				<td style="max-width: 90px; text-align: left; font-size: 16px;"><a href="http://youtube.com/watch?v=4oEvM9-XhP8">TylerOakley</a></td>
+				</tr>
+				
+				</table>
+				</div>
+				
+				</div>
+				</div>
+			</section>
+			
+			<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+
+				<div style="width: 46%; float: left; font-size: 20px;">
+				<i class="fa fa-video-camera fa-2x" style="color: #FF7600;"></i>
+				<br>
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Videos Liked By Fans</span>
+					<div style="width: 50%; float: left; font-size: 30px;">
+					<table>
+						{% for i in range(1, 6) %}
+						<tr id="g{{ i - 1}}">
+							<td style="color: #757575; font-weight: 200;">{{ i }}</td>
+							<td><img style="display: block; height: 35px; width: 35px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+							<td style="width: 60px;"><a></a></td>
+						</tr>
+						{% endfor %}
+					</table>
+					</div>
+			
+					<div style="width: 50%; float: left; font-size: 30px;">
+					<table>
+						{% for i in range(6, 11) %} <!-- urls|count -->
+						<tr id="h{{ i - 1}}">
+							<td style="color: #757575; font-weight: 200;">{{ i }}</td>
+							<td><img style="display: block; height: 35px; width: 35px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+							<td style="width: 60px;"><a></a></td>
+						</tr>
+						{% endfor %}
+					</table>
+					</div>
+			
+			
+				</div>
+			
+				<div style="width: 46%; float: right; font-size: 20px;">
+				<i class="fa fa-users fa-2x" style="color: #FF7600;"></i>
+				<br>
+				<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Users Liked By Fans</span>
+			
 				<div style="width: 50%; float: left; font-size: 30px;">
 				<table>
 					{% for i in range(1, 6) %}
-					<tr id="g{{ i - 1}}">
+					<tr id="i{{ i - 1}}">
 						<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-						<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td style="width: 60px;"><a></a></td>
+						<td><img style="display: block; height: 35px; width: 35px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+						<td><a></a></td> <!-- href={{ videoIds[i] }} {{ users_[i] }} -->
+						<!--<td>{{ channelIds[i] }}</td>-->
 					</tr>
 					{% endfor %}
 				</table>
 				</div>
-			
+			<!--</div>-->
+		
 				<div style="width: 50%; float: left; font-size: 30px;">
 				<table>
-					{% for i in range(6, 11) %} <!-- urls|count -->
-					<tr id="h{{ i - 1}}">
+					{% for i in range(6, 11) %}
+					<tr id="j{{ i - 1}}">
 						<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-						<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-						<td style="width: 60px;"><a></a></td>
+						<td><img style="display: block; height: 35px; width: 35px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+						<td><a></a></td>
+						<!--<td>{{ channelIds[i] }}</td>-->
 					</tr>
 					{% endfor %}
 				</table>
 				</div>
-			
-			
+		
 			</div>
 			
-			<div style="width: 46%; float: right; font-size: 30px;">
-			<i class="fa fa-users fa-2x" style="color: #FF7600;"></i>
-			<br>
-			<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 10 Users Liked By Fans</span>
+		</div>
+		</section>
+			<div style="width: 46%; float: left; font-size: 20px;">
 			
-			<div style="width: 50%; float: left; font-size: 30px;">
-			<table>
-				{% for i in range(1, 6) %}
-				<tr id="i{{ i - 1}}">
-					<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-					<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-					<td><a></a></td> <!-- href={{ videoIds[i] }} {{ users_[i] }} -->
-					<!--<td>{{ channelIds[i] }}</td>-->
-				</tr>
-				{% endfor %}
+			</div>
+		<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+			<!--<span style="font-weight: 300; font-family: acumin-pro; color: #FF7600;">Top 20 Tags of Audience-Liked Videos</span>-->
+			<div style="width: 50%; float: left;">
+			<table style="margin: 0 auto;">
+			<tr><td style="color: #757575; font-weight: 200;">1</td><td style="font-size: 16px;">funny</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">2</td><td style="font-size: 16px;">lol</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">3</td><td style="font-size: 16px;">girls</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">4</td><td style="font-size: 16px;">video</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">5</td><td style="font-size: 16px;">love</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">6</td><td style="font-size: 16px;">guys</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">7</td><td style="font-size: 16px;">vlog</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">8</td><td style="font-size: 16px;">Connor Franta</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">9</td><td style="font-size: 16px;">boys</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">10</td><td style="font-size: 16px;">sex</td></tr>
 			</table>
 			</div>
-		<!--</div>-->
-		
-			<div style="width: 50%; float: left; font-size: 30px;">
-			<table>
-				{% for i in range(6, 11) %}
-				<tr id="j{{ i - 1}}">
-					<td style="color: #757575; font-weight: 200;">{{ i }}</td>
-					<td><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
-					<td><a></a></td>
-					<!--<td>{{ channelIds[i] }}</td>-->
-				</tr>
-				{% endfor %}
+			
+			<div style="width: 50%; float: left;">
+			<table style="margin: 0 auto;">
+			<tr><td style="color: #757575; font-weight: 200;">11</td><td style="font-size: 16px;">relationships</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">12</td><td style="font-size: 16px;">idk</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">13</td><td style="font-size: 16px;">okay</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">14</td><td style="font-size: 16px;">hilarious</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">15</td><td style="font-size: 16px;">vlogger</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">16</td><td style="font-size: 16px;">ConnorFranta</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">17</td><td style="font-size: 16px;">life</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">18</td><td style="font-size: 16px;">boy</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">19</td><td style="font-size: 16px;">teens</td></tr>
+			<tr><td style="color: #757575; font-weight: 200;">20</td><td style="font-size: 16px;">LGBT</td></tr>
 			</table>
 			</div>
+			
+			</div>
+		</section>
+		</div>
 		
+		<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; max-width: 950px; position: relative; height: 50px; padding-top: 10px;">
+			<ul class="links-to-floor">
+				<li class="ascensorLink ascensorLink0"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a>STRATEGY</a></span></li>
+				<li class="ascensorLink ascensorLink1"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a>AUDIENCE</a></span></li>
+				<li class="ascensorLink ascensorLink2"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a>METADATA</a></span></li>
+			</ul>
 		</div>
 			<!--<ul class="u">
 				<li style="font-weight: 200;">How to Use this Info to Improve Your Channel</li>
@@ -136,19 +280,20 @@
 				<li>Collaborate: check out those users.  Do you see anyone you think would make for a great collaboration?  Reach out, and mention them on your own channel!</li>
 			</ul>-->
 		<br>
-		<div style="display: inline-block; padding: 20px;"><button type="button" style="border: none; margin:0 auto; height: 50px; width: 200px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: relative; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block;" onclick="signOut();">Sign Out</button></div>
+		<div style="display: inline-block; padding: 20px;"><button type="button" style="border: none; margin:0 auto; height: 30px; width: 100px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: absolute; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block; top: 15px; right: 40px; " onclick="signOut();">Sign Out</button></div>
 		</div>
 		
-		<div class="modal">Yaaaas, this may take a minute...processing millions of lines of data.</div>
+		<div class="modal"><span style="margin: 0 auto; text-align: center;">This may take just a moment...</span></div>
 		
 		<footer>
-		<div class="navbar navbar-fixed-bottom">
-			<ul>
+		<div id="nav-footer" class="navbar navbar-fixed-bottom">
+			<ul style="margin-top: 10px;">
 				<li><a href="">Contact</a></li>
 				<li><a href="">Support</a></li>
 				<li><a href="http://peppy-linker-102423.appspot.com/terms">Terms</a></li>
 				<li><a href="http://peppy-linker-102423.appspot.com/privacy">Privacy</a></li>
 			</ul>
+
 		</div>
 		</footer>
 
@@ -190,6 +335,8 @@
     		      /*console.log(result);*/
     		      r = result;
     		      
+    		      
+    		      
     		      function addTable() {
     		        var i = 0;
     		        var num = 4;
@@ -222,7 +369,7 @@
     		      
     		      }
     		      
-    		     addTable(); 
+    		    addTable();
     		      
     		    }
     		  });
@@ -232,7 +379,10 @@
     		  $("#user").show();
         	  $("#index").hide();
         	  $("#title").hide();
+        	  $("#home-img").hide();
         	  $("#user-title").show();
+        	  $("#navbar").show();
+        	  $("#nav-footer").hide();
         	  
         	};
         	
@@ -243,7 +393,10 @@
       			$("#user").hide();
         	    $("#index").show();
         	    $("#title").show();
+        	    $("#home-img").show();
         	    $("#user-title").hide();
+        	    $("#navbar").hide();
+        	    $("#nav-footer").show();
     			});
   			}
     	</script>
@@ -258,6 +411,9 @@
   			ga('send', 'pageview');
 
 		</script>
+		
+		<script type="text/javascript" src="/static/plugin.js"></script>
+		<script type="text/javascript" src="/static/main.js"></script>
     	
     	<!--<script>
     	 AJAX call for
