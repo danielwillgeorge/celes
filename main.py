@@ -86,12 +86,7 @@ def root_():
 #   cursor.execute("""INSERT INTO sheepdog.users (name, email) VALUES (%s,%s);""", [name, email])
 #   db.commit()
 
-  _videos = ["WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
-  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
-  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4",
-  "WYodBfRxKWI","gkRDqSeCFes","4oEvM9-XhP8","h23oPnh1WJM","KWZGAExj-es","k9W5XWekhMI","2SexonKBB_U","diU70KshcjA","XLlSiCkKmDQ","sCxzaHC30Ec","lExW80sXsHs","Mt22-VMiR-Y","hlVBg7_08n0","389TMUtqX3E","ijvwFU4_5jk","e-ORhEE9VVg","HZJ2U-lYc30","3mKNyqK1CMI","kfpBmzatyX0","gNS04P8djk4"]
-  for videoId_ in _videos:
-    response_ = youtube.videos().list(id=videoId_, part="snippet").execute()
+  
 
   url = "https://www.googleapis.com/youtube/v3/channels?access_token=%s&mine=True&part=id" % token
   result = urlfetch.fetch(url)
@@ -202,8 +197,102 @@ def root_():
     "Tyler Oakley Reacts to Teens React to Tyler Oakley"]
     #taskqueue.add()
     
-    keys = ["videoIds","channelIds","urls","urls_","users_","titles"]
-    values = [videoIds,channelIds,urls,urls_,users_,titles]
+    tags = ["London",
+    "london",
+    "the moot point",
+    "alex moothart",
+    "alex moothart vine",
+    "eurovlog",
+    "vlog",
+    "vlogging",
+    "europe",
+    "europe vlog",
+    "london vlog"]
+    tags_ = ["London",
+    "london",
+    "the moot point",
+    "alex moothart",
+    "alex moothart vine",
+    "eurovlog",
+    "vlog",
+    "vlogging",
+    "europe",
+    "europe vlog",
+    "london vlog"]
+    
+    percents = ["40%",
+    "40%",
+    "20%",
+    "20%",
+    "20%",
+    "10%",
+    "10%",
+    "10%",
+    "5%",
+    "5%"]
+    percents_ = ["40%",
+    "40%",
+    "20%",
+    "20%",
+    "20%",
+    "10%",
+    "10%",
+    "10%",
+    "5%",
+    "5%"]
+    
+    uploads = ["https://www.youtube.com/watch?v=-kQKr-Et25Q",
+    "http://www.youtube.com/watch?v=j7Bgfqbcg4E",
+    "http://www.youtube.com/watch?v=DC_rJLq3u_w",
+    "http://www.youtube.com/watch?v=as8y7ou9ATI",
+    "http://www.youtube.com/watch?v=-e1jVBqoebQ",
+    "http://www.youtube.com/watch?v=ME89PcpgAMo",
+    "http://www.youtube.com/watch?v=k8Wdk0GVzgA",
+    "http://www.youtube.com/watch?v=nc4e9l2Y_-Q",
+    "http://www.youtube.com/watch?v=ZVdW2ydy8s4",
+    "http://www.youtube.com/watch?v=cDmDjP6E0Qc"
+    ]
+    upload_titles = ["Couples Halloween Costumes! (w/ Christine Sydelko)",
+    "Estonia! (aka Narnia)",
+    "Copenhagen!",
+    "Oslo!",
+    "London!",
+    "Guess The Lyrics! (w/ Vero and Amy)",
+    "Meeting My Family For The First Time",
+    "Wedding Toast (Let It Go)",
+    "THE WHIP Tutorial! (with MJ Riggins)",
+    "IF/THEN Challenge: Steph Barkley!"
+    
+    ]
+    photos = ["https://i.ytimg.com/vi/-kQKr-Et25Q/default.jpg",
+    "https://i.ytimg.com/vi/j7Bgfqbcg4E/default.jpg",
+    "https://i.ytimg.com/vi/DC_rJLq3u_w/default.jpg",
+    "https://i.ytimg.com/vi/as8y7ou9ATI/default.jpg",
+    "https://i.ytimg.com/vi/-e1jVBqoebQ/default.jpg",
+    "https://i.ytimg.com/vi/ME89PcpgAMo/default.jpg",
+    "https://i.ytimg.com/vi/k8Wdk0GVzgA/default.jpg",
+    "https://i.ytimg.com/vi/nc4e9l2Y_-Q/default.jpg",
+    "https://i.ytimg.com/vi/ZVdW2ydy8s4/default.jpg",
+    "https://i.ytimg.com/vi/cDmDjP6E0Qc/default.jpg"
+    
+    ]
+    descriptions = ["Here are the best and most original couples costumes for Halloween!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW CHRISTINE!\n\nVINE: Christine Sydelko\nTWITTER: @csydelko\nINSTAGRAM: @csydelko\nSNAPCHAT: potatowithane\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "watch me explore Estonia!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Watch me explore Copenhagen!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Watch as I explore Oslo!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Watch me explore London!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Watch me try to guess the lyrics of Vero and Amy's new song \"The Abyss\"\n----------------------------------------------------------------------------------------------------------------\nFOLLOW THESE LESBIANS ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: Vero and Amy\nSPOTIFY: Vero and Amy\nINSTAGRAM: @veroandamy\nTWITTER: @veroandamy\nFACEBOOK: Vero & Amy\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Here I meet two of my aunts for the first time and we go on a great dinner adventure! (ft. MJ Riggins and Mackenzie Becket)\n---------------------------------------------------------------------------------------------\nFOLLOW MJ ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: MJ Riggins\nVINE: MJ Riggins\nTWITTER: @MJRiggins\nINSTAGRAM: @MJRiggins\nSNAPCHAT: moe_murdah\n---------------------------------------------------------------------------------------------\nFOLLOW MACKENZIE ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: Mackenzie Becket\nVINE: Mackenzie Becket\nTWITTER: @mmmbecket\nINSTAGRAM: @mackenziebecket\nSNAPCHAT: ButterflyHugs\n---------------------------------------------------------------------------------------------                                                                FOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "I decided to give my mom and her husband a toast they would never be able to forget, so I wanted to sing an alternate version of \"Let It Go\" from Frozen. (Song starts around the 4:25 mark)\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "In this video we teach you how to do the whip like the professionals. Because that's what we are. \n---------------------------------------------------------------------------------------------\nFOLLOW MJ ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: MJ Riggins\nVINE: MJ Riggins\nTWITTER: @MJRiggins\nINSTAGRAM: @MJRiggins\nSNAPCHAT: moe_murdah\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
+    "Here, we get to know the REAL Steph Barkley...and I LOVE HER.\n---------------------------------------------------------------------------------------------\nFOLLOW STEPH ON ALL THE SOCIAL MEDIA THINGS\n\nVINE: Steph Barkley\nTWITTER: @stephbarkley_3\nINSTAGRAM: @stephbarkley\nSNAPCHAT: barkdogg\nYOUTUBE: StephBarkleyAlterEgo\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nTUMBLR: The Moot Point\nFACEBOOK: The Moot Point"
+    
+    ]
+    
+    #keys = ["videoIds","channelIds","urls","urls_","users_","titles"]
+    #values = [videoIds,channelIds,urls,urls_,users_,titles]
+    keys = ["tags", "tags_","percents","percents_", "uploads", "upload_titles","photos","descriptions"]
+    values = [tags, tags_, percents, percents_, uploads, upload_titles, photos, descriptions]
     res = dict(zip(keys, values))
     
     return jsonify(result=res)
