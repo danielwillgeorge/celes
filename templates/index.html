@@ -3,7 +3,8 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
 		<link rel=stylesheet type="text/css" href="/static/style.css" />
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">		
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" rel="stylesheet">	
 		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
 		<meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
 		<meta name="viewport" content="user-scalable=0,width=device-width,initial-scale=0.5,maximum-scale=0.5">
@@ -18,8 +19,49 @@
 		</style>
 		
 		<style>
+		.myQtip{
+
+			}
+			
+		.myQtip .qtip-content{
+    		font-size: 12px;
+			}	
+			
 		a:focus { color: #FF7600; border-bottom: 2px solid #FF7600; }
-		
+		.menu {
+    		border-radius: 3px;
+    		/*border: 1px solid #ccc;*/
+    		color: #5f5f5f;
+			font-weight: bold;
+			display: inline-block;
+			/*background-image: linear-gradient(rgb(255, 255, 255), rgb(240, 240, 240));*/
+			width: 36px; 
+			height: 30px;
+			padding: 2px 0 0 0;
+			box-sizing: border-box;
+			}
+
+		.menu:hover {
+			background-image: linear-gradient(#4FADE3, #4FADE3);
+			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.22);
+		}
+
+		.menu .line {
+			background: rgb(184,184,184);
+			border-radius: 2px;
+			box-shadow: 0 5px 0 0 rgb(184, 184, 184), 0 -5px 0 0 rgb(184, 184, 184);    
+			display: block;
+			margin: 10px auto 0 auto;
+			height: 3px;
+			width: 16px;
+			content: " ";
+			overflow: visible;
+		}
+
+		.menu:hover .line {
+			background: rgb(255,255,255);
+			box-shadow: 0 5px 0 0 rgb(255,255,255), 0 -5px 0 0 rgb(255,255,255);    
+		}
 		</style>
 		
 		<!--remove this script; no longer needed.  <script>$("section").css('background', function () {
@@ -70,18 +112,18 @@
 			
 			<section>
 			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
-			<span style="font-weight: 200; font-family: acumin-pro; color: #888; border-style: solid; border-color: #d7d7d7; border-width: 1px; border-radius: 3px; padding: 3px; ">Uploads</span>
+			<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 3px; font-size: 16px; ">UPLOADS</span>
 			<table style="margin: 0 auto;">
 				<tr>
 					<td style="font-size: 14px;"></td>
-					<td style="font-size: 14px; text-align: center;">Title <i class="fa fa-info-circle"></i></td>
-					<td style="font-size: 14px; text-align: center">Description <i class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Title <i id="a" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center">Description <i id="b" class="fa fa-info-circle"></i></td>
 				</tr>
 				{% for i in range(1, 11) %}
 				<tr id="h{{ i - 1 }}" style="border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;">
 					<td style="font-size: 14px;"><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
 					<td style="font-size: 14px; max-width: 200px; white-space: normal; border-left: 1px solid #f0f0f0;"><a></a></td>
-					<td style="font-size: 14px; max-width: 500px; "></td>
+					<td style="font-size: 14px; max-width: 500px; "><div style="max-height: 60px; white-space: pre;"></div></td>
 				</tr>
 				{% endfor %}
 			</table>
@@ -91,21 +133,21 @@
 			
 			<section>
 			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
-			<h1 id="counter" style="font-size: 36px; margin-bottom: 4px;">0</h1>
-			<h1 style="font-size: 14px; margin-bottom: 28px;">CONSISTENCY SCORE <i class="fa fa-info-circle"></i></h1>
+			<h1 id="counter" style="color: #ffb600; font-weight: 200; font-size: 36px; margin-bottom: 4px;">0</h1>
+			<h1 style="font-weight: 200; font-size: 14px; margin-bottom: 28px;">CONSISTENCY SCORE <i id="c" class="fa fa-info-circle"></i></h1>
 				<div style="width: 50%; float: left; font-size: 20px;">
 				<div style="width: 70%; float: right;">
-				<span style="font-weight: 200; font-family: acumin-pro; color: #888; border-style: solid; border-color: #d7d7d7; border-width: 1px; border-radius: 3px; padding: 5px; ">Most Common Tags</span>
+				<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 5px; font-size: 16px; ">MOST COMMON TAGS</span>
 					<div style="width: 100%; float: left; ">
 					<table style="margin: 10px auto;">
 						<tr>
-							<td style="font-size: 14px;">Rank <i class="fa fa-info-circle"></i></td>
-							<td style="font-size: 14px; text-align: center;">Tag <i class="fa fa-info-circle"></i></td>
-							<td style="font-size: 14px; text-align: center;">Percent <i class="fa fa-info-circle"></i></td>
+							<td style="font-size: 14px;">Rank <i id="d" class="fa fa-info-circle"></i></td>
+							<td style="font-size: 14px; text-align: center;">Tag <i id="e" class="fa fa-info-circle"></i></td>
+							<td style="font-size: 14px; text-align: center;">Percent <i id="f" class="fa fa-info-circle"></i></td>
 						</tr>
 						{% for i in range(1, 11) %}
 						<tr id="g{{ i - 1}}">
-							<td style="color: #757575; font-weight: 200; font-size: 14px;">{{ i }}</td>
+							<td style="color: #757575; font-weight: 200; font-size: 14px; text-align: center;">{{ i }}</td>
 							<td style="font-size: 14px; text-align: center;"><span style="background-color: #eee; border-style: solid; border-width: 1px; border-radius: 2px; border-color: #eee; padding: 2px;"></span></td>
 							<td style="font-size: 14px; text-align: center;"></td>
 						</tr>
@@ -117,18 +159,18 @@
 			
 				<div style="width: 50%; float: right; font-size: 20px;">
 				<div style="width: 70%; float: left;">
-				<span style="font-weight: 200; font-family: acumin-pro; color: #888; border-style: solid; border-color: #d7d7d7; border-width: 1px; border-radius: 3px; padding: 5px; ">Most Common Tags by Priority</span>
+				<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 5px; font-size: 16px; ">MOST COMMON TAGS BY PRIORITY</span>
 				<div style="width: 100%; float: left; ">
 				<table style="margin: 10px auto;">
 				<tr>
-					<td style="font-size: 14px;">Slot <i class="fa fa-info-circle"></i></td>
-					<td style="font-size: 14px; text-align: center;">Tag <i class="fa fa-info-circle"></i></td>
-					<td style="font-size: 14px; text-align: center;">Percent <i class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Slot <i id="l" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Tag <i id="m" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Percent <i id="n" class="fa fa-info-circle"></i></td>
 				</tr>
 				
 					{% for i in range(1, 11) %}
 					<tr id="i{{ i - 1}}">
-						<td style="color: #757575; font-weight: 200; font-size: 14px;">{{ i }}</td>
+						<td style="color: #757575; font-weight: 200; font-size: 14px; text-align: center;">{{ i }}</td>
 						<td style="font-size: 14px; text-align: center;"><span style="background-color: #eee; border-style: solid; border-width: 1px; border-radius: 2px; border-color: #eee; padding: 2px;"></span></td>
 						<td style="font-size: 14px; text-align: center;"></td>
 					</tr>
@@ -160,7 +202,8 @@
 			</ul>
 		</div>
 		<br>
-		<div style="display: inline-block; padding: 20px;"><button type="button" style="font-family: helvetica neue; font-size: 16px; border: none; margin:0 auto; height: 30px; width: 100px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: absolute; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block; top: 15px; right: 40px; " onclick="signOut();">Sign Out</button></div>
+		<div style="display: inline-block; padding: 20px;"><a class="menu nav" style="position: absolute; top: 0; right: 10px; " onclick="signOut();"><span class="line"></span></a></div>
+		<!--<button type="button" style="font-family: helvetica neue; font-size: 16px; border: none; margin:0 auto; height: 30px; width: 100px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: absolute; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block; top: 15px; right: 40px; " onclick="signOut();">Sign Out</button>-->
 		</div>
 		
 		<div class="modal"><span style="margin: 0 auto; text-align: center;">This may take just a moment...</span></div>
@@ -239,7 +282,7 @@
     		             document.getElementById("h" + j).cells[0].getElementsByTagName("img")[0].src = r.result.photos[j];
     		             document.getElementById("h" + j).cells[1].getElementsByTagName("a")[0].href = r.result.uploads[j];
     		             document.getElementById("h" + j).cells[1].getElementsByTagName("a")[0].innerHTML = r.result.upload_titles[j];
-    		             document.getElementById("h" + j).cells[2].innerHTML = r.result.descriptions[j];
+    		             document.getElementById("h" + j).cells[2].getElementsByTagName("div")[0].innerHTML = r.result.descriptions[j];
     		           
     		           
     		           }
@@ -440,11 +483,132 @@
     			
     			
     			$("#tags").click(function () {
-					$('#counter').animateNumber({ number: 80 });
+					$('#counter').animateNumber({ number: 100 });
     				});
     			
+    			$('#a').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#a') // my target
+    				},
+    				content: {
+        			text: 'The titles of each of your videos.  Titles are best when they share a consistent format.'
+    				}
+					});
+					
+				$('#b').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#b') // my target
+    				},
+    				content: {
+        			text: 'The descriptions of each of your videos.  Descriptions should be consistent and robust.'
+    				}
+					});
+					
+				$('#c').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom left',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#c') // my target
+    				},
+    				content: {
+        			text: 'Your Consistency Score is an expression of how consistent your tags are, across all of your videos.  A higher score means that you are more likely to get more views from YouTube Search and Suggested Videos features.'
+    				}
+					});
     			
-    			
+    			$('#d').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom right',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#d') // my target
+    				},
+    				content: {
+        			text: 'The top 10 most common tags of your videos, ordered from most common (Rank 1) to least common (Rank 10).'
+    				}
+					});
+					
+					
+					
+				$('#e').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#e') // my target
+    				},
+    				content: {
+        			text: 'A list of tags attached to videos on your channel.'
+    				}
+					});
+					
+					
+				$('#f').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#f') // my target
+    				},
+    				content: {
+        			text: 'The percent of your videos that have this tag.'
+    				}
+					});
+					
+					
+					
+				$('#l').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#l') // my target
+    				},
+    				content: {
+        			text: 'The place, or slot, of a tag on your videos.  The 1st place slot goes to the 1st tag, and so on.'
+    				}
+					});
+					
+					
+				$('#m').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#m') // my target
+    				},
+    				content: {
+        			text: 'A list of tags attached to videos on your channel.'
+    				}
+					});
+					
+					
+				$('#n').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom left',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#n') // my target
+    				},
+    				content: {
+        			text: 'The percent of one of your tags appearing in a particular place, or slot, across all of your videos.'
+    				}
+					});	
     		      
     		    }
     		  });
@@ -489,6 +653,7 @@
 		
 		<script type="text/javascript" src="/static/plugin.js"></script>
 		<script type="text/javascript" src="/static/main.js"></script>
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
     	
     	<!--<script>
     	 AJAX call for
