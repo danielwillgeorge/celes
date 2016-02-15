@@ -197,97 +197,99 @@ def root_():
     "Tyler Oakley Reacts to Teens React to Tyler Oakley"]
     #taskqueue.add()
     
-    tags = ["London",
-    "london",
-    "the moot point",
-    "alex moothart",
-    "alex moothart vine",
-    "eurovlog",
-    "vlog",
-    "vlogging",
-    "europe",
-    "europe vlog",
-    "london vlog"]
-    tags_ = ["London",
-    "london",
-    "the moot point",
-    "alex moothart",
-    "alex moothart vine",
-    "eurovlog",
-    "vlog",
-    "vlogging",
-    "europe",
-    "europe vlog",
-    "london vlog"]
+    tags = [ "Teni",
+ "Teni Panosian",
+ "Beauty Hacks",
+ "Makeup",
+ "Easy Makeup Tutorial",
+ "Eye Makeup",
+ "Cosmetics",
+ "Makeup Tutorials",
+ "Makeup Tips",
+ "Beauty Tips"]
+    tags_ = [ "Teni",
+ "Teni Panosian",
+ "Beauty Hacks",
+ "Makeup",
+ "Easy Makeup Tutorial",
+ "Eye Makeup",
+ "Cosmetics",
+ "Makeup Tutorials",
+ "Makeup Tips",
+ "Beauty Tips"]
     
-    percents = ["40%",
-    "40%",
-    "20%",
-    "20%",
-    "20%",
-    "10%",
-    "10%",
-    "10%",
-    "5%",
-    "5%"]
-    percents_ = ["40%",
-    "40%",
-    "20%",
-    "20%",
-    "20%",
-    "10%",
-    "10%",
-    "10%",
-    "5%",
-    "5%"]
+    percents = ["100%",
+    "100%",
+    "100%",
+    "100%",
+    "100%",
+    "100%",
+    "80%",
+    "80%",
+    "80%",
+    "80%"]
+    percents_ = ["100%",
+    "100%",
+    "100%",
+    "100%",
+    "100%",
+    "100%",
+    "80%",
+    "80%",
+    "60%",
+    "60%"]
     
-    uploads = ["https://www.youtube.com/watch?v=-kQKr-Et25Q",
-    "http://www.youtube.com/watch?v=j7Bgfqbcg4E",
-    "http://www.youtube.com/watch?v=DC_rJLq3u_w",
-    "http://www.youtube.com/watch?v=as8y7ou9ATI",
-    "http://www.youtube.com/watch?v=-e1jVBqoebQ",
-    "http://www.youtube.com/watch?v=ME89PcpgAMo",
-    "http://www.youtube.com/watch?v=k8Wdk0GVzgA",
-    "http://www.youtube.com/watch?v=nc4e9l2Y_-Q",
-    "http://www.youtube.com/watch?v=ZVdW2ydy8s4",
-    "http://www.youtube.com/watch?v=cDmDjP6E0Qc"
+    uploads = ["https://www.youtube.com/watch?v=d5MNzjTiJuQ",
+    "http://www.youtube.com/watch?v=qLV1a_611kA",
+    "http://www.youtube.com/watch?v=BR0-yZ_-_5E",
+    "http://www.youtube.com/watch?v=xpfNpdrgiqo",
+    "http://www.youtube.com/watch?v=5xFCYvAN84I",
+    "http://www.youtube.com/watch?v=dhz5QVOMFNo",
+    "http://www.youtube.com/watch?v=BjJvxbXIzHY",
+    "http://www.youtube.com/watch?v=JlOU98MHmWU",
+    "http://www.youtube.com/watch?v=ujM39gK3W88",
+    "http://www.youtube.com/watch?v=fLLvquQmWNI"
     ]
-    upload_titles = ["Couples Halloween Costumes! (w/ Christine Sydelko)",
-    "Estonia! (aka Narnia)",
-    "Copenhagen!",
-    "Oslo!",
-    "London!",
-    "Guess The Lyrics! (w/ Vero and Amy)",
-    "Meeting My Family For The First Time",
-    "Wedding Toast (Let It Go)",
-    "THE WHIP Tutorial! (with MJ Riggins)",
-    "IF/THEN Challenge: Steph Barkley!"
+    upload_titles = ["Current Everyday Makeup Routine | Teni Panosian",
+    "Snapchat Q+A (Part I) | Teni Panosian",
+    "Room Tour: My Workspace | Teni Panosian",
+    "Gray Smokey Eye Makeup Tutorial | Teni Panosian",
+    "Glitter Eye Makeup Tutorial | Winged Eyeliner Makeup | Teni Panosian",
+    "Best Lip Colors for Winter | Teni Panosian",
+    "Holiday Makeup | Winged Eyeliner + Red Lips  | Teni Panosian",
+    "Brown Smokey Eye Makeup Tutorial | Teni Panosian",
+    "Travel Diary: Turks and Caicos | Beauty Blogger | Teni Panosian",
+    "Skincare Issues | Teni Panosian"
     
     ]
-    photos = ["https://i.ytimg.com/vi/-kQKr-Et25Q/default.jpg",
-    "https://i.ytimg.com/vi/j7Bgfqbcg4E/default.jpg",
-    "https://i.ytimg.com/vi/DC_rJLq3u_w/default.jpg",
-    "https://i.ytimg.com/vi/as8y7ou9ATI/default.jpg",
-    "https://i.ytimg.com/vi/-e1jVBqoebQ/default.jpg",
-    "https://i.ytimg.com/vi/ME89PcpgAMo/default.jpg",
-    "https://i.ytimg.com/vi/k8Wdk0GVzgA/default.jpg",
-    "https://i.ytimg.com/vi/nc4e9l2Y_-Q/default.jpg",
-    "https://i.ytimg.com/vi/ZVdW2ydy8s4/default.jpg",
-    "https://i.ytimg.com/vi/cDmDjP6E0Qc/default.jpg"
+    photos = ["https://i.ytimg.com/vi/d5MNzjTiJuQ/default.jpg",
+    "https://i.ytimg.com/vi/qLV1a_611kA/default.jpg",
+    "https://i.ytimg.com/vi/BR0-yZ_-_5E/default.jpg",
+    "https://i.ytimg.com/vi/xpfNpdrgiqo/default.jpg",
+    "https://i.ytimg.com/vi/5xFCYvAN84I/default.jpg",
+    "https://i.ytimg.com/vi/dhz5QVOMFNo/default.jpg",
+    "https://i.ytimg.com/vi/BjJvxbXIzHY/default.jpg",
+    "https://i.ytimg.com/vi/JlOU98MHmWU/default.jpg",
+    "https://i.ytimg.com/vi/ujM39gK3W88/default.jpg",
+    "https://i.ytimg.com/vi/fLLvquQmWNI/default.jpg"
     
     ]
-    descriptions = ["Here are the best and most original couples costumes for Halloween!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW CHRISTINE!\n\nVINE: Christine Sydelko\nTWITTER: @csydelko\nINSTAGRAM: @csydelko\nSNAPCHAT: potatowithane\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "watch me explore Estonia!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Watch me explore Copenhagen!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Watch as I explore Oslo!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Watch me explore London!\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Watch me try to guess the lyrics of Vero and Amy's new song \"The Abyss\"\n----------------------------------------------------------------------------------------------------------------\nFOLLOW THESE LESBIANS ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: Vero and Amy\nSPOTIFY: Vero and Amy\nINSTAGRAM: @veroandamy\nTWITTER: @veroandamy\nFACEBOOK: Vero & Amy\n----------------------------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Here I meet two of my aunts for the first time and we go on a great dinner adventure! (ft. MJ Riggins and Mackenzie Becket)\n---------------------------------------------------------------------------------------------\nFOLLOW MJ ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: MJ Riggins\nVINE: MJ Riggins\nTWITTER: @MJRiggins\nINSTAGRAM: @MJRiggins\nSNAPCHAT: moe_murdah\n---------------------------------------------------------------------------------------------\nFOLLOW MACKENZIE ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: Mackenzie Becket\nVINE: Mackenzie Becket\nTWITTER: @mmmbecket\nINSTAGRAM: @mackenziebecket\nSNAPCHAT: ButterflyHugs\n---------------------------------------------------------------------------------------------                                                                FOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "I decided to give my mom and her husband a toast they would never be able to forget, so I wanted to sing an alternate version of \"Let It Go\" from Frozen. (Song starts around the 4:25 mark)\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "In this video we teach you how to do the whip like the professionals. Because that's what we are. \n---------------------------------------------------------------------------------------------\nFOLLOW MJ ON ALL THINGS SOCIAL MEDIA!\n\nYOUTUBE: MJ Riggins\nVINE: MJ Riggins\nTWITTER: @MJRiggins\nINSTAGRAM: @MJRiggins\nSNAPCHAT: moe_murdah\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nFACEBOOK: The Moot Point",
-    "Here, we get to know the REAL Steph Barkley...and I LOVE HER.\n---------------------------------------------------------------------------------------------\nFOLLOW STEPH ON ALL THE SOCIAL MEDIA THINGS\n\nVINE: Steph Barkley\nTWITTER: @stephbarkley_3\nINSTAGRAM: @stephbarkley\nSNAPCHAT: barkdogg\nYOUTUBE: StephBarkleyAlterEgo\n---------------------------------------------------------------------------------------------\nFOLLOW ME IF YOU DARE (or just want to see more of me?)\n\nVINE: Alex Moothart\nTWITTER: @alexmoothart\nINSTAGRAM: @alexmoothart\nSNAPCHAT: amoot7\nTUMBLR: The Moot Point\nFACEBOOK: The Moot Point"
-    
+    descriptions = ["I’ve updated my simple everyday makeup routine! A lot of you ask for this type of natural makeup look so I hope you like it. :) Be sure to give the video a ‘like’ a subscribe: http://bit.ly/subtoteni\n \nFollow me everywhere! \nOfficial site: http://missmaven.com/\nInstagram: @tenipanosian\nTwitter: @TeniPanosian\nFacebook: http://www.facebook.com/teni.panosian\nSnapchat: TeniPanosian\n \nP R O D U C T S\n \nMarc Jacobs Perfecting Coconut Face Primer\nNARS Velvet Matte Skin Tint in Medium 1 St. Moritz - http://bit.ly/1lSIWuC\nNARS Radiant Creamy Concealer in Ginger http://bit.ly/1SMfRz2\nLaura Mercier Translucent Powder\nMilani Baked Blush in Dolce Pink\ntheBalm Betty LouManizer bronzing powder\nJouer Luminizing Liquid Highlighter in Golden Light\nColourPop eyeshadows:\n⇢ Truth\n⇢ As If\n⇢ Crimper\nHourglass 1.5mm eyeliner in black\nMaybelline The Falsies Push Up Drama Mascara\nHourglass Arch Brow Sculpting Pencil in Dark Brunette\nEstee Lauder lip gloss in Vinyl Rose\n \n \n \nFTC: The only thing sponsored in this video is the NARS Velvet Matte Skin tint which, of course, is 100% Teni-approved. :)\n \n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",
+    "Here's my very first Snapchat Q+A! This was so much fun and since there were more questions than I could answer in one video, there's a part II coming next week!!! Thanks to everyone for sending in your questions :) And if you don't follow me on Snapchat here's my username: tenipanosian\n\n\nOne of the questions was about the equipment I shoot with, here are the specific names:\n- Canon 5D Mark III\n- Kino Flo 4ft 4 bank lamp kit\n- Sony LMD-1510W Multi format LCD Monitor 15.6\"\n- 24-70mm Canon lens\n\n\nFollow me everywhere! \nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/teni.panosian\nPinterest: https://www.pinterest.com/missmavendotcom/\n\n\n\n\nAbout Teni Panosian\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",
+    "I'm so excited to share the first part of my house tour! I hope you guys love what I did with the space... Follow me on snapchat for more footage of the room and to see how the remodeling is coming along on the main house! Snapchat username: tenipanosian\n\n♥ Follow me everywhere! ♥\nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/teni.panosian\nPinterest: https://www.pinterest.com/missmavendotcom/\n\nFURNITURE AND DECOR DETAILS:\nKendall Sofa: World Market (online)\nSilvery blue throw pillow: West Elm (in store)\nBeaded blue throw pillow: Home Goods\nSafavieh Rug: Wayfair.com\nMarble top coffee table: CB2 (in store and online)\nGold pineapple vase: CB2 (in store)\nAgate coasters: Anthropologie (online)\nFaux Shearling custom chair: Etsy https://goo.gl/BQMziM\nChrome wall mount bookcases: CB2 (in store and online)\nChrome skull: CB2 (in store)\nBrass gallery frames: CB2 (in store and online)\nTripod floor lamp: West Elm (online)\nGold pouf: RachelGeorge.com\nFolding table with gold legs and white tray: CB2 (in store)\nFloor mirror: Home Goods\nMarble and gold end table: RachelGeorge.com\nCopper end table and mint vase: CB2 (in store)\nDesk: Bernhardt (online at Horchow)\nMetallic gold makeup brush print: Glam-prints.com\nAcrylic chair: Retrofurnish\nFaux shearling throw: Ikea\nBrass desk lamp and brass lantern: West Elm (in store)\nDesk accessories: RachelGeorge.com\nMakeup organizer drawers: Ikea *** this was marked as a last chance item so I don't know if they will sell it for much longer!\n\n\nThe floors are from a store in Glendale, CA called ADCO. They are a laminate variety and the color is called Sea Smoke. \n\n\nFTC: This is not a sponsored video. \n\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",
+    "Here's a smokey eye makeup tutorial using gray and silver tones for a more soft and natural makeup look! Hope you love it :) Please 'like' and subscribe! ⇢ http://bit.ly/subtoteni\n\n♥ Follow me everywhere! ♥\nOfficial site: http://missmaven.com/\nInstagram: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\n\nP R O D U C T S\n\nMarc Jacobs Perfecting Coconut Face Primer\nMake Up For Ever Ultra HD Foundation in Y385\nNARS Radiant Creamy Concealer in Ginger http://bit.ly/1QYwW8w\nMake Up For Ever Ultra HD Stick Foundation in Y505 (contour)\nLaura Mercier Translucent Powder\nHourglass blush in Luminous Flush\nGuerlain Terracotta Bronzer\ntheBalm Betty LouManizer mixed with Mary LouManizer\nToo Faced Shadow Insurance Primer\nNEW Nars Narsissist Eyeshadow Palette ⇢ http://bit.ly/1mh4j9S\n⇢ Cream Bisque\n⇢ Cafe au Lait\n⇢ Amethyst Ash\n⇢ Black Truffle\n⇢ Shimmering Taupe Cashmere\n⇢ Golden Starlight\nHourglass 1.5mm eyeliner in black\nMaybelline The Falsies Push Up Drama Mascara\nLORAC PRO Brow Pencil in Brunette\nMotives Cosmetics lipstick in Kissable\n\n\n\n\nFTC: The only thing sponsored in this video is the NARS eyeshadow palette but, let's be honest, it's an awesome palette! :P \n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",    
+    "Glitter eye makeup is the perfect look for New Year’s Eve! So I created this bold winged eyeliner look with glitter... I hope you love this video and have a wonderful start to 2016. :) Please give the video a ‘like’ and subscribe for more! ⇢ http://bit.ly/subtoteni\n\n⇢ Follow me everywhere! \nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\nP R O D U C T S\n\nMarc Jacobs Undercover Perfecting Coconut Face Primer\nMake Up For Ever Full Cover Concealer in Sand 7\nNARS Radiant Creamy Concealer in Ginger\nMake Up For Ever Ultra HD Foundation in Y385\nMake Up For Ever Ultra HD Stick Foundation in Y505 (contour)\nCharlotte Tilbury Airbrush Flawless Powder in Medium\nGuerlain Terracotta Bronzing Powder\nCharlotte Tilbury Cheek to Chic Blush in First Love\nBenefit Stay Don’t Stray Eyeshadow Primer\nTarte Tartelette 2 In Bloom Eyeshadow Palette\n⇢ Flower Child\n⇢ Smarty Pants\n⇢ Jetsetter\n⇢ Activist\nTarte Tarteist Clay Liner\nToo Faced Glitter Glue\nMake Up For Ever Glitter in N15 Midnight Glow\nMaybelline Push Up Falsies Mascara\nHouse of Lashes Pixie Luxe lashes\nAnastasia Beverly Hills Brow Wiz in Soft Brown\nBH Cosmetics Stripped lip liner\nEstee Lauder lip gloss in Vinyl Rose\n\nB R U S H E S \n\nMorphe M320\nEcoTools Large Powder Brush\nNARS Yachiyo Brush\nMorphe M441\nAnastasia Beverly Hills Double Ended Brush (from the Shadow Couture palette)\nSephora Collection PRO Angled Eyeliner Brush\nMorphe M202\n\n\nTips for using glitter:\n⇢ If you get any on your face, just take scotch tape and lightly press it against your face and it’ll pick up the glitter.\n⇢ If you don’t have glitter glue, you can also mix one part eyelash glue with one part water and it’ll work just as well. \n\n\nFTC: This is not a sponsored video. \n\nMusic is from Epidemic Sound.\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",    
+    "Here are my top 6 lip colors for winter! These all turned out to be matte lipsticks just because I feel like they look so good in the winter, I hope you like them! Please like and subscribe :) http://bit.ly/subtoteni\n\n♥ Follow me everywhere! ♥\nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\nPRODUCTS:\n\nGirlactik Matte Lip Paint in Posh\n\nColourPop Ultra Matte Liquid Lipstick in Times Square\n\nStila Stay All Day Liquid Lipstick in Ricco\n\nJeffree Star Velour Liquid Lipstick in Unicorn Blood\n\nKat Von D Everlasting Liquid Lipstick in Damned\n\nLime Crime Velvetine in Salem\n\n\n\nFTC: This is not a sponsored video.\n\n\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",    
+    "Here comes a holiday makeup tutorial! I paired a sharp winged eyeliner look with some bright red lips for a festive and classic makeup look. Hope you love it! Please like and subscribe :)  http://bit.ly/subtoteni\n\n\nFollow me everywhere! \nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\n\nProducts:\nJouer Anti-Blemish Matte Primer\nNARS All Day Luminous Weightless Foundation in Stromboli\nBeauty Blender\nNARS Raidant Creamy Concealer in Ginger and Custard\nMake Up For Ever Ultra HD stick foundation in Y505 (contour)\nLaura Mercier Translucent Powder\nTarte Bling It On Amazonian Clay blush palette, Beaming\ntheBalm Betty LouManizer bronzer\nGirlactik Face Glow in Lustre\nUrban Decay All Nighter Setting Spray\nBenefit Stay Don't Stray Eyeshadow Primer\nMakeup Geek eyeshadows\n⇢ beaches n creme\n⇢ creme brulee\n⇢ latte\n⇢ americano\nColourPop Super Shock Shadow in Crimper\nTarte Tarteist Clay Liner \nLancome Grandiose Mascara\nHouse of Lashes \"Noir Fairy\" false lashes\nAnastasia Beverly Hills Brow Wiz in Soft Brown\nColourPop Lippie Liner in Chi Chi\nTarte Tarteist Lip Paint in Cray Cray *** This is going to be available  on 12/15!! \n\n\nBrushes:\nEcoTools Stippling Brush\nEcoTools Round Powder\nMorphe M438\nTarte Highlight Brush\nMorphe M441\nElaina Badro blending brush\nSephora PRO Angled Liner Brush\nIT Cosmetics double ended shadow and smudge brush\n\n\n\n\n\n\nFTC: This is not a sponsored video. \n\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!\n\nMusic by Epidemic Sound.",    
+    "Here's a brown smokey eye makeup look for ya! I kept the colors neutral but made the eye makeup pretty dramatic. I hope you love it! Please like and subscribe if you do :) ⇢ http://bit.ly/subtoteni\n\nFollow me everywhere:\nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\nProducts:\n\nTarte Home For The Holidaze Set\n⇢ Pop the Cork\n⇢ Feeling Fizzy\n⇢ Chocolate Fountain\n⇢ LBD\n⇢ Swanky (this was the blush in the palette)\nHourglass 1.5mm pencil in Black\nLancome Grandiose Mascara\nHouse of Lashes falsies in “Noir Fairy”\nMake Up For Ever Nourishing Primer\nToo Faced Born This Way Foundation in Warm Beige\nBeauty Blender\nMaybelline Age Rewind Dark Circle Eraser in Medium\nMotives Sculpt Series contour palette in Fire\nCharlotte Tilbury Airbrush Perfecting Powder\nBetty LouManizer bronzer\nAnastasia Beverly Hills Brow Wiz in Soft Brown\nColourPop lip pencil in Tootsi\nLORAC Alter Ego Lipstick in Visionary\nLORAC lip gloss in Visionary\n\nBrushes:\n\nMorphe 441\nIT Cosmetics Double Ended shadow and smudge brush\nDouble ended shadow brush from the Anastasia Beverly Hills Shadow Couture palette\nE55\nSmall blending brush from the Tarte Holiday Collection\nFluffy highlight brush from the Tarte Holiday Collection\n\nFTC: This is not a sponsored video. \n\n\nAbout Me\n\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!",    
+    "Follow me as I show you my travels to Turks and Caicos with some of my pals from YouTube and Instagram! A big thank you to Tarte Cosmetics for including me on this trip, and I hope you all enjoy this vlog! Give the video a like and subscribe, pretty please :) http://bit.ly/subtoteni\n\nCheck out Potcake Place Rescue, they were so awesome and we learned a lot about the stray animals on the islands: http://www.potcakeplace.com/\n\nWhat I wore:\n\nDay 1 - Arrival\nShorts: The Gap\nStriped blouse: Zara\n\nDay 2 - Sailing\nBlack wrap-around swim suit: L*Space\nSunglasses: Hawkers\n(we had dinner that night and I wore a cute outfit that I'll post to Instagram!!)\n\nDay 3 - Tarte House & Bonfire\nBlack and bronze swimsuit: Victoria's Secret\nBlack and white dress: L*Space\nBlack cage sandals: Schutz\nSunglasses: Quay Australia\n(the red lippie is unreleased from Tarte!!)\n\nDay 4 - Trapeze & Conch Shack dinner\nLeotard: One Rad Girl\nDenim cutoffs: One Teaspoon\nStriped sleeveless tee: \nShorts: The Gap\n\nDay 5 - Departure\nWhite and gold one-piece swimsuit: Victoria's Secret (a few years old)\n\nHOMIES IN THIS VIDEO: (Youtube and Instagram)\nMaryam - @maryamnyc\nDenise - @makeupbydenise\nPatrick - https://www.youtube.com/theepatrickstarrr\nDesi - https://www.youtube.com/desireeperkinsmakeup\nKaty - https://www.youtube.com/lustrelux\nChrisspy - https://www.youtube.com/chrisspymakeup\nChristen - https://www.youtube.com/christendominique\nTamana - @dressyourface\nNicole - @nicoleconcillio\nGina - @ginashkeda\nShayla - @makeupshayla\nKaren - @iluvsarahii\nHrush - @styledbyhrush\nRachel - https://www.youtube.com/rclbeauty101\nLaura - @laura _g143\n\n*** THANK YOU *** to my boyfriend, Chris, for taking the time to shoot this for me! You are the best!!\n\n\n♥ Follow me everywhere! ♥\nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\n\nFTC: This is not a sponsored video.\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!\n\n\nMUSIC: \nTrack 1 is from https://www.youtube.com/ninety9lives and track 2 is from premiumbeat.com.",
+    "Instead of an updated skincare routine I decided to address specific skincare issues that many of you ask about and recommend the best products. We're talking texture, wrinkles, pigmentation, and more! Please like and subscribe! http://bit.ly/subtoteni\n\n\n♥ Follow me everywhere! ♥\nOfficial site: http://missmaven.com/\nIG: @tenipanosian\nTwitter: @TeniPanosian\nSnapchat: TeniPanosian\nFB:https://www.facebook.com/MissMaven\nPinterest: https://www.pinterest.com/missmavendotcom/\n\n\nPRODUCTS:\n\n--DARK CIRCLES--\nShiseido White Lucent Anti-Dark Circles Eye Cream\n\n--TEXTURE ISSUES/UNEVENNESS--\nMurad Intensive-C Radiance Peel (Mild)\nOle Henriksen Lemon Strip Flash Peel (Extra Strong)\nDr. Dennis Gross Alpha Beta Peel Pads (Strong)\n\n--PIGMENTATION--\nMurad Rapid Age Spot & Pigment Lightening Serum\n\n--FINE LINES/WRINKLES--\nDermalogica Ultra Smoothing Eye Serum\n\n--BEST DRUGSTORE OPTIONS--\nNeutrogena Rapid Wrinkle Repair Serum\nNeutrogena Rapid Wrinkle Repair Night Cream\nOlay Regenerist Micro Sculpting Cream\n\n**** PROMO CODE FOR MURAD ****\n\nUse code TENI20 to get 20% off at Murad.com on any of your favorite products, including the Rapid Lightening Regimen. May be used one time per customer and some restrictions may apply. Happy shopping!!\n\n\nFTC: The only product in this video that is sponsored is the Murad Rapid Pigment Lightening Serum, though you guys know I've been using and loving Murad products for years and as a result I've built an ongoing relationship with the brand. As always, all opinions are my own and all products are tested by me!\n\n\n♥ About Teni Panosian♥\nHi! I’m Teni Panosian the beauty blogger behind the style and beauty blog MissMaven.com, and welcome to my official YouTube channel! If it's makeup, beauty, skincare, hair, and style you're looking for, you've come to the right makeup channel! I’m not a makeup artist; I’m coming to you as another consumer like yourself… I just happen to be an extremely well-informed cosmetics buyer with great makeup tips. From beauty hacks, makeup tips, beauty advice, makeup hauls, to beauty product reviews I’ve got something for everyone. Whether you’re looking for eye makeup tutorials, full coverage makeup tutorials, or how to apply matte lipstick, let me show you my makeup routine. While my strength is in beauty, you’ll also find a sprinkle of fashion, lifestyle, and wellness content here. Check out my style tips in my what to wear videos and my personal vlogs as I travel and live my crazy life. Thanks for checking out my channel. :) I hope you enjoy!"    
     ]
+    
+    teni_videoIds = ["d5MNzjTiJuQ","qLV1a_611kA","BR0-yZ_-_5E","xpfNpdrgiqo","5xFCYvAN84I","dhz5QVOMFNo","BjJvxbXIzHY","JlOU98MHmWU","ujM39gK3W88","fLLvquQmWNI"]
+    
+    for teni_videoId in teni_videoIds:
+      videos_list_request = youtube.videos().list(part="id, snippet", id=teni_videoId).execute()
     
     #keys = ["videoIds","channelIds","urls","urls_","users_","titles"]
     #values = [videoIds,channelIds,urls,urls_,users_,titles]
