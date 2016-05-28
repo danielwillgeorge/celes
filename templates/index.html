@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+		<link rel=stylesheet type="text/css" href="/static/style.css" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" rel="stylesheet">	
+		<meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
+		<meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
+		<meta name="viewport" content="user-scalable=0,width=device-width,initial-scale=0.5,maximum-scale=0.5">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script type="text/javascript" src="/static/jquery.js"></script>
+		<script src="https://use.typekit.net/wqa1vgm.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<link rel="icon" href="favicon.ico">
+		
+		<style>
+		  #button:hover{background-color:#4285f4;}
+		</style>
+		
+		<style>
+		.myQtip{
+
+			}
+			
+		.myQtip .qtip-content{
+    		font-size: 12px;
+			}	
+			
+		a:focus { color: #FF7600; border-bottom: 2px solid #FF7600; }
+		.menu {
+    		border-radius: 3px;
+    		/*border: 1px solid #ccc;*/
+    		color: #5f5f5f;
+			font-weight: bold;
+			display: inline-block;
+			/*background-image: linear-gradient(rgb(255, 255, 255), rgb(240, 240, 240));*/
+			width: 36px; 
+			height: 30px;
+			padding: 2px 0 0 0;
+			box-sizing: border-box;
+			}
+
+		.menu:hover {
+			background-image: linear-gradient(#4FADE3, #4FADE3);
+			box-shadow: 0 1px 3px 0 rgba(0,0,0,0.22);
+		}
+
+		.menu .line {
+			background: rgb(184,184,184);
+			border-radius: 2px;
+			box-shadow: 0 5px 0 0 rgb(184, 184, 184), 0 -5px 0 0 rgb(184, 184, 184);    
+			display: block;
+			margin: 10px auto 0 auto;
+			height: 3px;
+			width: 16px;
+			content: " ";
+			overflow: visible;
+		}
+
+		.menu:hover .line {
+			background: rgb(255,255,255);
+			box-shadow: 0 5px 0 0 rgb(255,255,255), 0 -5px 0 0 rgb(255,255,255);    
+		}
+		</style>
+		
+		<!--remove this script; no longer needed.  <script>$("section").css('background', function () {
+    		return $(this).data('color')
+			});
+		</script>-->
+	</head>
+	<title>Sheepdog - Your Best Friend in YouTube Strategy</title>
+	
+	<body style="background-color: #eee;">
+	<header>
+		<div id="navbar" class="navbar navbar-inverse navbar-fixed-top" style="text-align: center; display:none;">
+			<!--<h5 id="title" style="margin-bottom: 0px;">Sheepdog</h5>-->
+			<img id="home-img" class="style" src="/static/sheepdog-logo.png">
+			<h6 id="user-title" style="display:none; margin-top: 5px; margin-bottom: 5px;"><img class="user-style" src="/static/sheepdog-logo-small.png"></h6>
+		</div>
+	</header>
+	
+		<div id="index" class="box">
+		
+			<img id="home-img" class="style" src="/static/latest_sheepdog_logo_large.png">
+			<h1>Your best friend in YouTube strategy. <a href="" style="font-size: 20px; color: #4FADE3;">Learn more.</a></h1>
+	        <style>.abcRioButtonLightBlue { background-color: #4FADE3; color: #fff; } .abcRioButtonIcon { background-color: #fff;}  .abcRioButtonContents { font-family: Helvetica Neue; margin: 0; }</style>
+			<div style="display: inline-block; padding: 20px;" name="signIn" value="signIn" class="g-signin2" data-onsuccess="onSignIn" data-width="200px" data-height="50px" data-longtitle="true"></div>
+		</div>
+		
+		<div id="user" class="box" style="display:none; width: 100%; top: 400px; background-color: #eee; height: 100%;">
+
+			<div style="border: 1px solid #eeeeee; border-radius: 3px; background-color: #FFFFFF; padding-bottom: 0px; margin: 0 auto; max-width: 950px; position: relative;">
+		
+				
+				<h5 style="font-size: 48px; margin-bottom: 1px; font-family: helvetica neue; ">Teni Panosian</h5>
+				<table style="margin: 0 auto; ">
+				<tr>
+				<td><span><img src="https://yt3.ggpht.com/-BcDUEfkBFyI/AAAAAAAAAAI/AAAAAAAAAAA/x2sexPzN6VA/s240-c-k-no/photo.jpg"></span></td>
+				<td>
+					<ul style="padding-left: 0; padding-right: 0;">
+						<li style="font-size: 14px; font-weight: 200; display: block; margin-left: 0;"><i class="fa fa-eye"></i> 47.7M</li>
+						<li style="font-size: 14px; font-weight: 200; display: block; margin-left: 0;"><i class="fa fa-film"></i> 145</li>
+						<li style="font-size: 14px; font-weight: 200; display: block; margin-left: 0;"><i class="fa fa-users"></i> 930K</li>
+					</ul>
+				</td>
+				</tr>
+				</table>
+			</div>
+			
+			<div id="ascensorBuilding">
+			
+			<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+			<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 3px; font-size: 16px; ">UPLOADS</span>
+			<table style="margin: 0 auto;">
+				<tr>
+					<td style="font-size: 14px;"></td>
+					<td style="font-size: 14px; text-align: center;">Title <i id="a" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center">Description <i id="b" class="fa fa-info-circle"></i></td>
+				</tr>
+				{% for i in range(1, 11) %}
+				<tr id="h{{ i - 1 }}" style="border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;">
+					<td style="font-size: 14px;"><img style="display: block; height: 60px; width: 60px; line-height: 60px; -moz-border-radius: 50%; border-radius: 50%;"></td>
+					<td style="font-size: 14px; max-width: 200px; white-space: normal; border-left: 1px solid #f0f0f0;"><a></a></td>
+					<td style="font-size: 14px; max-width: 500px; "><div style="max-height: 60px; white-space: pre;"></div></td>
+				</tr>
+				{% endfor %}
+			</table>
+			
+			</div>
+			</section>
+			
+			<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+			<h1 id="counter" style="color: #ffb600; font-weight: 200; font-size: 36px; margin-bottom: 4px;">0</h1>
+			<h1 style="font-weight: 200; font-size: 14px; margin-bottom: 28px;">CONSISTENCY SCORE <i id="c" class="fa fa-info-circle"></i></h1>
+				<div style="width: 50%; float: left; font-size: 20px;">
+				<div style="width: 70%; float: right;">
+				<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 5px; font-size: 16px; ">MOST COMMON TAGS</span>
+					<div style="width: 100%; float: left; ">
+					<table style="margin: 10px auto;">
+						<tr>
+							<td style="font-size: 14px;">Rank <i id="d" class="fa fa-info-circle"></i></td>
+							<td style="font-size: 14px; text-align: center;">Tag <i id="e" class="fa fa-info-circle"></i></td>
+							<td style="font-size: 14px; text-align: center;">Percent <i id="f" class="fa fa-info-circle"></i></td>
+						</tr>
+						{% for i in range(1, 11) %}
+						<tr id="g{{ i - 1}}">
+							<td style="color: #757575; font-weight: 200; font-size: 14px; text-align: center;">{{ i }}</td>
+							<td style="font-size: 14px; text-align: center;"><span style="background-color: #eee; border-style: solid; border-width: 1px; border-radius: 2px; border-color: #eee; padding: 2px;"></span></td>
+							<td style="font-size: 14px; text-align: center;"></td>
+						</tr>
+						{% endfor %}
+					</table>
+					</div>
+				</div>
+				</div>
+			
+				<div style="width: 50%; float: right; font-size: 20px;">
+				<div style="width: 70%; float: left;">
+				<span style="background-color: #4FADE3; font-weight: 200; font-family: acumin-pro; color: #FFFFFF; border-style: solid; border-color: #4FADE3; border-width: 1px; border-radius: 3px; padding: 5px; font-size: 16px; ">MOST COMMON TAGS BY PRIORITY</span>
+				<div style="width: 100%; float: left; ">
+				<table style="margin: 10px auto;">
+				<tr>
+					<td style="font-size: 14px; text-align: center;">Slot <i id="l" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Tag <i id="m" class="fa fa-info-circle"></i></td>
+					<td style="font-size: 14px; text-align: center;">Percent <i id="n" class="fa fa-info-circle"></i></td>
+				</tr>
+				
+					{% for i in range(1, 11) %}
+					<tr id="i{{ i - 1}}">
+						<td style="color: #757575; font-weight: 200; font-size: 14px; text-align: center;">{{ i }}</td>
+						<td style="font-size: 14px; text-align: center;"><span style="background-color: #eee; border-style: solid; border-width: 1px; border-radius: 2px; border-color: #eee; padding: 2px;"></span></td>
+						<td style="font-size: 14px; text-align: center;"></td>
+					</tr>
+					{% endfor %}
+				</table>
+				</div>
+			</div>
+			</div>
+			
+		</div>
+		</section>
+
+		<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+			</div>
+		</section>
+		<section>
+			<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; margin-top: 10px; max-width: 950px; position: relative; height: 520px; padding-top: 10px;">
+			</div>
+		</section>
+		</div>
+		
+		<div style="border: 1px solid #eee; border-radius: 3px; background-color: #FFFFFF; margin: 0 auto; max-width: 950px; position: relative; height: 50px; padding-top: 10px;">
+			<ul class="links-to-floor">
+				<li class="ascensorLink ascensorLink0"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a id="start" class="nav" style="display: inline-block; line-height: 36px;">UPLOADS</a></span></li>
+				<li class="ascensorLink ascensorLink1"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a id="tags" class="nav" style="display: inline-block; line-height: 36px;">TAGS</a></span></li>
+				<li class="ascensorLink ascensorLink2"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a class="nav" style="display: inline-block; line-height: 36px;">TITLE</a></span></li>
+				<li class="ascensorLink ascensorLink2"><span style="font-size: 16px; font-color: #4FADE3; cursor: pointer;"><a class="nav" style="display: inline-block; line-height: 36px;">DESCRIPTION</a></span></li>
+			</ul>
+		</div>
+		<br>
+		<div style="display: inline-block; padding: 20px;"><a class="menu nav" style="position: absolute; top: 0; right: 10px; " onclick="signOut();"><span class="line"></span></a></div>
+		<!--<button type="button" style="font-family: helvetica neue; font-size: 16px; border: none; margin:0 auto; height: 30px; width: 100px; background-color: #4FADE3; color: #fff; border-radius: 1px; box-shadow: 0 2px 4px 0 rgba(0,0,0,.25); box-sizing: border-box; transition: background-color .218s,border-color .218s,box-shadow .218s; background-image: none; cursor: pointer; outline: none; overflow: hidden; position: absolute; text-align: center; vertical-align: middle; white-space: nowrap; display: inline-block; top: 15px; right: 40px; " onclick="signOut();">Sign Out</button>-->
+		</div>
+		
+		<div class="modal"><span style="margin: 0 auto; text-align: center;">This may take just a moment...</span></div>
+		
+		<footer>
+		<div id="nav-footer" class="navbar navbar-fixed-bottom">
+			<ul style="margin-top: 10px;">
+				<li><a href="">Contact</a></li>
+				<li><a href="">Support</a></li>
+				<li><a href="http://peppy-linker-102423.appspot.com/terms">Terms</a></li>
+				<li><a href="http://peppy-linker-102423.appspot.com/privacy">Privacy</a></li>
+			</ul>
+
+		</div>
+		</footer>
+
+		<script type="text/javascript" src="static/angular.min.js"></script>
+		<script type="text/javascript" src="static/app.js"></script>
+		
+		<!-- Javascript for Google
+		     signin button -->
+		<script>
+		
+			$body = $("body");
+			
+
+			$(document).on({
+    			ajaxStart: function() { $body.addClass("loading");    },
+     			ajaxStop: function() { $body.removeClass("loading"); }    
+			});
+			
+      		function onSignIn(googleUser) { 
+        	  var id_token = googleUser.getAuthResponse();
+        	  var profile = googleUser.getBasicProfile();
+        	  console.log(id_token);              
+        	  console.log(profile);
+        	  var access_token = id_token.access_token;
+        	  console.log(access_token);
+        	  var name = profile.getName();
+        	  var email = profile.getEmail();
+        	  var data = "Kate Upton";
+        	  var arr = {"name" : name,
+        	             "email" : email,
+        	             "access_token" : access_token};
+        	
+        	  $.ajax({
+    		    type : "POST",
+    		    url : "http://peppy-linker-102423.appspot.com/",
+    		    data: JSON.stringify(arr, null, '\t'),
+    		    contentType: 'application/json',
+    		    success: function(result) {
+    		      r = result;
+    		      
+    		      
+    		      
+    		      function addTable() {
+    		        var i = 0;
+    		        var num = 9;
+    		        for(i = 0; i <= num; i++)
+    		          {
+    		            document.getElementById("g" + i).cells[1].getElementsByTagName("span")[0].innerHTML = r.result.tags[i];
+    		            document.getElementById("g" + i).cells[2].innerHTML = r.result.percents[i];
+    		            
+    		            document.getElementById("i" + i).cells[1].getElementsByTagName("span")[0].innerHTML = r.result.tags_[i];
+    		            document.getElementById("i" + i).cells[2].innerHTML = r.result.percents_[i];
+    		              
+    		          }
+    		      
+    		      }
+    		      
+    		       function addUploadsTable() {
+    		         var j = 0;
+    		         var num = 9;
+    		         for(j = 0; j <= num; j++)
+    		           {
+    		             document.getElementById("h" + j).cells[0].getElementsByTagName("img")[0].src = r.result.photos[j];
+    		             document.getElementById("h" + j).cells[1].getElementsByTagName("a")[0].href = r.result.uploads[j];
+    		             document.getElementById("h" + j).cells[1].getElementsByTagName("a")[0].innerHTML = r.result.upload_titles[j];
+    		             document.getElementById("h" + j).cells[2].getElementsByTagName("div")[0].innerHTML = r.result.descriptions[j];
+    		           
+    		           
+    		           }
+    		       
+    		       
+    		       
+    		       }
+    		      
+    		    addTable();
+    		    addUploadsTable();
+    		    
+    		    $(document).ready(function(){
+  					$('#start').trigger('click');
+				});
+				
+				$("a").click(function () {
+					$(".nav").css({"color":"#333", "border-bottom":"none"});
+      				$(this).css({"color":"#FF7600", "border-bottom":"2px solid #FF7600"});
+    				});
+    				
+    				
+    			/** @preserve jQuery animateNumber plugin v0.0.12
+ * (c) 2013, Alexandr Borisov.
+ * https://github.com/aishek/jquery-animateNumber
+ */
+
+// ['...'] notation using to avoid names minification by Google Closure Compiler
+(function($) {
+  var reverse = function(value) {
+    return value.split('').reverse().join('');
+  };
+
+  var defaults = {
+    numberStep: function(now, tween) {
+      var floored_number = Math.floor(now),
+          target = $(tween.elem);
+
+      target.text(floored_number);
+    }
+  };
+
+  var handle = function( tween ) {
+    var elem = tween.elem;
+    if ( elem.nodeType && elem.parentNode ) {
+      var handler = elem._animateNumberSetter;
+      if (!handler) {
+        handler = defaults.numberStep;
+      }
+      handler(tween.now, tween);
+    }
+  };
+
+  if (!$.Tween || !$.Tween.propHooks) {
+    $.fx.step.number = handle;
+  } else {
+    $.Tween.propHooks.number = {
+      set: handle
+    };
+  }
+
+  var extract_number_parts = function(separated_number, group_length) {
+    var numbers = separated_number.split('').reverse(),
+        number_parts = [],
+        current_number_part,
+        current_index,
+        q;
+
+    for(var i = 0, l = Math.ceil(separated_number.length / group_length); i < l; i++) {
+      current_number_part = '';
+      for(q = 0; q < group_length; q++) {
+        current_index = i * group_length + q;
+        if (current_index === separated_number.length) {
+          break;
+        }
+
+        current_number_part = current_number_part + numbers[current_index];
+      }
+      number_parts.push(current_number_part);
+    }
+
+    return number_parts;
+  };
+
+  var remove_precending_zeros = function(number_parts) {
+    var last_index = number_parts.length - 1,
+        last = reverse(number_parts[last_index]);
+
+    number_parts[last_index] = reverse(parseInt(last, 10).toString());
+    return number_parts;
+  };
+
+  $.animateNumber = {
+    numberStepFactories: {
+      /**
+       * Creates numberStep handler, which appends string to floored animated number on each step.
+       *
+       * @example
+       * // will animate to 100 with "1 %", "2 %", "3 %", ...
+       * $('#someid').animateNumber({
+       *   number: 100,
+       *   numberStep: $.animateNumber.numberStepFactories.append(' %')
+       * });
+       *
+       * @params {String} suffix string to append to animated number
+       * @returns {Function} numberStep-compatible function for use in animateNumber's parameters
+       */
+      append: function(suffix) {
+        return function(now, tween) {
+          var floored_number = Math.floor(now),
+              target = $(tween.elem);
+
+          target.prop('number', now).text(floored_number + suffix);
+        };
+      },
+
+      /**
+       * Creates numberStep handler, which format floored numbers by separating them to groups.
+       *
+       * @example
+       * // will animate with 1 ... 217,980 ... 95,217,980 ... 7,095,217,980
+       * $('#world-population').animateNumber({
+       *    number: 7095217980,
+       *    numberStep: $.animateNumber.numberStepFactories.separator(',')
+       * });
+       * @example
+       * // will animate with 1% ... 217,980% ... 95,217,980% ... 7,095,217,980%
+       * $('#salesIncrease').animateNumber({
+       *   number: 7095217980,
+       *   numberStep: $.animateNumber.numberStepFactories.separator(',', 3, '%')
+       * });
+       *
+       * @params {String} [separator=' '] string to separate number groups
+       * @params {String} [group_length=3] number group length
+       * @params {String} [suffix=''] suffix to append to number
+       * @returns {Function} numberStep-compatible function for use in animateNumber's parameters
+       */
+      separator: function(separator, group_length, suffix) {
+        separator = separator || ' ';
+        group_length = group_length || 3;
+        suffix = suffix || '';
+
+        return function(now, tween) {
+          var floored_number = Math.floor(now),
+              separated_number = floored_number.toString(),
+              target = $(tween.elem);
+
+          if (separated_number.length > group_length) {
+            var number_parts = extract_number_parts(separated_number, group_length);
+
+            separated_number = remove_precending_zeros(number_parts).join(separator);
+            separated_number = reverse(separated_number);
+          }
+
+          target.prop('number', now).text(separated_number + suffix);
+        };
+      }
+    }
+  };
+
+  $.fn.animateNumber = function() {
+    var options = arguments[0],
+        settings = $.extend({}, defaults, options),
+
+        target = $(this),
+        args = [settings];
+
+    for(var i = 1, l = arguments.length; i < l; i++) {
+      args.push(arguments[i]);
+    }
+
+    // needs of custom step function usage
+    if (options.numberStep) {
+      // assigns custom step functions
+      var items = this.each(function(){
+        this._animateNumberSetter = options.numberStep;
+      });
+
+      // cleanup of custom step functions after animation
+      var generic_complete = settings.complete;
+      settings.complete = function() {
+        items.each(function(){
+          delete this._animateNumberSetter;
+        });
+
+        if ( generic_complete ) {
+          generic_complete.apply(this, arguments);
+        }
+      };
+    }
+
+    return target.animate.apply(target, args);
+  };
+
+}(jQuery));
+
+    			
+    			
+    			
+    			
+    			$("#tags").click(function () {
+					$('#counter').animateNumber({ number: 100 });
+    				});
+    			
+    			$('#a').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#a') // my target
+    				},
+    				content: {
+        			text: 'The titles of each of your videos.  Titles are best when they share a consistent format.'
+    				}
+					});
+					
+				$('#b').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#b') // my target
+    				},
+    				content: {
+        			text: 'The descriptions of each of your videos.  Descriptions should be consistent and robust.'
+    				}
+					});
+					
+				$('#c').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom left',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#c') // my target
+    				},
+    				content: {
+        			text: 'Your Consistency Score is an expression of how consistent your tags are, across all of your videos.  A higher score means that you are more likely to get more views from YouTube Search and Suggested Videos features.'
+    				}
+					});
+    			
+    			$('#d').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom right',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#d') // my target
+    				},
+    				content: {
+        			text: 'The top 10 most common tags of your videos, ordered from most common (Rank 1) to least common (Rank 10).'
+    				}
+					});
+					
+					
+					
+				$('#e').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#e') // my target
+    				},
+    				content: {
+        			text: 'A list of tags attached to videos on your channel.'
+    				}
+					});
+					
+					
+				$('#f').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#f') // my target
+    				},
+    				content: {
+        			text: 'The percent of your videos that have this tag.'
+    				}
+					});
+					
+					
+					
+				$('#l').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#l') // my target
+    				},
+    				content: {
+        			text: 'The place, or slot, of a tag on your videos.  The 1st place slot goes to the 1st tag, and so on.'
+    				}
+					});
+					
+					
+				$('#m').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom center',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#m') // my target
+    				},
+    				content: {
+        			text: 'A list of tags attached to videos on your channel.'
+    				}
+					});
+					
+					
+				$('#n').qtip({ // Grab some elements to apply the tooltip to
+    				
+    				style: { classes: 'myQtip qtip-rounded' },
+    				position: {
+        			my: 'bottom left',  // Position my top left...
+        			at: 'top center', // at the bottom right of...
+        			target: $('#n') // my target
+    				},
+    				content: {
+        			text: 'The percent of one of your tags appearing in a particular place, or slot, across all of your videos.'
+    				}
+					});	
+    		      
+    		    }
+    		  });
+    		  
+    		  /*window.location = "http://peppy-linker-102423.appspot.com/amoot18";*/
+    		  
+    		  $("#user").show();
+        	  $("#index").hide();
+        	  $("#title").hide();
+        	  $("#home-img").hide();
+        	  $("#user-title").show();
+        	  $("#navbar").show();
+        	  $("#nav-footer").hide();
+        	  
+        	};
+        	
+        	function signOut() {
+    		  var auth2 = gapi.auth2.getAuthInstance();
+    		  auth2.signOut().then(function () {
+      			console.log('User signed out.');
+      			$("#user").hide();
+        	    $("#index").show();
+        	    $("#title").show();
+        	    $("#home-img").show();
+        	    $("#user-title").hide();
+        	    $("#navbar").hide();
+        	    $("#nav-footer").show();
+    			});
+  			}
+    	</script>
+    	
+    	<script>
+  			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  			ga('create', 'UA-71019000-1', 'auto');
+  			ga('send', 'pageview');
+
+		</script>
+		
+		<script type="text/javascript" src="/static/plugin.js"></script>
+		<script type="text/javascript" src="/static/main.js"></script>
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+    	
+    	<!--<script>
+    	 AJAX call for
+    	     variables to Flask
+    	    var data = "Kate Upton is so sexy"; 
+    	     
+    		$.ajax({
+    		  type : "POST",
+    		  url : "http://peppy-linker-102423.appspot.com/",
+    		  data: JSON.stringify(data, null, '\t'),
+    		  contentType: 'application/json;charset=UTF-8',
+    		  success: function(result) {
+    		    console.log(result);
+    		    }
+    		});
+    	</script>-->
+	</body>
+</html>
+

@@ -1,0 +1,103 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta name="google-signin-client-id" content="MY_CLIENT_ID.apps.googleusercontent.com">
+</head>
+
+<body>
+<h2>Sheepdog</h2>
+
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Email: ' + profile.getEmail());
+  
+  var response = googleUser.getAuthResponse();
+  console.log('access_token: ' + response.access_token);
+  
+}
+</script>
+
+</body>
+</html>-->
+
+
+<!--the below code works by itself-->
+
+<html>
+<head>
+  <meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
+</head>
+<body>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'https://www.googleapis.com/auth/plus.login',
+        'width': 200,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
+
+
+<!--Additional Work-->
+
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/youtube.force-ssl">
+    <meta name="google-signin-client_id" content="1094375934291-qa39k5ek6lfl3rik25c3jo504av6m7o9.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        
+        //var options = new gapi.auth2.SigninOptionsBuilder(
+        //{'scope': 'https://www.googleapis.com/auth/youtube'});
+        
+        
+        
+        //googleUser.grant(options);
+        
+        //console.log(googleUser);
+        
+        /*var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());*/
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse();
+        console.log(id_token);
+    
+        
+        //window.location.href="https://www.googleapis.com/youtube/v3/channels?access_token=" + id_token + "&mine=true&part=id";
+        
+        
+      };
+    </script>
+  </body>
+</html>

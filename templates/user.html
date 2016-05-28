@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+		<link rel=stylesheet type="text/css" href="/static/style.css" />
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script type="text/javascript" src="/static/jquery.js"></script>
+		<script src="https://use.typekit.net/wqa1vgm.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+	</head>
+	<header>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<h5>Sheepdog</h5>
+		</div>
+	</header>
+	<body>
+		<!--<div class="box">-->
+			<h1>amoot18</h1>
+			<span><img src="https://yt3.ggpht.com/-1qMc9-m8A4c/AAAAAAAAAAI/AAAAAAAAAAA/Yc74uVRndXQ/s88-c-k-no/photo.jpg"></span>
+
+			<div style="width: 40%; float: right; font-size: 30px;">
+			Top 10 Videos Liked By Fans
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+			
+			<div style="width: 40%; float: right; font-size: 30px;">
+			Top 10 Users Liked By Fans
+			<table>
+				{% for i in range(5, urls|count) %}
+				<tr>
+					<td>{{ i }}</td>
+					<td><img src={{ urls[i] }}></td>
+					<td><a href={{ videoIds[i] }}>{{ titles[i] }}</a></td>
+					<!--<td>{{ channelIds[i] }}</td>-->
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+		<!--</div>-->
+		
+		<footer>
+			<div class="navbar navbar-fixed-bottom"></div>
+		</footer>
+	</body>
+</html>
+
