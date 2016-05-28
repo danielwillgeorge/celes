@@ -8,35 +8,19 @@ This module implements the sheepdog API.
 
 __author__ = "Daniel George"
 __license__ = MIT, see LICENSE.txt for more details.
+__version__ = 0.9.1
 
 """
 
 
-
 from flask import Flask, render_template, flash, Markup, json, jsonify, request, redirect, url_for
-#import urllib
-#import webapp2
-import os
 
 from apiclient.discovery import build
 from apiclient.http import BatchHttpRequest
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.api import taskqueue
-#from google.appengine.ext import ext
-
-import httplib2
-import sys
-import itertools
-import logging
-import logging.config
-import time
-import MySQLdb
-
-from sheepdog import *
-
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# from google.appengine.ext import ext
 
 # from googleapiclient.discovery import build_from_document
 # from oauth2client.client import flow_from_clientsecrets
@@ -44,11 +28,23 @@ sys.setdefaultencoding("utf-8")
 # from oauth2client.tools import argparser, run_flow
 # from apiclient.errors import HttpError
 
-urlfetch.set_default_fetch_deadline(60)
+import sys
+import os
+import itertools
+import logging
+import logging.config
+import time
+import MySQLdb
+import httplib2
+#import urllib
+#import webapp2
 
-# @Author Daniel George
-# Sheepdog
-# @Version 0.9.1
+from sheepdog import *
+
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+urlfetch.set_default_fetch_deadline(60)
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
