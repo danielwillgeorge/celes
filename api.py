@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+
+"""
+sheepdog.api
+~~~~~~~~~~~~
+
+This module implements the sheepdog API.
+
+__author__ = "Daniel George"
+__license__ = MIT, see LICENSE.txt for more details.
+
+"""
+
+
+
 from flask import Flask, render_template, flash, Markup, json, jsonify, request, redirect, url_for
 #import urllib
 #import webapp2
@@ -8,8 +23,6 @@ from apiclient.http import BatchHttpRequest
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.api import taskqueue
-from google.appengine.api import urlfetch
-
 #from google.appengine.ext import ext
 
 import httplib2
